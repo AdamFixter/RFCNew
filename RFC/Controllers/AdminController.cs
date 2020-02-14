@@ -20,9 +20,49 @@ namespace RFC.Controllers
 
         // GET: Admin
         [Route("admin")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
-            return View(await _context.User.ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["IDSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewData["RoleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "role_desc" : "";
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var users = from s in _context.User
+                           select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                users = users.Where(s => s.Name.Contains(searchString)
+                                       || s.Role.ToString().Contains(searchString));
+            }
+            switch (sortOrder)
+            {
+                case "id_desc":
+                    users = users.OrderByDescending(s => s.ID);
+                    break;
+                case "name_desc":
+                    users = users.OrderByDescending(s => s.Name);
+                    break;
+                case "role_desc":
+                    users = users.OrderByDescending(s => s.Name);
+                    break;
+                default:
+                    users = users.OrderByDescending(s => s.Name);
+                    break;
+            }
+
+            int pageSize = 10;
+            return View(await PaginatedList<User>.CreateAsync(users.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Admin/Details/5

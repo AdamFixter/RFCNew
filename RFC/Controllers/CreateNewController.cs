@@ -20,9 +20,105 @@ namespace RFC.Controllers
 
         // GET: CreateNew
         [Route("submissions")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string columnSelect, int? pageNumber)
         {
-            return View(await _context.CreateNew.ToListAsync());
+            ViewData["CurrentSort"] = sortOrder;
+
+            if (searchString != null)
+            {
+                pageNumber = 1;
+            }
+            else
+            {
+                searchString = "";
+            }
+
+
+            List<SelectListItem> items = new List<SelectListItem>   //// Creates list of possible columns to select in drop-down menu
+            {
+                new SelectListItem { Value = "ID", Text = "ID" },
+                new SelectListItem { Value = "RFCType", Text = "RFC Type" },
+                new SelectListItem { Value = "ProductName", Text = "Product Name" },
+                new SelectListItem { Value = "CustomerName", Text = "Customer Name" },
+                new SelectListItem { Value = "RequestedDueDate", Text = "Requested Due Date" },
+                new SelectListItem { Value = "CreationDetails", Text = "Creation Details" }
+            };
+            ViewBag.columnSelect = items;   //// Adds the pre-created list into the variable that will use it as dropdown values
+
+
+            ///// ViewBag.[something]Parm is used for sorting order by clicking column
+            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "IDDesc" : "";
+            ViewBag.RFCTypeSortParm = sortOrder == "RFCTypeAsc" ? "RFCTypeDesc" : "RFCTypeAsc";
+            ViewBag.ProductNameSortParm = sortOrder == "ProductNameAsc" ? "ProductNameDesc" : "ProductNameAsc";
+            ViewBag.CustomerNameSortParm = sortOrder == "CustomerNameAsc" ? "CustomerNameDesc" : "CustomerNameAsc";
+            ViewBag.RequestedDueDateSortParm = sortOrder == "RequestedDueDateAsc" ? "RequestedDueDateDesc" : "RequestedDueDateAsc";
+            ViewBag.IsClosedSortParm = sortOrder == "IsClosedAsc" ? "IsClosedDesc" : "IsClosedAsc";
+
+            //// The 'submissions' is the variable with the data from the table
+            var submissions = from s in _context.CreateNew
+                              select s;
+
+            if (!String.IsNullOrEmpty(searchString))    //// Filters the 'submissions' data out depending on the search performed and column selected from the dropdown list
+            {
+                switch (columnSelect)
+                {
+                    case "ID":
+                        submissions = submissions.Where(s => s.ID.ToString().Contains(searchString));
+                        break;
+                    case "RFCType":
+                        submissions = submissions.Where(s => s.Priority.ToString().Contains(searchString));
+                        break;
+                    case "ProductName":
+                        submissions = submissions.Where(s => s.Product.ToString().Contains(searchString));
+                        break;
+                    case "CustomerName":
+                        submissions = submissions.Where(s => s.customers.Contains(searchString));
+                        break;
+                    case "RequestedDueDate":
+                        submissions = submissions.Where(s => s.DueDate.ToString().Contains(searchString));
+                        break;
+                    default:
+                        break;
+
+                }
+            }
+
+
+            switch (sortOrder)  //// Sorts the columns when you click on them  by Asc or Desc
+            {
+                case "IDDesc":
+                    submissions = submissions.OrderByDescending(submission => submission.ID);
+                    break;
+                case "RFCTypeAsc":
+                    submissions = submissions.OrderBy(submission => submission.Priority);
+                    break;
+                case "RFCTypeDesc":
+                    submissions = submissions.OrderByDescending(submission => submission.Priority);
+                    break;
+                case "ProductNameAsc":
+                    submissions = submissions.OrderBy(submission => submission.Product);
+                    break;
+                case "ProductNameDesc":
+                    submissions = submissions.OrderByDescending(submission => submission.Product);
+                    break;
+                case "CustomerNameAsc":
+                    submissions = submissions.OrderBy(submission => submission.customers);
+                    break;
+                case "CustomerNameDesc":
+                    submissions = submissions.OrderByDescending(submission => submission.customers);
+                    break;
+                case "RequestedDueDateAsc":
+                    submissions = submissions.OrderBy(submission => submission.DueDate);
+                    break;
+                case "RequestedDueDateDesc":
+                    submissions = submissions.OrderByDescending(submission => submission.DueDate);
+                    break;
+                default:
+                    submissions = submissions.OrderBy(submission => submission.ID);
+                    break;
+            }
+            int pageSize = 1;
+            return View(await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: CreateNew/Details/5

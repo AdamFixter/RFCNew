@@ -1,4 +1,4 @@
-﻿@model IEnumerable<RFC.Models.CreateNew>
+﻿@model PaginatedList<RFC.Models.CreateNew>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,101 +7,55 @@
 
 <h1>Index</h1>
 
-@*<p>
-    <a asp-action="Create">Create New</a>
-</p>*@
+@using (Html.BeginForm())
+{
+    <p>
+        Find in
+        @Html.DropDownList("ColumnSelect", "Select a Column")
+        by name
+        @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+    </p>
+}
+
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Priority)
+                @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ChangeDescription)
+                @Html.ActionLink("RFC Type", "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ReasonForChange)
+                @Html.ActionLink("Product Name", "Index", new { sortOrder = ViewBag.ProductNameSortParm })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Product)
+                @Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.SystemAffected)
+                @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.customers)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ServiceImpact)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RiskOfChange)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RiskNoChange)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.VerifyAfter)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.RollBackPlan)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.DueDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WhyDueDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WhoPerforming)
-            </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        @foreach (var item in Model)
+        {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.Priority)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ChangeDescription)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ReasonForChange)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Product)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.SystemAffected)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.customers)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ServiceImpact)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RiskOfChange)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RiskNoChange)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VerifyAfter)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RollBackPlan)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.DueDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WhyDueDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WhoPerforming)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
@@ -109,6 +63,6 @@
                 <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
             </td>
         </tr>
-}
+        }
     </tbody>
 </table>

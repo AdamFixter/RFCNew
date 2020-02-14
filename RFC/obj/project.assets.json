@@ -8129,11 +8129,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFC\\RFC.csproj",
+      "projectUniqueName": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj",
       "projectName": "RFC",
-      "projectPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFC\\RFC.csproj",
+      "projectPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj",
       "packagesPath": "C:\\Users\\Adam.Fixter\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFC\\obj\\",
+      "outputPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Adam.Fixter\\AppData\\Roaming\\NuGet\\NuGet.Config",
