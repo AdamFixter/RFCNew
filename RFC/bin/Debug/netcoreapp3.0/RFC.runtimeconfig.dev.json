@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Adam.Fixter\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Adam.Fixter\\.nuget\\packages"
+    ]
+  }
+}

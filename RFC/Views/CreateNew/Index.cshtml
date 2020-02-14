@@ -1,0 +1,114 @@
+﻿@model IEnumerable<RFC.Models.CreateNew>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+@*<p>
+    <a asp-action="Create">Create New</a>
+</p>*@
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Priority)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ChangeDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ReasonForChange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SystemAffected)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceImpact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RiskOfChange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RiskNoChange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VerifyAfter)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RollBackPlan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WhyDueDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WhoPerforming)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ChangeDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReasonForChange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SystemAffected)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.customers)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceImpact)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiskOfChange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RiskNoChange)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VerifyAfter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RollBackPlan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhyDueDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhoPerforming)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
