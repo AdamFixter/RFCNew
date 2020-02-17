@@ -36,9 +36,6 @@
             <th>
                 @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
             </th>
-            <th>
-                @Html.ActionLink("Active", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
-            </th>
         </tr>
     </thead>
     <tbody>
@@ -63,6 +60,7 @@
             <td>
                 <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
+                <a asp-action="Approve" asp-route-id="@item.ID">@(item.Approved ? "Unapproved" : "Approved")</a>
   
             </td>
         </tr>
