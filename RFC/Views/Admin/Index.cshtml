@@ -23,13 +23,13 @@
     <thead>
         <tr>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["IDSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">ID</a>
+                @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm })
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["NameSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Name</a>
+                @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameParm })
             </th>
             <th>
-                <a asp-action="Index" asp-route-sortOrder="@ViewData["RoleSortParm"]" asp-route-currentFilter="@ViewData["CurrentFilter"]">Role</a>
+                @Html.ActionLink("Role", "Index", new { sortOrder = ViewBag.RoleSortParam })
             </th>
             <th></th>
         </tr>

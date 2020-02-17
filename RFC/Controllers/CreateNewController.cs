@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -117,7 +118,7 @@ namespace RFC.Controllers
                     submissions = submissions.OrderBy(submission => submission.ID);
                     break;
             }
-            int pageSize = 1;
+            int pageSize = 10;
             return View(await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
@@ -163,8 +164,8 @@ namespace RFC.Controllers
             return View(createNew);
         }
 
-        // GET: CreateNew/Edit/5
-        public async Task<IActionResult> Edit(long? id)
+        // GET: Movies/Edit/5
+        public async Task<IActionResult> Approve(long? id)
         {
             if (id == null)
             {
@@ -176,42 +177,14 @@ namespace RFC.Controllers
             {
                 return NotFound();
             }
-            return View(createNew);
-        }
-
-        // POST: CreateNew/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(long id, [Bind("ID,Priority,ChangeDescription,ReasonForChange,Product,SystemAffected,customers,ServiceImpact,RiskOfChange,RiskNoChange,VerifyAfter,RollBackPlan,DueDate,WhyDueDate,WhoPerforming")] CreateNew createNew)
-        {
-            if (id != createNew.ID)
-            {
-                return NotFound();
-            }
-
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(createNew);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!CreateNewExists(createNew.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
+                createNew.Approved = !createNew.Approved;
+                _context.Update(createNew);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(createNew);
+            return RedirectToAction(nameof(Index));
         }
 
         // GET: CreateNew/Delete/5

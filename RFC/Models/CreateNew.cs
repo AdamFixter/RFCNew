@@ -53,5 +53,7 @@ namespace RFC.Models
         [Required]
         [DisplayName("Who will be performing the change?")]
         public string WhoPerforming { get; set; }
+
+        public bool Approved { get; set; }
     }
 }
