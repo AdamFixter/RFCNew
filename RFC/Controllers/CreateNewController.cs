@@ -59,16 +59,32 @@ namespace RFC.Controllers
 
             if (!String.IsNullOrEmpty(searchString))    //// Filters the 'submissions' data out depending on the search performed and column selected from the dropdown list
             {
+                searchString = searchString.ToLower();
                 switch (columnSelect)
                 {
                     case "ID":
                         submissions = submissions.Where(s => s.ID.ToString().Contains(searchString));
                         break;
                     case "RFCType":
-                        submissions = submissions.Where(s => s.Priority.ToString().Contains(searchString));
+                        if (Enum.GetNames(typeof(Priority)).ToList().IndexOf(searchString) != -1) //Check if the string includes a valid enum.
+                        {
+                            Priority foundPriority = (Priority)Enum.Parse(typeof(Priority), searchString); //Parse the search string to the Priority.
+                            submissions = submissions.Where(s => s.Priority == foundPriority);
+                        }
+                        else
+                        {
+                            submissions = Enumerable.Empty<CreateNew>().AsQueryable();
+                        }
                         break;
                     case "ProductName":
-                        submissions = submissions.Where(s => s.Product.ToString().Contains(searchString));
+                        if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1) 
+                        {
+                            Product foundProduct = (Product) Enum.Parse(typeof(Product), searchString);
+                            submissions = submissions.Where(s => s.Product == foundProduct);
+                        } else
+                        {
+                            submissions = Enumerable.Empty<CreateNew>().AsQueryable();
+                        }
                         break;
                     case "CustomerName":
                         submissions = submissions.Where(s => s.customers.Contains(searchString));
