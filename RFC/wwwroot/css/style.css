@@ -47,7 +47,8 @@ html, body { height: 90%; }
 .RFCForm {
     position: absolute;
     display: flex;
-    height: 60%;
+    max-height: 90%;
+    min-height: 60%;
     width: 70%;
     border: 3px solid var(--servelec-gray);
     background: white;
@@ -120,15 +121,15 @@ a.button {
     flex-wrap: wrap;
     overflow: hidden;
     margin: 0 5%;
-    /* height: auto; */
-    /* width: 75%; */
+    height: 100%;
+    /*width: 75%; */
     /* justify-content: center;*/
 }
 .RFCForm #right .rightContent .options .option {
     display: flex;
     flex-direction: column;
     margin: 1%;
-    width: 48%;
+    width: 45%;
 }
     .RFCForm #right .rightContent .options .option .icon {
         height: 100%;
@@ -138,7 +139,7 @@ a.button {
         align-items: center;
     }
     .RFCForm #right .rightContent .options .option .icon img {
-        width: 50%;
+        width: 35%;
     }
     .RFCForm #right .rightContent .options .option .text {
         font-weight: 600;
@@ -147,3 +148,12 @@ a.button {
         background-color: var(--servelec-gray);
         padding: 4%;
     }
+@media only screen and (max-width: 750px) {
+    .RFCForm {
+        width: 100%;
+    }
+
+    #left {
+        display: none;
+    }
+}

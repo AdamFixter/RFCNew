@@ -118,7 +118,7 @@ namespace RFC.Controllers
                     submissions = submissions.OrderBy(submission => submission.ID);
                     break;
             }
-            int pageSize = 10;
+            int pageSize = 5;
             return View(await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
