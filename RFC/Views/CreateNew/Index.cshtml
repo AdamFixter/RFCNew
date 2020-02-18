@@ -3,86 +3,96 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<h1>Index</h1>
-
-@using (Html.BeginForm())
-{
-    <p>
-        Find in
-        @Html.DropDownList("ColumnSelect", "Select a Column")
-        by name
-        @Html.TextBox("searchString")
-        <input type="submit" value="Search" />
-    </p>
-}
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm })
-            </th>
-            <th>
-                @Html.ActionLink("RFC Type", "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
-            </th>
-            <th>
-                @Html.ActionLink("Product Name", "Index", new { sortOrder = ViewBag.ProductNameSortParm })
-            </th>
-            <th>
-                @Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
-            </th>
-            <th>
-                @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Priority)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.customers)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.DueDate)
-            </td>
-            <td>
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
-                <a asp-action="Approve" asp-route-id="@item.ID">@(item.Approved ? "Unapproved" : "Approved")</a>
-  
-            </td>
-        </tr>
-        }
-    </tbody>
-</table>
-@{
     var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
     var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
-<a asp-action="Index"
-   asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-pageNumber="@(Model.PageIndex - 1)"
-   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @prevDisabled">
-    Previous
-</a>
-<a asp-action="Index"
-   asp-route-sortOrder="@ViewData["CurrentSort"]"
-   asp-route-pageNumber="@(Model.PageIndex + 1)"
-   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-   class="btn btn-default @nextDisabled">
-    Next
-</a>
+<div id="right">
+    <div class="header">
+        <h1>View Requests</h1>
+        @using (Html.BeginForm())
+        {
+            <p>
+                Find in
+                @Html.DropDownList("ColumnSelect", "Select a Column")
+                by name
+                @Html.TextBox("searchString")
+                <input type="submit" value="Search" />
+            </p>
+        }
+    </div>
+    <div class="rightContent">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("RFC Type", "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Product Name", "Index", new { sortOrder = ViewBag.ProductNameSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
+                    </th>
+                    <th>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Priority)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.customers)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DueDate)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a> |
+                            <a asp-action="Approve" asp-route-id="@item.ID">@(item.Approved ? "Unapproved" : "Approved")</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="buttons">
+            <div class="otherButtons">
+                <a class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
+            </div>
+            <div class="formButtons">
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="button submit btn btn-default @prevDisabled">
+                   Previous
+                </a>
+                <a asp-action="Index"
+                    asp-route-sortOrder="@ViewData["CurrentSort"]"
+                    asp-route-pageNumber="@(Model.PageIndex + 1)"
+                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                    class="button submit btn btn-default @nextDisabled">
+                    Next
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
