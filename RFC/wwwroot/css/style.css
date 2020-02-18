@@ -157,3 +157,19 @@ a.button {
         display: none;
     }
 }
+
+/* Accessibility yellow highlighting assistance
+-------------------------------------------------- */
+
+select:focus, input:active, label:active, input:focus, a:focus {
+    border: solid;
+    border-color: #FFDD00;
+}
+
+p, label, h1 {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

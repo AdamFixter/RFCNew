@@ -42,7 +42,6 @@ namespace RFC.Controllers
                 new SelectListItem { Value = "ProductName", Text = "Product Name" },
                 new SelectListItem { Value = "CustomerName", Text = "Customer Name" },
                 new SelectListItem { Value = "RequestedDueDate", Text = "Requested Due Date" },
-                new SelectListItem { Value = "CreationDetails", Text = "Creation Details" }
             };
             ViewBag.columnSelect = items;   //// Adds the pre-created list into the variable that will use it as dropdown values
 
@@ -53,7 +52,6 @@ namespace RFC.Controllers
             ViewBag.ProductNameSortParm = sortOrder == "ProductNameAsc" ? "ProductNameDesc" : "ProductNameAsc";
             ViewBag.CustomerNameSortParm = sortOrder == "CustomerNameAsc" ? "CustomerNameDesc" : "CustomerNameAsc";
             ViewBag.RequestedDueDateSortParm = sortOrder == "RequestedDueDateAsc" ? "RequestedDueDateDesc" : "RequestedDueDateAsc";
-            ViewBag.IsClosedSortParm = sortOrder == "IsClosedAsc" ? "IsClosedDesc" : "IsClosedAsc";
 
             //// The 'submissions' is the variable with the data from the table
             var submissions = from s in _context.CreateNew
