@@ -5,126 +5,263 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div id="right">
-        <div class="header">
-            <h1>Details</h1>
-        </div>
-        <div class="rightContent">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            ID
-                        </th>
-                        <th>
-                            Priority
-                        </th>
-                        <th>
-                            Product
-                        </th>
-                        <th>
-                            Customer Name
-                        </th>
-                        <th>
-                            Requested Due Date
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            @Model.ID
-                        </td>
-                        <td>
-                            @Model.Priority
-                        </td>
-                        <td>
-                            @Model.Product
-                        </td>
-                        <td>
-                            @Model.CustomersAffected
-                        </td>
-                        <td>
-                            @Model.DueDate
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <h3>Questions:</h3>
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            Question
-                        </th>
-                        <th>
-                            Answer
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Priority)</td>
-                        <td>@Model.Priority</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.Product)</td>
-                        <td>@Model.Product</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.ReasonForChange)</td>
-                        <td>@Model.ReasonForChange</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.ChangeDescription)</td>
-                        <td>@Model.ChangeDescription</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.SystemAffected)</td>
-                        <td>@Model.SystemAffected</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.customers)</td>
-                        <td>@Model.customers</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.WhoPerforming)</td>
-                        <td>@Model.WhoPerforming</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.RiskOfChange)</td>
-                        <td>@Model.RiskOfChange</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.RiskNoChange)</td>
-                        <td>@Model.RiskNoChange</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.VerifyAfter)</td>
-                        <td>@Model.VerifyAfter</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.RollBackPlan)</td>
-                        <td>@Model.RollBackPlan</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.DueDate)</td>
-                        <td>@Model.DueDate</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.WhyDueDate)</td>
-                        <td>@Model.WhyDueDate</td>
-                    </tr>
-                    <tr>
-                        <td>@Html.DisplayNameFor(model => model.ServiceImpact)</td>
-                        <td>@Model.ServiceImpact</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="buttons">
-                <div class="otherButtons">
-                    <a class="button submit btn btn-default" asp-area="" asp-controller="CreateNew" asp-action="Index">Go Back</a>
-                </div>
+<div id="right">
+    <div class="header" style="display:flex; justify-content: space-between;">
+        <h1 style="display:inline-block; width:auto; vertical-align: top;">Details</h1>
+        <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
+            <div class="otherButtons">
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="CreateNew" asp-action="Index">Go Back</a>
             </div>
         </div>
     </div>
+    <div class="rightContent">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Priority
+                    </th>
+                    <th>
+                        Product
+                    </th>
+                    <th>
+                        Customer Name
+                    </th>
+                    <th>
+                        Requested Due Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model.ID
+                    </td>
+                    <td>
+                        @Model.Priority
+                    </td>
+                    <td>
+                        @Model.Product
+                    </td>
+                    <td>
+                        @Model.CustomersAffected
+                    </td>
+                    <td>
+                        @Model.DueDate
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Questions:</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <button type="button" id="Question3" class="collapsible">@Html.DisplayNameFor(model => model.ReasonForChange)</button>
+                        <div class="content">
+                            <p>@Model.ReasonForChange</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question4" class="collapsible">@Html.DisplayNameFor(model => model.ChangeDescription)</button>
+                        <div class="content">
+                            <p>@Model.ChangeDescription</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question5" class="collapsible">@Html.DisplayNameFor(model => model.SystemAffected)</button>
+                        <div class="content">
+                            <p>@Model.SystemAffected</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question6" class="collapsible">@Html.DisplayNameFor(model => model.customers)</button>
+                        <div class="content">
+                            <p>@Model.customers</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question7" class="collapsible">@Html.DisplayNameFor(model => model.WhoPerforming)</button>
+                        <div class="content">
+                            <p>@Model.WhoPerforming</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question8" class="collapsible">@Html.DisplayNameFor(model => model.RiskOfChange)</button>
+                        <div class="content">
+                            <p>@Model.RiskOfChange</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question9" class="collapsible">@Html.DisplayNameFor(model => model.RiskNoChange)</button>
+                        <div class="content">
+                            <p>@Model.RiskNoChange</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question10" class="collapsible">@Html.DisplayNameFor(model => model.VerifyAfter)</button>
+                        <div class="content">
+                            <p>@Model.VerifyAfter</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question11" class="collapsible">@Html.DisplayNameFor(model => model.RollBackPlan)</button>
+                        <div class="content">
+                            <p>@Model.RollBackPlan</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question12" class="collapsible">@Html.DisplayNameFor(model => model.DueDate)</button>
+                        <div class="content">
+                            <p>@Model.DueDate</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question13" class="collapsible">@Html.DisplayNameFor(model => model.WhyDueDate)</button>
+                        <div class="content">
+                            <p>@Model.WhyDueDate</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question14" class="collapsible">@Html.DisplayNameFor(model => model.ServiceImpact)</button>
+                        <div class="content">
+                            <p>@Model.ServiceImpact</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="buttons" style="display: flex; justify-content: space-around">
+            <a class="btn btn-default button submit" asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved ? "Unapprove" : "Approve")</a>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .collapsible {
+        background-color: #f3f3f3;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        font-weight: bold;
+        border-color: #f3f3f3;
+        outline: none;
+    }
+
+        .active, .collapsible:hover {
+            background-color: #d2d2d2;
+        }
+
+    .content {
+        padding: 0 18px;
+        display: none;
+        overflow: hidden;
+        background-color: #d2d2d2;
+        /*color: black;*/
+    }
+
+
+    #Question1:focus {
+        outline: none;
+    }
+
+    #Question2:focus {
+        outline: none;
+    }
+
+    #Question3:focus {
+        outline: none;
+    }
+
+    #Question4:focus {
+        outline: none;
+    }
+
+    #Question5:focus {
+        outline: none;
+    }
+
+    #Question6:focus {
+        outline: none;
+    }
+
+    #Question7:focus {
+        outline: none;
+    }
+
+    #Question8:focus {
+        outline: none;
+    }
+
+    #Question9:focus {
+        outline: none;
+    }
+
+    #Question10:focus {
+        outline: none;
+    }
+
+    #Question11:focus {
+        outline: none;
+    }
+
+    #Question12:focus {
+        outline: none;
+    }
+
+    #Question13:focus {
+        outline: none;
+    }
+
+    #Question14:focus {
+        outline: none;
+    }
+</style>
+
+
+<script>
+var coll = document.getElementsByClassName("collapsible");
+var i;
+
+for (i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
+}
+</script>
