@@ -6,11 +6,11 @@
 }
 
     <div id="right">
-        <div class="header">
-            <h1>Details</h1>
-            <div class="buttons">
+        <div class="header" style="display:flex; justify-content: space-between;">
+            <h1 style="display:inline-block; width:auto; vertical-align: top;">Details</h1>
+            <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
                 <div class="otherButtons">
-                    <a class="button submit btn btn-default" asp-area="" asp-controller="CreateNew" asp-action="Index">Go Back</a>
+                    <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="CreateNew" asp-action="Index">Go Back</a>
                 </div>
             </div>
         </div>
@@ -150,7 +150,9 @@
                     </tr>
                 </tbody>
             </table>
-            <a asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved ? "Unapprove" : "Approve")</a>
+            <div class="buttons" style="display: flex; justify-content: space-around">
+                <a class="btn btn-default button submit" asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved ? "Unapprove" : "Approve")</a>
+            </div>
         </div>
     </div>
 
