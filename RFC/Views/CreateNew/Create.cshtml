@@ -54,6 +54,9 @@
                 <div class="col">
                     <div class="form-group">
                         <label asp-for="customers" class="control-label"></label><strong class="error">*</strong>
+                        <select asp-for="CustomersAffected" asp-items="Html.GetEnumSelectList<CustomersAffected>()">
+                            <option selected="selected" value="">Please select</option>
+                        </select>
                         <input asp-for="customers" class="form-control" />
                     </div>
                 </div>
