@@ -5,156 +5,162 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div id="right">
-        <div class="header" style="display:flex; justify-content: space-between;">
-            <h1 style="display:inline-block; width:auto; vertical-align: top;">Details</h1>
-            <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
-                <div class="otherButtons">
-                    <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="CreateNew" asp-action="Index">Go Back</a>
-                </div>
-            </div>
-        </div>
-        <div class="rightContent">
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th>
-                            ID
-                        </th>
-                        <th>
-                            Priority
-                        </th>
-                        <th>
-                            Product
-                        </th>
-                        <th>
-                            Requested Due Date
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            @Model.ID
-                        </td>
-                        <td>
-                            @Model.Priority
-                        </td>
-                        <td>
-                            @Model.Product
-                        </td>
-                        <td>
-                            @Model.DueDate
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <h3>Questions:</h3>
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question3" class="collapsible">@Html.DisplayNameFor(model => model.ReasonForChange)</button>
-                            <div class="content">
-                                <p>@Model.ReasonForChange</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question4" class="collapsible">@Html.DisplayNameFor(model => model.ChangeDescription)</button>
-                            <div class="content">
-                                <p>@Model.ChangeDescription</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question5" class="collapsible">@Html.DisplayNameFor(model => model.SystemAffected)</button>
-                            <div class="content">
-                                <p>@Model.SystemAffected</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question6" class="collapsible">@Html.DisplayNameFor(model => model.customers)</button>
-                            <div class="content">
-                                <p>@Model.customers</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question7" class="collapsible">@Html.DisplayNameFor(model => model.WhoPerforming)</button>
-                            <div class="content">
-                                <p>@Model.WhoPerforming</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question8" class="collapsible">@Html.DisplayNameFor(model => model.RiskOfChange)</button>
-                            <div class="content">
-                                <p>@Model.RiskOfChange</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question9" class="collapsible">@Html.DisplayNameFor(model => model.RiskNoChange)</button>
-                            <div class="content">
-                                <p>@Model.RiskNoChange</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question10" class="collapsible">@Html.DisplayNameFor(model => model.VerifyAfter)</button>
-                            <div class="content">
-                                <p>@Model.VerifyAfter</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question11" class="collapsible">@Html.DisplayNameFor(model => model.RollBackPlan)</button>
-                            <div class="content">
-                                <p>@Model.RollBackPlan</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question12" class="collapsible">@Html.DisplayNameFor(model => model.DueDate)</button>
-                            <div class="content">
-                                <p>@Model.DueDate</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question13" class="collapsible">@Html.DisplayNameFor(model => model.WhyDueDate)</button>
-                            <div class="content">
-                                <p>@Model.WhyDueDate</p>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <button type="button" id="Question14" class="collapsible">@Html.DisplayNameFor(model => model.ServiceImpact)</button>
-                            <div class="content">
-                                <p>@Model.ServiceImpact</p>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="buttons" style="display: flex; justify-content: space-around">
-                <a class="btn btn-default button submit" asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved ? "Unapprove" : "Approve")</a>
+<div id="right">
+    <div class="header" style="display:flex; justify-content: space-between;">
+        <h1 style="display:inline-block; width:auto; vertical-align: top;">Details</h1>
+        <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
+            <div class="otherButtons">
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="CreateNew" asp-action="Index">Go Back</a>
             </div>
         </div>
     </div>
+    <div class="rightContent">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Priority
+                    </th>
+                    <th>
+                        Product
+                    </th>
+                    <th>
+                        Customer Name
+                    </th>
+                    <th>
+                        Requested Due Date
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model.ID
+                    </td>
+                    <td>
+                        @Model.Priority
+                    </td>
+                    <td>
+                        @Model.Product
+                    </td>
+                    <td>
+                        @Model.CustomersAffected
+                    </td>
+                    <td>
+                        @Model.DueDate
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <h3>Questions:</h3>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>
+                        <button type="button" id="Question3" class="collapsible">@Html.DisplayNameFor(model => model.ReasonForChange)</button>
+                        <div class="content">
+                            <p>@Model.ReasonForChange</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question4" class="collapsible">@Html.DisplayNameFor(model => model.ChangeDescription)</button>
+                        <div class="content">
+                            <p>@Model.ChangeDescription</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question5" class="collapsible">@Html.DisplayNameFor(model => model.SystemAffected)</button>
+                        <div class="content">
+                            <p>@Model.SystemAffected</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question6" class="collapsible">@Html.DisplayNameFor(model => model.customers)</button>
+                        <div class="content">
+                            <p>@Model.customers</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question7" class="collapsible">@Html.DisplayNameFor(model => model.WhoPerforming)</button>
+                        <div class="content">
+                            <p>@Model.WhoPerforming</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question8" class="collapsible">@Html.DisplayNameFor(model => model.RiskOfChange)</button>
+                        <div class="content">
+                            <p>@Model.RiskOfChange</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question9" class="collapsible">@Html.DisplayNameFor(model => model.RiskNoChange)</button>
+                        <div class="content">
+                            <p>@Model.RiskNoChange</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question10" class="collapsible">@Html.DisplayNameFor(model => model.VerifyAfter)</button>
+                        <div class="content">
+                            <p>@Model.VerifyAfter</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question11" class="collapsible">@Html.DisplayNameFor(model => model.RollBackPlan)</button>
+                        <div class="content">
+                            <p>@Model.RollBackPlan</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question12" class="collapsible">@Html.DisplayNameFor(model => model.DueDate)</button>
+                        <div class="content">
+                            <p>@Model.DueDate</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question13" class="collapsible">@Html.DisplayNameFor(model => model.WhyDueDate)</button>
+                        <div class="content">
+                            <p>@Model.WhyDueDate</p>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <button type="button" id="Question14" class="collapsible">@Html.DisplayNameFor(model => model.ServiceImpact)</button>
+                        <div class="content">
+                            <p>@Model.ServiceImpact</p>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="buttons" style="display: flex; justify-content: space-around">
+            <a class="btn btn-default button submit" asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved ? "Unapprove" : "Approve")</a>
+        </div>
+    </div>
+</div>
 
 
 <style>
@@ -224,7 +230,7 @@
     #Question10:focus {
         outline: none;
     }
-    
+
     #Question11:focus {
         outline: none;
     }
@@ -240,7 +246,6 @@
     #Question14:focus {
         outline: none;
     }
-
 </style>
 
 
