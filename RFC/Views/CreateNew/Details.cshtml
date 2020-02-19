@@ -23,9 +23,6 @@
                         Product
                     </th>
                     <th>
-                        Customer Name
-                    </th>
-                    <th>
                         Requested Due Date
                     </th>
                 </tr>
@@ -42,9 +39,6 @@
                         @Model.Product
                     </td>
                     <td>
-                        @Model.customers
-                    </td>
-                    <td>
                         @Model.DueDate
                     </td>
                 </tr>
@@ -53,22 +47,6 @@
         <h3>Questions:</h3>
         <table class="table">
             <tbody>
-                <tr>
-                    <td>
-                        <button type="button" id="Question1" class="collapsible">@Html.DisplayNameFor(model => model.Priority):</button>
-                        <div class="content">
-                            <p>@Model.Priority</p>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <button type="button" id="Question2" class="collapsible">@Html.DisplayNameFor(model => model.Product)</button>
-                        <div class="content">
-                            <p>@Model.Product</p>
-                        </div>
-                    </td>
-                </tr>
                 <tr>
                     <td><button type="button" id="Question3" class="collapsible">@Html.DisplayNameFor(model => model.ReasonForChange)</button>
                     <div class="content">
