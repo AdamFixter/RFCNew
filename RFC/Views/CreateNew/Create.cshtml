@@ -1,132 +1,168 @@
 ﻿@model RFC.Models.CreateNew
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Create";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div id="right">
-    <div class="header">
-        <h1>Make a request</h1>
-        <p>All fields marked with a <strong class="error">*</strong> are required.</p>
-    </div>
-    <div class="rightContent">
-        <form asp-action="Create">
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="Priority" class="control-label"></label><strong class="error">*</strong>
-                        <select asp-for="Priority" asp-items="Html.GetEnumSelectList<Priority>()">
-                            <option selected="selected" value="">Please select</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="Product" class="control-label"></label><strong class="error">*</strong>
-                        <select asp-for="Product" asp-items="Html.GetEnumSelectList<Product>()">
-                            <option selected="selected" value="">Please select</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="ReasonForChange" class="control-label"></label><strong class="error">*</strong>
-                        <input asp-for="ReasonForChange" class="form-control" />
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="ChangeDescription" class="control-label"></label><strong class="error">*</strong>
-                        <input asp-for="ChangeDescription" class="form-control" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="SystemAffected" class="control-label"></label><strong class="error">*</strong>
-                        <input asp-for="SystemAffected" class="form-control" />
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="customers" class="control-label"></label><strong class="error">*</strong>
-                        <select asp-for="CustomersAffected" asp-items="Html.GetEnumSelectList<CustomersAffected>()">
-                            <option selected="selected" value="">Please select</option>
-                        </select>
-                        <input asp-for="customers" class="form-control" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="WhoPerforming" class="control-label"></label><strong class="error">*</strong>
-                        <input asp-for="WhoPerforming" class="form-control" />
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="RiskOfChange" class="control-label"></label><strong class="error">*</strong>
-                        <input asp-for="RiskOfChange" class="form-control" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="RiskNoChange" class="control-label"></label><strong class="error">*</strong>
-                        <input asp-for="RiskNoChange" class="form-control" />
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="VerifyAfter" class="control-label"></label><strong class="error">*</strong>
-                        <input asp-for="VerifyAfter" class="form-control" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="RollBackPlan" class="control-label"></label><strong class="error">*</strong>
-                        <input asp-for="RollBackPlan" class="form-control" />
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="DueDate" class="control-label"></label><strong class="error">*</strong>
-                        <input asp-for="DueDate" class="form-control" />
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="form-group">
-                        <label asp-for="WhyDueDate" class="control-label"></label><strong class="error">*</strong>
-                        <input asp-for="WhyDueDate" class="form-control" />
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="form-group form-check">
-                        <label class="form-check-label">
-                            <input class="form-check-input" asp-for="ServiceImpact" /> @Html.DisplayNameFor(model => model.ServiceImpact)
-                        </label>
-                    </div>
-                </div>
-            </div>
-            <div class="buttons">
-                <div class="otherButtons">
-                    <a class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
-                </div>
-                <div class="formButtons">
-                    <div class="form-group form-check">
-                        <input type="submit" value="Create" class="button submit btn btn-primary" />
-                    </div>
-                </div>
-            </div>
-        </form>
+	<div class="header">
+		<h1>Make a request</h1>
+		<p>All fields marked with a <strong class="error">*</strong> are required.</p>
+	</div>
+	<div class="rightContent">
+		<form asp-action="Create">
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="Priority" class="control-label"></label><strong class="error">*</strong>
+						<select asp-for="Priority" asp-items="Html.GetEnumSelectList<Priority>()">
+							<option selected="selected" value="">Please select</option>
+						</select>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="Product" class="control-label"></label><strong class="error">*</strong>
+						<select asp-for="Product" asp-items="Html.GetEnumSelectList<Product>()">
+							<option selected="selected" value="">Please select</option>
+						</select>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="ReasonForChange" class="control-label"></label><strong class="error">*</strong>
+						<textarea asp-for="ReasonForChange" class="form-control"></textarea>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="ChangeDescription" class="control-label"></label><strong class="error">*</strong>
+						<textarea asp-for="ChangeDescription" class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="SystemAffected" class="control-label"></label><strong class="error">*</strong>
+						<textarea asp-for="SystemAffected" class="form-control"></textarea>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="customers" class="control-label"></label><strong class="error">*</strong>
+						<select asp-for="CustomersAffected" asp-items="Html.GetEnumSelectList<CustomersAffected>()">
+							<option selected="selected" value="">Please select</option>
+						</select>
+						<textarea asp-for="customers" class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="WhoPerforming" class="control-label"></label><strong class="error">*</strong>
+						<textarea asp-for="WhoPerforming" class="form-control"></textarea>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="RiskOfChange" class="control-label"></label><strong class="error">*</strong>
+						<textarea asp-for="RiskOfChange" class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="RiskNoChange" class="control-label"></label><strong class="error">*</strong>
+						<textarea asp-for="RiskNoChange" class="form-control"></textarea>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="VerifyAfter" class="control-label"></label><strong class="error">*</strong>
+						<textarea asp-for="VerifyAfter" class="form-control"></textarea>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="RollBackPlan" class="control-label"></label><strong class="error">*</strong>
+						<textarea asp-for="RollBackPlan" class="form-control"></textarea>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="DueDate" class="control-label"></label><strong class="error">*</strong>
+						<input asp-for="DueDate" class="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<div class="form-group">
+						<label asp-for="WhyDueDate" class="control-label"></label><strong class="error">*</strong>
+						<textarea asp-for="WhyDueDate" class="form-control"></textarea>
+					</div>
+				</div>
+				<div class="col">
+					<div class="form-group form-check">
+						<label class="form-check-label">
+							<input class="form-check-input" asp-for="ServiceImpact" /> @Html.DisplayNameFor(model => model.ServiceImpact)
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="buttons">
+				<div class="otherButtons">
+					<a class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
+				</div>
+				<div class="formButtons">
+					<div class="form-group form-check">
+						<input type="submit" value="Create" class="button submit btn btn-primary" />
+					</div>
+				</div>
+			</div>
+		</form>
 </div>
+
+<style>
+	textarea {
+	min-height: 5em;
+	max-height: 25vh;
+	width: 100%;
+	resize: none;
+	transition: height ease-in 0.5s;
+	}
+</style>
+
+<script>
+	document.addEventListener('input', function (event) {
+	if (event.target.tagName.toLowerCase() !== 'textarea') return;
+	autoExpand(event.target);
+	}, false);
+
+	var autoExpand = function (field) {
+
+	// Reset field height
+	field.style.height = 'inherit';
+
+	// Get the computed styles for the element
+	var computed = window.getComputedStyle(field);
+
+	// Calculate the height
+	var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+				 + parseInt(computed.getPropertyValue('padding-top'), 10)
+				 + field.scrollHeight
+				 + parseInt(computed.getPropertyValue('padding-bottom'), 10)
+				 + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+
+	field.style.height = height + 'px';
+
+	};
+</script>
