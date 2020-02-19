@@ -1,0 +1,175 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins";
+    box-sizing: border-box;
+}
+.input-validation-error {
+    border: 1px solid red;
+}
+:root {
+    --servelec-red: #e82910;
+    --servelec-orange: #EA7B2D;
+    --servelec-green: #5eb902;
+    --servelec-purple: #8b1065;
+    --servelec-blue: #164194;
+    --servelec-gray: #494847ff;
+    --servelec-emergency: #d0240e;
+    --servelec-normal: #d26e28;
+    --servelec-retrospective: #54a402;
+}
+html, body { height: 90%; }
+.row { margin: 0; }
+.error { color: red; }
+.background {
+    height: 45vh;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    background: #494847ff;
+}
+
+#content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.logo {
+    cursor: pointer;
+    height: 5%;
+    position: absolute;
+    top: 1%;
+    left: 2%;
+    z-index: 1;
+}
+.RFCForm {
+    position: absolute;
+    display: flex;
+    max-height: 90%;
+    min-height: 60%;
+    width: 70%;
+    border: 3px solid var(--servelec-gray);
+    background: white;
+}
+
+.RFCForm #left {
+    min-width: 50%;
+    border-right: 3px solid var(--servelec-gray);
+    background: url(https://www.servelec.co.uk/media/1482/education-teacher-plus-sen_cmyk-small.png?anchor=center&mode=crop&width=700&height=600&rnd=132114625750000000) no-repeat center center;
+    transition: min-width 0.5s ease;
+}
+
+.RFCForm #right {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    background-color: #f3f3f3ff;
+    width: 100%;
+}
+.RFCForm #right .header {
+    margin-bottom: 2%;
+}
+.RFCForm #right .rightContent {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: auto;
+}
+    .RFCForm #right .rightContent .table {
+        border-collapse: collapse;
+    }
+    .RFCForm #right .rightContent .table thead th {
+        position: sticky;
+        top: 0;
+        background: #f3f3f3ff;
+        border: none;
+    }
+    .RFCForm #right .rightContent .buttons {
+        position: sticky;
+        bottom: 0;
+        background: #f3f3f3ff;
+        display: flex;
+        justify-content: space-between;
+        padding: 1%;
+    }
+        .RFCForm #right .rightContent .buttons .otherButtons, .RFCForm #right .rightContent .buttons .formButtons {
+            width: 100%;
+        }
+        .RFCForm #right .rightContent .buttons .formButtons {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+a.button.submit {
+    transition: all 0.5s ease;
+    color: white;
+    background-color: #004fff;
+    width: 25%;
+}
+a.button {
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    margin: 0 0.3%;
+}
+.RFCForm #right .rightContent .options {
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    margin: 0 5%;
+    height: 100%;
+    /*width: 75%; */
+    /* justify-content: center;*/
+}
+.RFCForm #right .rightContent .options .option {
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+    width: 45%;
+}
+    .RFCForm #right .rightContent .options .option .icon {
+        height: 100%;
+        padding: 15%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .RFCForm #right .rightContent .options .option .icon img {
+        width: 35%;
+    }
+    .RFCForm #right .rightContent .options .option .text {
+        font-weight: 600;
+        text-align: center;
+        color: white;
+        background-color: var(--servelec-gray);
+        padding: 4%;
+    }
+@media only screen and (max-width: 750px) {
+    .RFCForm {
+        width: 100%;
+    }
+
+    #left {
+        display: none;
+    }
+}
+
+/* Accessibility yellow highlighting assistance
+-------------------------------------------------- */
+
+select:focus, input:active, label:active, input:focus, a:focus {
+    border: solid;
+    border-color: #FFDD00;
+}
+
+p, label, h1 {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}

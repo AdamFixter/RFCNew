@@ -42,7 +42,6 @@ namespace RFC.Controllers
                 new SelectListItem { Value = "ProductName", Text = "Product Name" },
                 new SelectListItem { Value = "CustomerName", Text = "Customer Name" },
                 new SelectListItem { Value = "RequestedDueDate", Text = "Requested Due Date" },
-                new SelectListItem { Value = "CreationDetails", Text = "Creation Details" }
             };
             ViewBag.columnSelect = items;   //// Adds the pre-created list into the variable that will use it as dropdown values
 
@@ -53,7 +52,6 @@ namespace RFC.Controllers
             ViewBag.ProductNameSortParm = sortOrder == "ProductNameAsc" ? "ProductNameDesc" : "ProductNameAsc";
             ViewBag.CustomerNameSortParm = sortOrder == "CustomerNameAsc" ? "CustomerNameDesc" : "CustomerNameAsc";
             ViewBag.RequestedDueDateSortParm = sortOrder == "RequestedDueDateAsc" ? "RequestedDueDateDesc" : "RequestedDueDateAsc";
-            ViewBag.IsClosedSortParm = sortOrder == "IsClosedAsc" ? "IsClosedDesc" : "IsClosedAsc";
 
             //// The 'submissions' is the variable with the data from the table
             var submissions = from s in _context.CreateNew
@@ -61,16 +59,32 @@ namespace RFC.Controllers
 
             if (!String.IsNullOrEmpty(searchString))    //// Filters the 'submissions' data out depending on the search performed and column selected from the dropdown list
             {
+                searchString = searchString.ToLower();
                 switch (columnSelect)
                 {
                     case "ID":
                         submissions = submissions.Where(s => s.ID.ToString().Contains(searchString));
                         break;
                     case "RFCType":
-                        submissions = submissions.Where(s => s.Priority.ToString().Contains(searchString));
+                        if (Enum.GetNames(typeof(Priority)).ToList().IndexOf(searchString) != -1) //Check if the string includes a valid enum.
+                        {
+                            Priority foundPriority = (Priority)Enum.Parse(typeof(Priority), searchString); //Parse the search string to the Priority.
+                            submissions = submissions.Where(s => s.Priority == foundPriority);
+                        }
+                        else
+                        {
+                            submissions = Enumerable.Empty<CreateNew>().AsQueryable();
+                        }
                         break;
                     case "ProductName":
-                        submissions = submissions.Where(s => s.Product.ToString().Contains(searchString));
+                        if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1) 
+                        {
+                            Product foundProduct = (Product) Enum.Parse(typeof(Product), searchString);
+                            submissions = submissions.Where(s => s.Product == foundProduct);
+                        } else
+                        {
+                            submissions = Enumerable.Empty<CreateNew>().AsQueryable();
+                        }
                         break;
                     case "CustomerName":
                         submissions = submissions.Where(s => s.customers.Contains(searchString));
@@ -118,7 +132,7 @@ namespace RFC.Controllers
                     submissions = submissions.OrderBy(submission => submission.ID);
                     break;
             }
-            int pageSize = 10;
+            int pageSize = 5;
             return View(await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
