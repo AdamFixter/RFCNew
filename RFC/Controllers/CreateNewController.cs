@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RFC.Models;
+using RFC.ViewModel;
 
 namespace RFC.Controllers
 {
@@ -133,7 +134,10 @@ namespace RFC.Controllers
                     break;
             }
             int pageSize = 5;
-            return View(await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize));
+            return View(new CreateNewViewModel()
+            {
+                Requests = await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize)
+            });
         }
 
         // GET: CreateNew/Details/5

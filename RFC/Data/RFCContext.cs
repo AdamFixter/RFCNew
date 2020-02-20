@@ -9,6 +9,10 @@ namespace RFC.Models
 {
     public class RFCContext : DbContext
     {
+        public RFCContext()
+        {
+        }
+
         public RFCContext (DbContextOptions<RFCContext> options)
             : base(options)
         {
