@@ -8124,23 +8124,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Christian.Cybaniak\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Adam.Sutton\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (2)\\RFCNew-master\\RFC\\RFC.csproj",
+      "projectUniqueName": "C:\\Users\\Adam.Sutton\\Documents\\GitHub\\RFC MVC\\RFCNew\\RFC\\RFC.csproj",
       "projectName": "RFC",
-      "projectPath": "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (2)\\RFCNew-master\\RFC\\RFC.csproj",
-      "packagesPath": "C:\\Users\\Christian.Cybaniak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (2)\\RFCNew-master\\RFC\\obj\\",
+      "projectPath": "C:\\Users\\Adam.Sutton\\Documents\\GitHub\\RFC MVC\\RFCNew\\RFC\\RFC.csproj",
+      "packagesPath": "C:\\Users\\Adam.Sutton\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Adam.Sutton\\Documents\\GitHub\\RFC MVC\\RFCNew\\RFC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Christian.Cybaniak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Adam.Sutton\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],

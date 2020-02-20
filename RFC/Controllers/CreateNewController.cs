@@ -22,7 +22,7 @@ namespace RFC.Controllers
 
         // GET: CreateNew
         [Route("submissions")]
-        public async Task<IActionResult> Index(string sortOrder, string searchString, string columnSelect, int? pageNumber)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
         {
             ViewData["CurrentSort"] = sortOrder;
 
@@ -91,7 +91,7 @@ namespace RFC.Controllers
                         submissions = submissions.Where(s => s.customers.Contains(searchString));
                         break;
                     case "RequestedDueDate":
-                        submissions = submissions.Where(s => s.DueDate.ToString().Contains(searchString));
+                        submissions = submissions.Where(s => s.DueDate >= Convert.ToDateTime(searchString) && s.DueDate <= DateTo);
                         break;
                     default:
                         break;
