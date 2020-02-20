@@ -79,7 +79,7 @@ namespace RFC.Controllers
                     case "ProductName":
                         if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1) 
                         {
-                            Product foundProduct = (Product) Enum.Parse(typeof(Product), searchString);
+                            Product foundProduct = (Product)Enum.Parse(typeof(Product), searchString);
                             submissions = submissions.Where(s => s.Product == foundProduct);
                         } else
                         {
