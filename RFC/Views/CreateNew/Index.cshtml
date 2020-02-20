@@ -15,8 +15,10 @@
             <p>
                 Find in
                 @Html.DropDownList("ColumnSelect", "Select a Column")
-                by name
+                by:
                 @Html.TextBox("searchString")
+                @Html.TextBox("DateTo")
+                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
                 <input type="submit" value="Search" />
             </p>
         }
@@ -97,15 +99,23 @@
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
+    var input = document.getElementById("searchString");
+    var dateRangeTo = document.getElementById("DateTo");
+    dateRangeTo.type = "date";
+    dateRangeTo.format = "{0:yyyy-MM-dd}";
+    dateRangeTo.style.visibility = "hidden";
+
     $('#ColumnSelect').on('change', function() {
         var index = $(this).find('option:selected').index();
-        var input = document.getElementById("searchString");
+
         if (index == 5) {
             input.type = "date";
             input.format = "{0:yyyy-MM-dd}";
+            dateRangeTo.style.visibility = "visible";
         } else {
             input.type = "text";
             input.format = null;
+            dateRangeTo.style.visibility = "hidden";
         }
         input.value = "";
     })
