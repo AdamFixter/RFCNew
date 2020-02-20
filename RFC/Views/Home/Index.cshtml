@@ -3,6 +3,8 @@
     var textInfo = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo;
     var args = User.Identity.Name.Split("\\");
     var name = textInfo.ToTitleCase(args[1].Replace(".", " "));
+    var DomainUser = User.Identity.Name;
+    var role = "Standard";
 }
 
 <div id="left"></div>
