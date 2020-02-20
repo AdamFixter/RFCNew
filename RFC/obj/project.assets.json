@@ -8124,20 +8124,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Adam.Fixter\\.nuget\\packages\\": {}
+    "C:\\Users\\Christian.Cybaniak\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj",
+      "projectUniqueName": "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (2)\\RFCNew-master\\RFC\\RFC.csproj",
       "projectName": "RFC",
-      "projectPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj",
-      "packagesPath": "C:\\Users\\Adam.Fixter\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\obj\\",
+      "projectPath": "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (2)\\RFCNew-master\\RFC\\RFC.csproj",
+      "packagesPath": "C:\\Users\\Christian.Cybaniak\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (2)\\RFCNew-master\\RFC\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Adam.Fixter\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Christian.Cybaniak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
