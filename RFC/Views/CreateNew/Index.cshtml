@@ -94,3 +94,19 @@
         </div>
     </div>
 </div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    $('#ColumnSelect').on('change', function() {
+        var index = $(this).find('option:selected').index();
+        var input = document.getElementById("searchString");
+        if (index == 5) {
+            input.type = "date";
+            input.format = "{0:yyyy-MM-dd}";
+        } else {
+            input.type = "text";
+            input.format = null;
+        }
+        input.value = "";
+    })
+</script>
