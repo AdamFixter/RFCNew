@@ -1,10 +1,10 @@
-﻿@model PaginatedList<RFC.Models.CreateNew>
+﻿@model RFC.ViewModel.CreateNewViewModel
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+    var prevDisabled = !Model.Requests.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Requests.HasNextPage ? "disabled" : "";
 }
 
 <div id="right">
@@ -45,7 +45,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model)
+                @foreach (var item in Model.Requests)
                 {
                     <tr>
                         <td>
@@ -78,14 +78,14 @@
             <div class="formButtons">
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.PageIndex - 1)"
+                   asp-route-pageNumber="@(Model.Requests.PageIndex - 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
                    class="button submit btn btn-default @prevDisabled">
                    Previous
                 </a>
                 <a asp-action="Index"
                     asp-route-sortOrder="@ViewData["CurrentSort"]"
-                    asp-route-pageNumber="@(Model.PageIndex + 1)"
+                    asp-route-pageNumber="@(Model.Requests.PageIndex + 1)"
                     asp-route-currentFilter="@ViewData["CurrentFilter"]"
                     class="button submit btn btn-default @nextDisabled">
                     Next
@@ -94,3 +94,19 @@
         </div>
     </div>
 </div>
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    $('#ColumnSelect').on('change', function() {
+        var index = $(this).find('option:selected').index();
+        var input = document.getElementById("searchString");
+        if (index == 5) {
+            input.type = "date";
+            input.format = "{0:yyyy-MM-dd}";
+        } else {
+            input.type = "text";
+            input.format = null;
+        }
+        input.value = "";
+    })
+</script>

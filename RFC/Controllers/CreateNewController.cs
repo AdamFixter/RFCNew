@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RFC.Models;
+using RFC.ViewModel;
 
 namespace RFC.Controllers
 {
@@ -79,7 +80,7 @@ namespace RFC.Controllers
                     case "ProductName":
                         if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1) 
                         {
-                            Product foundProduct = (Product)Enum.Parse(typeof(Product), searchString);
+                            Product foundProduct = (Product) Enum.Parse(typeof(Product), searchString);
                             submissions = submissions.Where(s => s.Product == foundProduct);
                         } else
                         {
@@ -133,7 +134,10 @@ namespace RFC.Controllers
                     break;
             }
             int pageSize = 5;
-            return View(await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize));
+            return View(new CreateNewViewModel()
+            {
+                Requests = await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize)
+            });
         }
 
         // GET: CreateNew/Details/5

@@ -164,6 +164,7 @@
 
 
 <style>
+
     .collapsible {
         background-color: #f3f3f3;
         cursor: pointer;
@@ -197,74 +198,22 @@
     #Question:focus {
         outline: none;
     }
-
-    /*#Question2:focus {
-        outline: none;
-    }
-
-    #Question3:focus {
-        outline: none;
-    }
-
-    #Question4:focus {
-        outline: none;
-    }
-
-    #Question5:focus {
-        outline: none;
-    }
-
-    #Question6:focus {
-        outline: none;
-    }
-
-    #Question7:focus {
-        outline: none;
-    }
-
-    #Question8:focus {
-        outline: none;
-    }
-
-    #Question9:focus {
-        outline: none;
-    }
-
-    #Question10:focus {
-        outline: none;
-    }
-
-    #Question11:focus {
-        outline: none;
-    }
-
-    #Question12:focus {
-        outline: none;
-    }
-
-    #Question13:focus {
-        outline: none;
-    }
-
-    #Question14:focus {
-        outline: none;
-    }*/
 </style>
 
 
 <script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
+    for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+                content.style.display = "none";
+            } else {
+                content.style.display = "block";
+            }
+        });
     }
-  });
-}
 </script>
