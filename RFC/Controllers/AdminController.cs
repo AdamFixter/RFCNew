@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -128,6 +129,7 @@ namespace RFC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Role,DomainUser")] User user)
         {
+            Debug.WriteLine("Role: " + user.Role + "\nName: " + user.Name + "\nID:" + user.ID + "\nDomainUser: " + user.DomainUser + "\n\n\n\n");
             if (id != user.ID)
             {
                 return NotFound();

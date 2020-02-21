@@ -8,16 +8,13 @@
 }
 
 <div id="right">
-    <div class="header">
-        <h1>Manage Users</h1>
-        <form asp-action="Index" method="get">
-            <div class="form-actions no-color">
-                <p>
-                    Find by name: <input type="text" name="SearchString" value="@ViewData["CurrentFilter"]" />
-                    <input type="submit" value="Search" class="btn btn-default" />
-                </p>
+    <div class="header" style="display:flex; justify-content: space-between;">
+        <h1 style="display:inline-block; width:auto; vertical-align: top;">Manage Users</h1>
+        <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
+            <div class="otherButtons">
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
             </div>
-        </form>
+        </div>
     </div>
     <div class="rightContent">
         <table class="table">
@@ -46,38 +43,14 @@
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>
                         <td>
-
                             @Html.DisplayFor(modelItem => item.Role)
                         </td>
                         <td>
-                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                            <a asp-action="Details" asp-route-id="@item.ID">Details</a>
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
-        <div class="buttons">
-            <div class="otherButtons">
-                <a class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
-            </div>
-            <div class="formButtons">
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.PageIndex - 1)"
-                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class="button submit btn btn-default @prevDisabled">
-                    Previous
-                </a>
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.PageIndex + 1)"
-                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class="button submit btn btn-default @nextDisabled">
-                    Next
-                </a>
-            </div>
-        </div>
     </div>
 </div>
