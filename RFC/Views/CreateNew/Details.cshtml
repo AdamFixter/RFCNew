@@ -156,8 +156,10 @@
                 </tr>
             </tbody>
         </table>
+
         <div class="buttons" style="display: flex; justify-content: space-around">
-            <a class="btn btn-default button submit" asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved ? "Unapprove" : "Approve")</a>
+            <a class="btn btn-default button btn-danger" asp-action="Delete" asp-route-id="@Model.ID">Delete</a>
+            <a class="btn btn-default button btn-success" asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved ? "Unapprove" : "Approve")</a>
         </div>
     </div>
 </div>

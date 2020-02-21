@@ -109,11 +109,11 @@ a.button.submit {
     background-color: #004fff;
     width: 25%;
 }
+
 a.button {
     cursor: pointer;
     border: none;
     outline: none;
-    background: none;
     margin: 0 0.3%;
 }
 .RFCForm #right .rightContent .options {
@@ -157,6 +157,13 @@ a.button {
 
 /* Accessibility yellow highlighting assistance
 -------------------------------------------------- */
+
+
+select, input, label, input, a {
+    border: solid;
+    border-color: transparent;
+}
+
 
 select:focus, input:active, label:active, input:focus, a:focus {
     border: solid;
