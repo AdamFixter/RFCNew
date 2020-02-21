@@ -117,37 +117,34 @@ a.button {
     margin: 0 0.3%;
 }
 .RFCForm #right .rightContent .options {
-    display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
     margin: 0 5%;
     height: 100%;
-    /*width: 75%; */
-    /* justify-content: center;*/
 }
-.RFCForm #right .rightContent .options .option {
-    display: flex;
-    flex-direction: column;
-    margin: 1%;
-    width: 45%;
-}
-    .RFCForm #right .rightContent .options .option .icon {
-        height: 100%;
-        padding: 15%;
+    .RFCForm #right .rightContent .options .option {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        margin: 1%;
+        height: 30%;
     }
-    .RFCForm #right .rightContent .options .option .icon img {
-        width: 35%;
-    }
-    .RFCForm #right .rightContent .options .option .text {
-        font-weight: 600;
-        text-align: center;
-        color: white;
-        background-color: var(--servelec-gray);
-        padding: 4%;
-    }
+}
+.RFCForm #right .rightContent .options .option .icon {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.RFCForm #right .rightContent .options .option .icon img {
+    width: 35%;
+}
+.RFCForm #right .rightContent .options .option .text {
+    font-weight: 600;
+    text-align: center;
+    color: white;
+    padding: 4%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 @media only screen and (max-width: 750px) {
     .RFCForm {
         width: 100%;

@@ -30,16 +30,15 @@ namespace RFC.Controllers
             var Name = textInfo.ToTitleCase(args[1].Replace(".", " "));
             var DomainUser = User.Identity.Name;
 
-            var role = "Standard";
             Debug.WriteLine($"\n\n{Name}\n{DomainUser}\n");
                 _context.Database.ExecuteSqlRaw(
                     $"BEGIN IF NOT EXISTS " +
                         $"(SELECT * FROM [dbo].[User] WHERE Name='{Name}' AND DomainUser='{DomainUser}')" +
                             $"BEGIN INSERT INTO [dbo].[User] (Name, Role, DomainUser)" +
-                                $"VALUES ('{Name}', '{role}', '{DomainUser}')" +
+                                $"VALUES ('{Name}', '0', '{DomainUser}')" +
                             $"END" +
                    $" END");
-            return View();
+            return View(new User() { Name = Name, Role = UserRole.Admin, DomainUser = DomainUser});
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

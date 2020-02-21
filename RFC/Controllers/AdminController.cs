@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -94,7 +95,7 @@ namespace RFC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Role")] User user)
+        public async Task<IActionResult> Create([Bind("ID,Name,Role,DomainUser")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -126,8 +127,9 @@ namespace RFC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Role")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Role,DomainUser")] User user)
         {
+            Debug.WriteLine("Role: " + user.Role + "\nName: " + user.Name + "\nID:" + user.ID + "\nDomainUser: " + user.DomainUser + "\n\n\n\n");
             if (id != user.ID)
             {
                 return NotFound();
