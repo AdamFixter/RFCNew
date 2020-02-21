@@ -18,8 +18,8 @@
                 by:
                 @Html.TextBox("searchString")
                 @Html.TextBox("DateTo")
-                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
-                <input type="submit" value="Search" />
+                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"/>
+                <input type="submit" value="Search" style="display: inline-block;"/>
             </p>
         }
     </div>
@@ -105,7 +105,7 @@
     var dateRangeTo = document.getElementById("DateTo");
     dateRangeTo.type = "date";
     dateRangeTo.format = "{0:yyyy-MM-dd}";
-    dateRangeTo.style.visibility = "hidden";
+    dateRangeTo.style.display = "none";
 
     $('#ColumnSelect').on('change', function () {
         var index = $(this).find('option:selected').index();
@@ -113,11 +113,12 @@
         if (index == 5) {
             input.type = "date";
             input.format = "{0:yyyy-MM-dd}";
-            dateRangeTo.style.visibility = "visible";
+            dateRangeTo.style.display = "inline-block";
         } else {
             input.type = "text";
             input.format = null;
-            dateRangeTo.style.visibility = "hidden";
+            dateRangeTo.innerHTML = "";
+            dateRangeTo.style.display = "none";
         }
         input.value = "";
     })
