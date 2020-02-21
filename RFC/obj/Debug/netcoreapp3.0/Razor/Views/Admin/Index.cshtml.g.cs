@@ -13,14 +13,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC.Models;
 
 #line default
@@ -60,9 +60,9 @@ using RFC.Models;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
-            WriteLiteral("\n");
+            WriteLiteral("\r\n");
 #nullable restore
-#line 3 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
+#line 3 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Admin\Index.cshtml"
   
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -108,7 +108,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\n                    </th>\n                    <th>\n                        ");
+            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
 #nullable restore
 #line 27 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                    Write(Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameParm }));
@@ -116,7 +116,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\n                    </th>\n                    <th>\n                        ");
+            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
 #nullable restore
 #line 30 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                    Write(Html.ActionLink("Role", "Index", new { sortOrder = ViewBag.RoleSortParam }));
@@ -124,7 +124,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\n                    </th>\n                    <th></th>\n                </tr>\n            </thead>\n            <tbody>\n");
+            WriteLiteral("\r\n                    </th>\r\n                    <th></th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n");
 #nullable restore
 #line 36 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                  foreach (var item in Model)
@@ -133,7 +133,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("                    <tr>\n                        <td>\n                            ");
+            WriteLiteral("                    <tr>\r\n                        <td>\r\n                            ");
 #nullable restore
 #line 40 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.ID));
@@ -141,7 +141,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\n                        </td>\n                        <td>\n                            ");
+            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
 #nullable restore
 #line 43 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.Name));
@@ -149,7 +149,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\n                        </td>\n                        <td>\n                            ");
+            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
 #nullable restore
 #line 46 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.Role));
