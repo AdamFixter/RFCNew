@@ -61,7 +61,7 @@ using RFC.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
 #nullable restore
-#line 2 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 2 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Home\Index.cshtml"
   
     ViewData["Title"] = "Home Page";
     var textInfo = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo;
@@ -74,7 +74,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n<div id=\"left\"></div>\r\n<div id=\"right\">\r\n    <div class=\"header\">\r\n        <h1 style=\"text-align:center\">Welcome back ");
 #nullable restore
-#line 13 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 13 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Home\Index.cshtml"
                                               Write(name);
 
 #line default
@@ -108,7 +108,7 @@ using RFC.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
 #nullable restore
-#line 23 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 23 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Home\Index.cshtml"
              switch (Model.Role.ToString())
             {
                 case "Admin":
@@ -166,7 +166,7 @@ using RFC.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
 #nullable restore
-#line 34 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 34 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Home\Index.cshtml"
                     break;
                 case "Power":
 
@@ -199,7 +199,7 @@ using RFC.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
 #nullable restore
-#line 40 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 40 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Home\Index.cshtml"
                     break;
                 default:
                     break;
