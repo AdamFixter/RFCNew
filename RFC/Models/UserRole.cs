@@ -5,7 +5,8 @@ using System.Threading.Tasks;
 
 namespace RFC.Models
 {
-    public class UserRole
+    public enum UserRole
     {
+        Standard, Power, Admin
     }
 }

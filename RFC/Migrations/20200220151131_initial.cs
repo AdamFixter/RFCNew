@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RFC.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -13,12 +13,13 @@ namespace RFC.Migrations
                 {
                     ID = table.Column<long>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Priority = table.Column<string>(nullable: false),
+                    Priority = table.Column<int>(nullable: false),
                     ChangeDescription = table.Column<string>(nullable: false),
                     ReasonForChange = table.Column<string>(nullable: false),
-                    Product = table.Column<string>(nullable: false),
+                    Product = table.Column<int>(nullable: false),
                     SystemAffected = table.Column<string>(nullable: false),
-                    user = table.Column<string>(nullable: true),
+                    customers = table.Column<string>(nullable: false),
+                    CustomersAffected = table.Column<int>(nullable: false),
                     ServiceImpact = table.Column<bool>(nullable: false),
                     RiskOfChange = table.Column<string>(nullable: false),
                     RiskNoChange = table.Column<string>(nullable: false),
@@ -26,7 +27,8 @@ namespace RFC.Migrations
                     RollBackPlan = table.Column<string>(nullable: false),
                     DueDate = table.Column<DateTime>(nullable: false),
                     WhyDueDate = table.Column<string>(nullable: false),
-                    WhoPerforming = table.Column<string>(nullable: false)
+                    WhoPerforming = table.Column<string>(nullable: false),
+                    Approved = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -40,7 +42,8 @@ namespace RFC.Migrations
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
-                    Role = table.Column<int>(nullable: false)
+                    Role = table.Column<int>(nullable: false),
+                    DomainUser = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {

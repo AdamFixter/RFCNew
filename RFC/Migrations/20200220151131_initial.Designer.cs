@@ -10,8 +10,8 @@ using RFC.Models;
 namespace RFC.Migrations
 {
     [DbContext(typeof(RFCContext))]
-    [Migration("20200217095213_addedApproved")]
-    partial class addedApproved
+    [Migration("20200220151131_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,6 +34,9 @@ namespace RFC.Migrations
                     b.Property<string>("ChangeDescription")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CustomersAffected")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("datetime2");
@@ -94,6 +97,9 @@ namespace RFC.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("DomainUser")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");

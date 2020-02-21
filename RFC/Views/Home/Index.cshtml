@@ -1,32 +1,46 @@
-﻿@{
+﻿@model RFC.Models.User
+@{
     ViewData["Title"] = "Home Page";
     var textInfo = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo;
     var args = User.Identity.Name.Split("\\");
     var name = textInfo.ToTitleCase(args[1].Replace(".", " "));
     var DomainUser = User.Identity.Name;
-    var role = "Standard";
 }
 
 <div id="left"></div>
 <div id="right">
     <div class="header">
-        <h1>Welcome back @name</h1>
+        <h1 style="text-align:center">Welcome back @name</h1>
     </div>
     <div class="rightContent">
         <div class="options">
             <a class="option" asp-area="" asp-controller="CreateNew" asp-action="Create">
-                <div class="icon" style="background-color: #e82910ff"><img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FmakeRequest.png?v=1579711825430" />
+                <div class="icon" style="background-color: #e82910ff">
+                    <img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FmakeRequest.png?v=1579711825430" />
                 </div>
-                <div class="text">Make a request</div>
+                <div class="text" style="background-color: #b5220fff">Make a request</div>
             </a>
-            <a class="option" asp-area="" asp-controller="CreateNew" asp-action="Index">
-                <div class="icon" style="background-color: #8b1065ff"><img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FviewRequests.png?v=1579711825530"></div>
-                <div class="text">View Requests</div>
-            </a>
-            <a class="option" asp-area="" asp-controller="Admin" asp-action="Index">
-                <div class="icon" style="background-color: #164194"><img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FmanageRequests.png?v=1579711825680"></div>
-                <div class="text">Manage Users</div>
-            </a>
+            @switch (Model.Role.ToString())
+            {
+                case "Admin":
+                    <a class="option" asp-area="" asp-controller="CreateNew" asp-action="Index">
+                        <div class="icon" style="background-color: #8b1065ff"><img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FviewRequests.png?v=1579711825530"></div>
+                        <div class="text" style="background-color: #670d4bff">View Requests</div>
+                    </a>
+                    <a class="option" asp-area="" asp-controller="Admin" asp-action="Index">
+                        <div class="icon" style="background-color: #164194"><img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FmanageRequests.png?v=1579711825680"></div>
+                        <div class="text" style="background-color: #123476">Manage Users</div>
+                    </a>
+                    break;
+                case "Power":
+                    <a class="option" asp-area="" asp-controller="CreateNew" asp-action="Index">
+                        <div class="icon" style="background-color: #8b1065ff"><img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FviewRequests.png?v=1579711825530"></div>
+                        <div class="text" style="background-color: #670d4bff">View Requests</div>
+                    </a>
+                    break;
+                default:
+                    break;
+            }
         </div>
     </div>
 </div>

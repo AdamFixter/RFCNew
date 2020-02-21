@@ -9,7 +9,7 @@ namespace RFC.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public string Role { get; set; }
+        public UserRole Role { get; set; }
         public string DomainUser { get; set; }
     }
 }
