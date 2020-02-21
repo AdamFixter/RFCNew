@@ -38,7 +38,7 @@ namespace RFC.Controllers
                                 $"VALUES ('{Name}', '0', '{DomainUser}')" +
                             $"END" +
                    $" END");
-            return View();
+            return View(new User() { Name = Name, Role = UserRole.Admin, DomainUser = DomainUser});
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
