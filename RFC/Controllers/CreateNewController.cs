@@ -22,8 +22,10 @@ namespace RFC.Controllers
 
         // GET: CreateNew
         [Route("submissions")]
-        public async Task<IActionResult> Index(string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
+        public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User CurrentUser, string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
         {
+            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
+
             ViewData["CurrentSort"] = sortOrder;
 
             if (searchString != null)
@@ -141,8 +143,10 @@ namespace RFC.Controllers
         }
 
         // GET: CreateNew/Details/5
-        public async Task<IActionResult> Details(long? id)
+        public async Task<IActionResult> Details([Bind("ID,Name,Role,DomainUser")] User CurrentUser, long? id)
         {
+            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
+
             if (id == null)
             {
                 return NotFound();
@@ -206,8 +210,10 @@ namespace RFC.Controllers
         }
 
         // GET: CreateNew/Delete/5
-        public async Task<IActionResult> Delete(long? id)
+        public async Task<IActionResult> Delete([Bind("ID,Name,Role,DomainUser")] User CurrentUser, long? id)
         {
+            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
+
             if (id == null)
             {
                 return NotFound();
@@ -226,8 +232,10 @@ namespace RFC.Controllers
         // POST: CreateNew/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long id)
+        public async Task<IActionResult> DeleteConfirmed([Bind("ID,Name,Role,DomainUser")] User CurrentUser,long id)
         {
+            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
+
             var createNew = await _context.CreateNew.FindAsync(id);
             _context.CreateNew.Remove(createNew);
             await _context.SaveChangesAsync();
