@@ -2,6 +2,6 @@
 {
     public enum Product
     {
-        RIO, Flow, Oceano, Synergy, Conexes
+        RIO, Flow
     }
 }

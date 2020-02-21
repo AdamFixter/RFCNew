@@ -1,4 +1,128 @@
-﻿@model RFC.ViewModel.CreateNewViewModel
+﻿@*@model RFC.ViewModel.CreateNewViewModel
+
+    @{
+        ViewData["Title"] = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+        var prevDisabled = !Model.Requests.HasPreviousPage ? "disabled" : "";
+        var nextDisabled = !Model.Requests.HasNextPage ? "disabled" : "";
+    }
+
+    <div id="right">
+        <div class="header">
+            <h1>View Requests</h1>
+            @using (Html.BeginForm())
+            {
+                <p>
+                    Find in
+                    @Html.DropDownList("ColumnSelect", "Select a Column")
+                    by:
+                    @Html.TextBox("searchString")
+                    @Html.TextBox("DateTo")
+                    <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+        <div class="rightContent">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm })
+                        </th>
+                        <th>
+                            @Html.ActionLink("RFC Type", "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
+                        </th>
+                        <th>
+                            @Html.ActionLink("Product Name", "Index", new { sortOrder = ViewBag.ProductNameSortParm })
+                        </th>
+                        <th>
+                            @Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
+                        </th>
+                        <th>
+                            @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
+                        </th>
+                        <th>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.Requests)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ID)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Priority)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Product)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.CustomersAffected)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.DueDate)
+                            </td>
+                            <td>
+                                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <div class="buttons">
+                <div class="otherButtons">
+                    <a class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
+                </div>
+                <div class="formButtons">
+                    <a asp-action="Index"
+                       asp-route-sortOrder="@ViewData["CurrentSort"]"
+                       asp-route-pageNumber="@(Model.Requests.PageIndex - 1)"
+                       asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                       class="button submit btn btn-default @prevDisabled">
+                       Previous
+                    </a>
+                    <a asp-action="Index"
+                        asp-route-sortOrder="@ViewData["CurrentSort"]"
+                        asp-route-pageNumber="@(Model.Requests.PageIndex + 1)"
+                        asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                        class="button submit btn btn-default @nextDisabled">
+                        Next
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script>
+        var input = document.getElementById("searchString");
+        var dateRangeTo = document.getElementById("DateTo");
+        dateRangeTo.type = "date";
+        dateRangeTo.format = "{0:yyyy-MM-dd}";
+        dateRangeTo.style.visibility = "hidden";
+
+        $('#ColumnSelect').on('change', function() {
+            var index = $(this).find('option:selected').index();
+
+            if (index == 5) {
+                input.type = "date";
+                input.format = "{0:yyyy-MM-dd}";
+                dateRangeTo.style.visibility = "visible";
+            } else {
+                input.type = "text";
+                input.format = null;
+                dateRangeTo.style.visibility = "hidden";
+            }
+            input.value = "";
+        })
+    </script>*@
+
+
+@model RFC.ViewModel.CreateNewViewModel
 
 @{
     ViewData["Title"] = "Index";
@@ -24,7 +148,7 @@
         }
     </div>
     <div class="rightContent">
-        <table class="table">
+        <table class="table table-bordered table-condensed table-striped table-hover">
             <thead>
                 <tr>
                     <th>
@@ -49,7 +173,7 @@
             <tbody>
                 @foreach (var item in Model.Requests)
                 {
-                    <tr>
+                    <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
                         <td>
                             @Html.DisplayFor(modelItem => item.ID)
                         </td>
@@ -65,10 +189,6 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.DueDate)
                         </td>
-                        <td>
-                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                        </td>
                     </tr>
                 }
             </tbody>
@@ -83,19 +203,27 @@
                    asp-route-pageNumber="@(Model.Requests.PageIndex - 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
                    class="button submit btn btn-default @prevDisabled">
-                   Previous
+                    Previous
                 </a>
                 <a asp-action="Index"
-                    asp-route-sortOrder="@ViewData["CurrentSort"]"
-                    asp-route-pageNumber="@(Model.Requests.PageIndex + 1)"
-                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                    class="button submit btn btn-default @nextDisabled">
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.Requests.PageIndex + 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="button submit btn btn-default @nextDisabled">
                     Next
                 </a>
             </div>
         </div>
     </div>
 </div>
+
+
+<style>
+    #table-row td:hover {
+        cursor: pointer;
+    }
+</style>
+
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
@@ -105,7 +233,7 @@
     dateRangeTo.format = "{0:yyyy-MM-dd}";
     dateRangeTo.style.visibility = "hidden";
 
-    $('#ColumnSelect').on('change', function() {
+    $('#ColumnSelect').on('change', function () {
         var index = $(this).find('option:selected').index();
 
         if (index == 5) {
@@ -119,4 +247,16 @@
         }
         input.value = "";
     })
+
+
 </script>
+
+<script type="text/javascript">
+    $(document).ready(function ($) {
+        $(".d-table-row").click(function () {
+            window.document.location = $(this).data("href");
+        });
+    });
+</script>
+
+@*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
