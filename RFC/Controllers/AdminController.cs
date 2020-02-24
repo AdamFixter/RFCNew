@@ -23,7 +23,6 @@ namespace RFC.Controllers
         [Route("admin")]
         public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User user, string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
-            if (user.Role != UserRole.Admin) return RedirectToAction("Index", "Home", new { area = ""});
             ViewData["CurrentSort"] = sortOrder;
             ViewData["IDSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -70,7 +69,6 @@ namespace RFC.Controllers
         // GET: Admin/Details/5
         public async Task<IActionResult> Details([Bind("ID,Name,Role,DomainUser")] User CurrentUser, int? id)
         {
-            if (CurrentUser.Role != UserRole.Admin) return RedirectToAction("Index", "Home", new { area = "" });
             if (id == null)
             {
                 return NotFound();
@@ -111,7 +109,6 @@ namespace RFC.Controllers
         // GET: Admin/Edit/5
         public async Task<IActionResult> Edit([Bind("ID,Name,Role,DomainUser")] User CurrentUser, int? id)
         {
-            if (CurrentUser.Role != UserRole.Admin) return RedirectToAction("Index", "Home", new { area = "" });
 
             if (id == null)
             {
@@ -133,7 +130,6 @@ namespace RFC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Role,DomainUser")] User user)
         {
-            Debug.WriteLine("Role: " + user.Role + "\nName: " + user.Name + "\nID:" + user.ID + "\nDomainUser: " + user.DomainUser + "\n\n\n\n");
             if (id != user.ID)
             {
                 return NotFound();
@@ -165,7 +161,6 @@ namespace RFC.Controllers
         // GET: Admin/Delete/5
         public async Task<IActionResult> Delete([Bind("ID,Name,Role,DomainUser")] User CurrentUser, int? id)
         {
-            if (CurrentUser.Role != UserRole.Admin) return RedirectToAction("Index", "Home", new { area = "" });
             if (id == null)
             {
                 return NotFound();
