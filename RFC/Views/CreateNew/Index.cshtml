@@ -20,56 +20,77 @@
     <div class="rightContent">
         @using (Html.BeginForm())
         {
-            <p>
-                Find in
-                @Html.DropDownList("ColumnSelect", "Select a Column")
-                by:
-                @Html.TextBox("searchString")
-                @Html.TextBox("DateTo")
-                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
-                <input type="submit" value="Search" />
-            </p>
+        <p>
+            Find in
+            @Html.DropDownList("ColumnSelect", "Select a Column")
+            by:
+            @Html.TextBox("searchString", null, new { style="background-color: #d2d2d2;" }) @*It just works :)*@
+            @Html.TextBox("DateTo")
+            <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+            <input type="submit" value="Search" />
+        </p>
         }
         <table class="table table-bordered table-condensed table-striped table-hover">
             <thead>
                 <tr>
                     <th>
                         @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm })
+                        @(string.IsNullOrEmpty(ViewBag.sortOrder) ? "▲" : "")
+                        @(ViewBag.sortOrder == "IDDesc" ? "▼" : "")
                     </th>
                     <th>
                         @Html.ActionLink("RFC Type", "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
+                        @(ViewBag.sortOrder == "RFCTypeAsc" ? "▲" : "")
+                        @(ViewBag.sortOrder == "RFCTypeDesc" ? "▼" : "")
                     </th>
                     <th>
                         @Html.ActionLink("Product Name", "Index", new { sortOrder = ViewBag.ProductNameSortParm })
+                        @(ViewBag.sortOrder == "ProductNameAsc" ? "▲" : "")
+                        @(ViewBag.sortOrder == "ProductNameDesc" ? "▼" : "")
+
                     </th>
                     <th>
                         @Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
+                        @(ViewBag.sortOrder == "CustomerNameAsc" ? "▲" : "")
+                        @(ViewBag.sortOrder == "CustomerNameDesc" ? "▼" : "")
+
                     </th>
                     <th>
                         @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
+                        @(ViewBag.sortOrder == "RequestedDueDateAsc" ? "▲" : "")
+                        @(ViewBag.sortOrder == "RequestedDueDateDesc" ? "▼" : "")
+                    </th>
+                    <th>
+                        @Html.ActionLink("Approved", "Index", new { sortOrder = ViewBag.Approved })
+                        @(ViewBag.sortOrder == "ApprovedAsc" ? "▲" : "")
+                        @(ViewBag.sortOrder == "ApprovedDesc" ? "▼" : "")
+
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Priority)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Product)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CustomersAffected)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DueDate)
-                        </td>
-                    </tr>
+                <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Priority)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomersAffected)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+                    <td>
+                        @(item.Approved ? "✓" : "✕")
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
@@ -110,6 +131,7 @@
     dateRangeTo.type = "date";
     dateRangeTo.format = "{0:yyyy-MM-dd}";
 
+    dateRangeTo.style.display = "none";
     window.onload = testfunction;
 
     $('#ColumnSelect').on('change', function () {
@@ -137,9 +159,6 @@
             input.type = "date";
             input.format = "{0:yyyy-MM-dd}";
             dateRangeTo.style.display = "inline-block";
-        }
-        else {
-            dateRangeTo.style.display = "none";
         }
     }
 
