@@ -22,9 +22,8 @@ namespace RFC.Controllers
 
         // GET: CreateNew
         [Route("submissions")]
-        public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User CurrentUser, string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
+        public async Task<IActionResult> Index(string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
         {
-
             ViewData["CurrentSort"] = sortOrder;
 
             if (searchString != null)
@@ -67,33 +66,32 @@ namespace RFC.Controllers
                     case "ID":
                         submissions = submissions.Where(s => s.ID.ToString().Contains(searchString));
                         break;
-                    case "RequestedDueDate":
-                        submissions = submissions.Where(s => s.DueDate >= Convert.ToDateTime(searchString) && s.DueDate <= DateTo);
+                    case "RFCType":
+                        if (Enum.GetNames(typeof(Priority)).ToList().IndexOf(searchString) != -1) //Check if the string includes a valid enum.
+                        {
+                            Priority foundPriority = (Priority)Enum.Parse(typeof(Priority), searchString); //Parse the search string to the Priority.
+                            submissions = submissions.Where(s => s.Priority == foundPriority);
+                        }
+                        else
+                        {
+                            submissions = Enumerable.Empty<CreateNew>().AsQueryable();
+                        }
                         break;
-                    //case "RFCType":
-                    //    if (Enum.GetNames(typeof(Priority)).ToList().IndexOf(searchString) != -1) //Check if the string includes a valid enum.
-                    //    {
-                    //        Priority foundPriority = (Priority)Enum.Parse(typeof(Priority), searchString); //Parse the search string to the Priority.
-                    //        submissions = submissions.Where(s => s.Priority == foundPriority);
-                    //    }
-                    //    else
-                    //    {
-                    //        submissions = Enumerable.Empty<CreateNew>().AsQueryable();
-                    //    }
-                    //    break;
-                    //case "ProductName":
-                    //    if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1)
-                    //    {
-                    //        Product foundProduct = (Product)Enum.Parse(typeof(Product), searchString);
-                    //        submissions = submissions.Where(s => s.Product == foundProduct);
-                    //    }
-                    //    else
-                    //    {
-                    //        submissions = Enumerable.Empty<CreateNew>().AsQueryable();
-                    //    }
-                    //    break;
+                    case "ProductName":
+                        if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1) 
+                        {
+                            Product foundProduct = (Product) Enum.Parse(typeof(Product), searchString);
+                            submissions = submissions.Where(s => s.Product == foundProduct);
+                        } else
+                        {
+                            submissions = Enumerable.Empty<CreateNew>().AsQueryable();
+                        }
+                        break;
                     case "CustomerName":
                         submissions = submissions.Where(s => s.customers.Contains(searchString));
+                        break;
+                    case "RequestedDueDate":
+                        submissions = submissions.Where(s => s.DueDate >= Convert.ToDateTime(searchString) && s.DueDate <= DateTo);
                         break;
                     default:
                         break;
@@ -136,13 +134,15 @@ namespace RFC.Controllers
                     break;
             }
             int pageSize = 5;
-            return View(await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize));
+            return View(new CreateNewViewModel()
+            {
+                Requests = await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize)
+            });
         }
 
         // GET: CreateNew/Details/5
-        public async Task<IActionResult> Details([Bind("ID,Name,Role,DomainUser")] User CurrentUser, long? id)
+        public async Task<IActionResult> Details(long? id)
         {
-
             if (id == null)
             {
                 return NotFound();
@@ -206,10 +206,8 @@ namespace RFC.Controllers
         }
 
         // GET: CreateNew/Delete/5
-        public async Task<IActionResult> Delete([Bind("ID,Name,Role,DomainUser")] User CurrentUser, long? id)
+        public async Task<IActionResult> Delete(long? id)
         {
-            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
-
             if (id == null)
             {
                 return NotFound();
@@ -228,10 +226,8 @@ namespace RFC.Controllers
         // POST: CreateNew/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed([Bind("ID,Name,Role,DomainUser")] User CurrentUser,long id)
+        public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
-
             var createNew = await _context.CreateNew.FindAsync(id);
             _context.CreateNew.Remove(createNew);
             await _context.SaveChangesAsync();

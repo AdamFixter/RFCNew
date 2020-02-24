@@ -3,11 +3,6 @@
     var args = User.Identity.Name.Split("\\");
     var name = textInfo.ToTitleCase(args[1].Replace(".", " "));
     //var email = args[1] + "@" + textInfo.ToLower(args[0]) + ".com";
-
-    var quotes = new string[]
-    {
-        ""
-    };
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -49,9 +44,6 @@
         <div class="background"></div>
         <div class="RFCForm">@RenderBody()</div>
     </div>
-    @*<div class="footer">
-        <div id="motivationQuote"></div>
-    </div>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

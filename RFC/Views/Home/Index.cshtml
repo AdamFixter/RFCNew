@@ -5,14 +5,12 @@
     var args = User.Identity.Name.Split("\\");
     var name = textInfo.ToTitleCase(args[1].Replace(".", " "));
     var DomainUser = User.Identity.Name;
-
-    var greetings = new string[] { "Welcome back %name%", "Good day, %name%", "Long time no see, %name%", "Greetings %name%" };
 }
 
 <div id="left"></div>
 <div id="right">
     <div class="header">
-        <h1 style="text-align:center">@greetings[new Random().Next(0, greetings.Length)].Replace("%name%", Model.Name)</h1>
+        <h1 style="text-align:center">Welcome back @name</h1>
     </div>
     <div class="rightContent">
         <div class="options">

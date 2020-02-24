@@ -22,17 +22,7 @@ namespace RFC.Controllers
             _logger = logger;
             _context = context;
         }
-        private User fetchUser(string Name, string DomainUser)
-        {
-            User User = _context.User.FirstOrDefault(user => user.Name == Name && user.DomainUser == DomainUser);
-            if (User == null)
-            {
-                User = new User() { Name = Name, DomainUser = DomainUser, Role = UserRole.Standard };
-                _context.User.Add(User);
-                _context.SaveChangesAsync();
-            }
-            return User;
-        }
+
         public IActionResult Index()
         {
             var args = User.Identity.Name.Split("\\");
@@ -40,9 +30,16 @@ namespace RFC.Controllers
             var Name = textInfo.ToTitleCase(args[1].Replace(".", " "));
             var DomainUser = User.Identity.Name;
 
-            var fetchedUser = this.fetchUser(Name, DomainUser);
+            Debug.WriteLine($"\n\n{Name}\n{DomainUser}\n");
+                _context.Database.ExecuteSqlRaw(
+                    $"BEGIN IF NOT EXISTS " +
+                        $"(SELECT * FROM [dbo].[User] WHERE Name='{Name}' AND DomainUser='{DomainUser}')" +
+                            $"BEGIN INSERT INTO [dbo].[User] (Name, Role, DomainUser)" +
+                                $"VALUES ('{Name}', '0', '{DomainUser}')" +
+                            $"END" +
+                   $" END");
 
-            return View(fetchedUser);
+            return View(new User() { Name = Name, Role = UserRole.Admin, DomainUser = DomainUser});
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
