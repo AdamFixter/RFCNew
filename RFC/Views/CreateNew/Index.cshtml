@@ -4,8 +4,6 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
 <div id="right">
@@ -20,30 +18,36 @@
     <div class="rightContent">
         @using (Html.BeginForm())
         {
-            <p>
-                Find in
-                @Html.DropDownList("ColumnSelect", "Select a Column")
-                by:
-                @Html.TextBox("searchString")
-                @Html.TextBox("DateTo")
-                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
-                <input type="submit" value="Search" />
-            </p>
+        <p>
+            Find in
+            @Html.DropDownList("ColumnSelect", "Select a Column")
+            by:
+            @Html.TextBox("searchString", null, new { style="background-color: #e7e7e7;" }) @*It just works :)*@
+            @Html.TextBox("DateTo")
+            <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+            <input type="submit" value="Search" />
+        </p>
         }
         <table class="table table-bordered table-condensed table-striped table-hover">
             <thead>
                 <tr>
                     <th>
-                        @Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
+                        @Html.ActionLink("ID" + (string.IsNullOrEmpty(ViewBag.sortOrder) ? " ▼" : "") + (ViewBag.sortOrder == "IDDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.IDSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Product Name", "Index", new { sortOrder = ViewBag.ProductNameSortParm })
+                        @Html.ActionLink("RFC Type" + (ViewBag.sortOrder == "RFCTypeAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RFCTypeDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
+                        @Html.ActionLink("Product Name" + (ViewBag.sortOrder == "ProductNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ProductNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.ProductNameSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("RFC Type", "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
+                        @Html.ActionLink("Customer Name" + (ViewBag.sortOrder == "CustomerNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "CustomerNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Requested Due Date" + (ViewBag.sortOrder == "RequestedDueDateAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RequestedDueDateDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Approved" + (ViewBag.sortOrder == "ApprovedAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ApprovedDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.Approved })
                     </th>
                 </tr>
             </thead>
@@ -52,16 +56,22 @@
                 {
                 <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CustomersAffected)
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Priority)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Product)
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.CustomersAffected)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.DueDate)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Priority)
+                        @(item.Approved ? "✓" : "✕")
                     </td>
                 </tr>
                 }
@@ -73,14 +83,14 @@
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
                    asp-route-pageNumber="@(Model.PageIndex - 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class="button submit btn btn-default @prevDisabled">
+                   class="button submit btn btn-default @(!Model.HasPreviousPage ? "disabled" : "")">
                     Previous
                 </a>
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
                    asp-route-pageNumber="@(Model.PageIndex + 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class="button submit btn btn-default @nextDisabled">
+                   class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
                     Next
                 </a>
             </div>
@@ -90,6 +100,7 @@
 
 
 <style>
+
     #table-row td:hover {
         cursor: pointer;
     }
@@ -103,6 +114,7 @@
     dateRangeTo.type = "date";
     dateRangeTo.format = "{0:yyyy-MM-dd}";
 
+    dateRangeTo.style.display = "none";
     window.onload = testfunction;
 
     $('#ColumnSelect').on('change', function () {
@@ -130,9 +142,6 @@
             input.type = "date";
             input.format = "{0:yyyy-MM-dd}";
             dateRangeTo.style.display = "inline-block";
-        }
-        else {
-            dateRangeTo.style.display = "none";
         }
     }
 

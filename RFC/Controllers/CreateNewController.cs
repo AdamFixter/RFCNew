@@ -39,19 +39,23 @@ namespace RFC.Controllers
 
             List<SelectListItem> items = new List<SelectListItem>   //// Creates list of possible columns to select in drop-down menu
             {
-                new SelectListItem { Value = "RFCType", Text = "RFC Type" },
+                new SelectListItem { Value = "ID", Text = "ID" },
+                new SelectListItem { Value = "RFCType", Text = "Type" },
                 new SelectListItem { Value = "ProductName", Text = "Product Name" },
                 new SelectListItem { Value = "CustomerName", Text = "Customer Name" },
                 new SelectListItem { Value = "RequestedDueDate", Text = "Requested Due Date" },
+                new SelectListItem { Value = "Approved", Text = "Approved" }
             };
             ViewBag.columnSelect = items;   //// Adds the pre-created list into the variable that will use it as dropdown values
 
 
             ///// ViewBag.[something]Parm is used for sorting order by clicking column
-            ViewBag.CustomerNameSortParm = sortOrder == "CustomerNameAsc" ? "CustomerNameDesc" : "CustomerNameAsc";
-            ViewBag.ProductNameSortParm = sortOrder == "ProductNameAsc" ? "ProductNameDesc" : "ProductNameAsc";
-            ViewBag.RequestedDueDateSortParm = sortOrder == "RequestedDueDateAsc" ? "RequestedDueDateDesc" : "RequestedDueDateAsc";
+            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "IDDesc" : "";
             ViewBag.RFCTypeSortParm = sortOrder == "RFCTypeAsc" ? "RFCTypeDesc" : "RFCTypeAsc";
+            ViewBag.ProductNameSortParm = sortOrder == "ProductNameAsc" ? "ProductNameDesc" : "ProductNameAsc";
+            ViewBag.CustomerNameSortParm = sortOrder == "CustomerNameAsc" ? "CustomerNameDesc" : "CustomerNameAsc";
+            ViewBag.RequestedDueDateSortParm = sortOrder == "RequestedDueDateAsc" ? "RequestedDueDateDesc" : "RequestedDueDateAsc";
+            ViewBag.Approved = sortOrder == "ApprovedAsc" ? "ApprovedDesc" : "ApprovedAsc";
 
             //// The 'submissions' is the variable with the data from the table
             var submissions = from s in _context.CreateNew
@@ -93,13 +97,10 @@ namespace RFC.Controllers
                     case "CustomerName":
                         submissions = submissions.Where(s => s.customers.Contains(searchString));
                         break;
-                    default:
-                        break;
-
                 }
             }
 
-
+            ViewBag.sortOrder = sortOrder;
             switch (sortOrder)  //// Sorts the columns when you click on them  by Asc or Desc
             {
                 case "IDDesc":
@@ -128,6 +129,12 @@ namespace RFC.Controllers
                     break;
                 case "RequestedDueDateDesc":
                     submissions = submissions.OrderByDescending(submission => submission.DueDate);
+                    break;
+                case "ApprovedAsc":
+                    submissions = submissions.OrderBy(submission => submission.Approved);
+                    break;
+                case "ApprovedDesc":
+                    submissions = submissions.OrderByDescending(submission => submission.Approved);
                     break;
                 default:
                     submissions = submissions.OrderBy(submission => submission.ID);
