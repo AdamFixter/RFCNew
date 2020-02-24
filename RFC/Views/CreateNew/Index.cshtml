@@ -1,10 +1,11 @@
-﻿@model RFC.ViewModel.CreateNewViewModel
+﻿
+@model PaginatedList<RFC.Models.CreateNew>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var prevDisabled = !Model.Requests.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.Requests.HasNextPage ? "disabled" : "";
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
 <div id="right">
@@ -18,8 +19,8 @@
                 by:
                 @Html.TextBox("searchString")
                 @Html.TextBox("DateTo")
-                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"/>
-                <input type="submit" value="Search" style="display: inline-block;"/>
+                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+                <input type="submit" value="Search" />
             </p>
         }
     </div>
@@ -42,10 +43,12 @@
                     <th>
                         @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
                     </th>
+                    <th>
+                    </th>
                 </tr>
             </thead>
             <tbody>
-                @foreach (var item in Model.Requests)
+                @foreach (var item in Model)
                 {
                     <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
                         <td>
@@ -74,14 +77,14 @@
             <div class="formButtons">
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.Requests.PageIndex - 1)"
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
                    class="button submit btn btn-default @prevDisabled">
                     Previous
                 </a>
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.Requests.PageIndex + 1)"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
                    class="button submit btn btn-default @nextDisabled">
                     Next
@@ -93,6 +96,7 @@
 
 
 <style>
+
     #table-row td:hover {
         cursor: pointer;
     }
@@ -107,9 +111,6 @@
     dateRangeTo.format = "{0:yyyy-MM-dd}";
 
     window.onload = testfunction;
-
-
-    //dateRangeTo.style.display = "none";
 
     $('#ColumnSelect').on('change', function () {
         var index = $(this).find('option:selected').index();

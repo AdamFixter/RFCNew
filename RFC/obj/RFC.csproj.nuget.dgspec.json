@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj": {}
+    "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (7)\\RFCNew-master\\RFC\\RFC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj": {
+    "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (7)\\RFCNew-master\\RFC\\RFC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
+        "projectUniqueName": "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (7)\\RFCNew-master\\RFC\\RFC.csproj",
         "projectName": "RFC",
-        "projectPath": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
+        "projectPath": "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (7)\\RFCNew-master\\RFC\\RFC.csproj",
         "packagesPath": "C:\\Users\\Christian.Cybaniak\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\obj\\",
+        "outputPath": "C:\\Users\\Christian.Cybaniak\\Downloads\\RFCNew-master (7)\\RFCNew-master\\RFC\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
