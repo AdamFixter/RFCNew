@@ -29,13 +29,12 @@
                     <th>
                         @Html.ActionLink("Role", "Index", new { sortOrder = ViewBag.RoleSortParam })
                     </th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
+                    <tr class="d-table-row" id="table-row" data-href=@("/Admin/Details/" + item.ID)>
                         <td>
                             @Html.DisplayFor(modelItem => item.ID)
                         </td>
@@ -45,12 +44,27 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.Role)
                         </td>
-                        <td>
-                            <a asp-action="Details" asp-route-id="@item.ID">Details</a>
-                        </td>
                     </tr>
                 }
             </tbody>
         </table>
     </div>
 </div>
+
+
+<style>
+
+    #table-row td:hover {
+        cursor: pointer;
+    }
+</style>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function ($) {
+        $(".d-table-row").click(function () {
+            window.document.location = $(this).data("href");
+        });
+    });</script>

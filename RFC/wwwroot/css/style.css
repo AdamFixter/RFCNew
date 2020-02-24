@@ -128,7 +128,6 @@ a.button.submit {
     transition: all 0.5s ease;
     color: white;
     background-color: #004fff;
-    width: 25%;
 }
 
 a.button {
@@ -193,10 +192,10 @@ select, input, label, input, a {
 }
 
 
-select:focus, input:active, label:active, input:focus, a:focus {
-    border: solid;
-    border-color: #FFDD00;
-}
+    select:focus, input:active, label:active, input:focus, a:focus {
+        border: solid;
+        border-color: #FFDD00;
+    }
 
 p, label, h1 {
     -webkit-touch-callout: none;
