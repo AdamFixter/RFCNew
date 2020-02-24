@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -20,22 +21,63 @@ namespace RFC.Controllers
             _context = context;
         }
 
+        private List<SelectListItem> FilteringChoices = new List<SelectListItem>()
+        {
+            new SelectListItem { Value = "Priority", Text = "Priority" },
+            new SelectListItem { Value = "Product", Text = "Product" },
+            new SelectListItem { Value = "Customer", Text = "Customer" },
+            new SelectListItem { Value = "DueDate", Text = "Due Date" }
+        };
+
+        // [Route("submissions")] //For dropdowns
+        // public async Task<IActionResult> Index()
+        // {
+        //     ViewBag.columnSelect = FilteringChoices;   // Adds the pre-created list into the variable that will use it as dropdown values
+
+        //     CreateNewViewModel vm = new CreateNewViewModel();
+        //     vm.PossibleFilters = FilteringChoices;
+        //     return View(vm);
+        // }
+
+        [HttpPost]
+        public ActionResult getDropdownFor(string name)
+        {
+            switch (name)
+            {
+                case "Priority":
+                    return Json(new SelectList(getAllPriorities(), "Value", "Text"));
+                case "Product":
+                    return Json(new SelectList(getAllProducts(), "Value", "Text"));
+                case "Customer":
+                    return Json(new SelectList(getAllCustomers(), "Value", "Text"));
+                default:
+                    break;
+            }
+            return NotFound();
+        }
+
+        public List<SelectListItem> getAllPriorities()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            Enum.GetValues(typeof(Priority)).Cast<Priority>().ToList().ForEach(priority => items.Add(new SelectListItem { Value = priority.ToString(), Text = priority.ToString() }));
+            return items;
+        }
+        public List<SelectListItem> getAllProducts()
+        {
+            List <SelectListItem> items = new List<SelectListItem>();
+            Enum.GetValues(typeof(Product)).Cast<Product>().ToList().ForEach(product => items.Add(new SelectListItem { Value = product.ToString(), Text = product.ToString() }));
+            return items;
+        }
+        public List<SelectListItem> getAllCustomers()
+        {
+            List<SelectListItem> items = new List<SelectListItem>();
+            Enum.GetValues(typeof(CustomersAffected)).Cast<CustomersAffected>().ToList().ForEach(customer => items.Add(new SelectListItem { Value = customer.ToString(), Text = customer.ToString() }));
+            return items;
+        }
         // GET: CreateNew
         [Route("submissions")]
         public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User CurrentUser, string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
         {
-
-            ViewData["CurrentSort"] = sortOrder;
-
-            if (searchString != null)
-            {
-                pageNumber = 1;
-            }
-            else
-            {
-                searchString = "";
-            }
-
 
             List<SelectListItem> items = new List<SelectListItem>   //// Creates list of possible columns to select in drop-down menu
             {
