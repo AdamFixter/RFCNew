@@ -39,7 +39,6 @@ namespace RFC.Controllers
 
             List<SelectListItem> items = new List<SelectListItem>   //// Creates list of possible columns to select in drop-down menu
             {
-                new SelectListItem { Value = "ID", Text = "ID" },
                 new SelectListItem { Value = "RFCType", Text = "RFC Type" },
                 new SelectListItem { Value = "ProductName", Text = "Product Name" },
                 new SelectListItem { Value = "CustomerName", Text = "Customer Name" },
@@ -49,11 +48,10 @@ namespace RFC.Controllers
 
 
             ///// ViewBag.[something]Parm is used for sorting order by clicking column
-            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "IDDesc" : "";
-            ViewBag.RFCTypeSortParm = sortOrder == "RFCTypeAsc" ? "RFCTypeDesc" : "RFCTypeAsc";
-            ViewBag.ProductNameSortParm = sortOrder == "ProductNameAsc" ? "ProductNameDesc" : "ProductNameAsc";
             ViewBag.CustomerNameSortParm = sortOrder == "CustomerNameAsc" ? "CustomerNameDesc" : "CustomerNameAsc";
+            ViewBag.ProductNameSortParm = sortOrder == "ProductNameAsc" ? "ProductNameDesc" : "ProductNameAsc";
             ViewBag.RequestedDueDateSortParm = sortOrder == "RequestedDueDateAsc" ? "RequestedDueDateDesc" : "RequestedDueDateAsc";
+            ViewBag.RFCTypeSortParm = sortOrder == "RFCTypeAsc" ? "RFCTypeDesc" : "RFCTypeAsc";
 
             //// The 'submissions' is the variable with the data from the table
             var submissions = from s in _context.CreateNew

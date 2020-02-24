@@ -159,7 +159,7 @@
 
         <div class="buttons" style="display: flex; justify-content: space-around">
             <a class="btn btn-default button btn-danger" asp-action="Delete" asp-route-id="@Model.ID">Delete</a>
-            <a class="btn btn-default button @(Model.Approved ? "btn-warning" : "btn-success")" asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved ? "Unapprove" : "Approve")</a>
+            <a class="btn btn-default button @(Model.Approved ? "btn-warning" : "btn-success")" asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved ? "Decline" : "Approve")</a>
         </div>
     </div>
 </div>
@@ -178,16 +178,15 @@
         font-size: 15px;
         font-weight: bold;
         border-color: #f3f3f3;
-        outline: none;
     }
 
-        .active, .collapsible:hover {
-            background-color: #d2d2d2;
-        }
+    .active, .collapsible:hover {
+        background-color: #d2d2d2;
+    }
 
     .content {
         padding: 0 18px;
-        display: none;
+        display: block;
         overflow: hidden;
         background-color: #d2d2d2;
     }
@@ -203,17 +202,50 @@
 </style>
 
 
-<script>var coll = document.getElementsByClassName("collapsible");
-    var i;
-
-    for (i = 0; i < coll.length; i++) {
+@*<script>
+    var coll = document.getElementsByClassName("collapsible");
+    console.log(coll)
+    for (var i = 0; i < coll.length-1; i++) {
+        console.log(coll[i]);
+        coll[i].style.background = "#d2d2d2";
         coll[i].addEventListener("click", function () {
+            console.log(coll[i]);
+            console.log(coll[i].nextElementSibling);
             this.classList.toggle("active");
-            var content = this.nextElementSibling;
+            var content = coll[i].nextElementSibling;
             if (content.style.display === "block") {
                 content.style.display = "none";
+                content.previousElementSibling.style.background = "#f3f3f3";
             } else {
                 content.style.display = "block";
+                content.previousElementSibling.style.background = "#d2d2d2";
             }
         });
-    }</script>
+    }
+</script>*@
+
+
+
+<script>
+
+    let coll = document.getElementsByClassName("collapsible");
+    for (let i = 0; i < coll.length; i++) {
+        let question = coll[i];
+        let content = question.nextElementSibling;
+        question.style.background = "#d2d2d2";
+
+        question.addEventListener("click", function () {
+            if (content.style.display == "" || content.style.display == "block") {
+                content.style.display = "none";
+                question.style.background = "#f3f3f3";
+            } else {
+
+                content.style.display = "block";
+                question.style.background = "#d2d2d2";
+            }
+        });
+        console.log(question);
+        console.log(content);
+    }
+
+</script>

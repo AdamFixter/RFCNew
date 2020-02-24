@@ -34,42 +34,36 @@
             <thead>
                 <tr>
                     <th>
-                        @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm })
-                    </th>
-                    <th>
-                        @Html.ActionLink("RFC Type", "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
+                        @Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
                     </th>
                     <th>
                         @Html.ActionLink("Product Name", "Index", new { sortOrder = ViewBag.ProductNameSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
+                        @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
+                        @Html.ActionLink("RFC Type", "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Priority)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Product)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CustomersAffected)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DueDate)
-                        </td>
-                    </tr>
+                <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomersAffected)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Priority)
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
@@ -96,7 +90,6 @@
 
 
 <style>
-
     #table-row td:hover {
         cursor: pointer;
     }
