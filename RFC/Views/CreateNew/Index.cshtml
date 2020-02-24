@@ -1,39 +1,11 @@
 ﻿
-@model RFC.ViewModel.CreateNewViewModel
+@model PaginatedList<RFC.Models.CreateNew>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
-<script language="javascript" type="text/javascript">
-    function GetDropdown(_name) {
-        console.log(`Getting dropdown for: ${_name}`);
-        var procemessage = "<option value='0'> Please wait...</option>";
-        $("filterDropdown").html(procemessage).show();
-        var url = "/createnew/getDropdownFor/";
 
-        $.ajax({
-            url: url,
-            data: { name: _name },
-            cache: false,
-            type: "POST",
-            success: function (data) {
-                let markup = "<option value='0'>Select!!!</option>";
-                Object.keys(data).forEach(item => {
-                    item = data[item];
-                    markup = markup + `<option value='${item.value}'>${item.text}</option>`;
-                });
-                $("#filterDropdown").html(markup).show();
-
-            },
-            error: function (response) {
-                alert("error : " + JSON.stringify(response));
-            }
-        });
-
-    }
-</script>
 <div id="right">
     <div class="header" style="display:flex; justify-content: space-between;">
         <h1 style="display:inline-block; width:auto; vertical-align: top;">Requests</h1>
@@ -46,26 +18,15 @@
     <div class="rightContent">
         @using (Html.BeginForm())
         {
-            @Html.DropDownListFor(m => m.PossibleFilters, new SelectList(Model.PossibleFilters, "Value", "Text"), new { @id = "possibleFilters", @style = "width:200px;", @onchange = "javascript:GetDropdown(this.value);" })
-            <select id="filterDropdown" style="width: 200px"></select>
-        }
-        @*@using (Html.BeginForm("Create", "CreateNewController", FormMethod.Get))
-        {
-            <label>Select an item</label>
-            @Html.DropDownListFor(i => i.ListItems, Model.ListItems, "Select");
-            <input type="submit" value="Filter" />
-        }*@
-        @using (Html.BeginForm())
-        {
-            <p>
-                Find in
-                @Html.DropDownList("ColumnSelect", "Select a Column")
-                by:
-                @Html.TextBox("searchString")
-                @Html.TextBox("DateTo")
-                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
-                <input type="submit" value="Search" />
-            </p>
+        <p>
+            Find in
+            @Html.DropDownList("ColumnSelect", "Select a Column")
+            by:
+            @Html.TextBox("searchString", null, new { style="background-color: #e7e7e7;" }) @*It just works :)*@
+            @Html.TextBox("DateTo")
+            <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+            <input type="submit" value="Search" />
+        </p>
         }
         <table class="table table-bordered table-condensed table-striped table-hover">
             <thead>
@@ -90,8 +51,8 @@
                     </th>
                 </tr>
             </thead>
-            @*<tbody>
-                @foreach (var item in Model.Requests)
+            <tbody>
+                @foreach (var item in Model)
                 {
                 <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
                     <td>
@@ -114,26 +75,26 @@
                     </td>
                 </tr>
                 }
-            </tbody>*@
+            </tbody>
         </table>
-        @*<div class="buttons">
+        <div class="buttons">
             <div class="formButtons">
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.Requests.PageIndex - 1)"
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
                    class="button submit btn btn-default @(!Model.HasPreviousPage ? "disabled" : "")">
                     Previous
                 </a>
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.Requests.PageIndex + 1)"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
                    class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
                     Next
                 </a>
             </div>
-        </div>*@
+        </div>
     </div>
 </div>
 

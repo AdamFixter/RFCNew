@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using RFC.Models;
+﻿using RFC.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,9 +9,8 @@ namespace RFC.ViewModel
 {
     public class CreateNewViewModel
     {
-        //public PaginatedList<CreateNew> Requests { get; set; }
+        public PaginatedList<CreateNew> Requests { get; set; }
         [DataType(DataType.Date)]
-        public List<SelectListItem> PossibleFilters { get; set; }
         public DateTime FromDate { get; set; }
         [DataType(DataType.Date)]
         public DateTime ToDate { get; set; }
