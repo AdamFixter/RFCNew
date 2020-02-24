@@ -105,12 +105,17 @@
     var dateRangeTo = document.getElementById("DateTo");
     dateRangeTo.type = "date";
     dateRangeTo.format = "{0:yyyy-MM-dd}";
-    dateRangeTo.style.display = "none";
+
+    window.onload = testfunction;
+
+
+    //dateRangeTo.style.display = "none";
 
     $('#ColumnSelect').on('change', function () {
         var index = $(this).find('option:selected').index();
 
         if (index == 5) {
+            dateRangeTo.value = "";
             input.type = "date";
             input.format = "{0:yyyy-MM-dd}";
             dateRangeTo.style.display = "inline-block";
@@ -122,6 +127,20 @@
         }
         input.value = "";
     })
+
+    function testfunction() {
+
+        var columnselect = document.getElementById("ColumnSelect");
+
+        if (columnselect.options[columnselect.selectedIndex].text == "Requested Due Date") {
+            input.type = "date";
+            input.format = "{0:yyyy-MM-dd}";
+            dateRangeTo.style.display = "inline-block";
+        }
+        else {
+            dateRangeTo.style.display = "none";
+        }
+    }
 
 
 </script>
