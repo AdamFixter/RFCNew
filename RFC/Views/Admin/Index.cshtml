@@ -35,7 +35,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr class="d-table-row" id="table-row" data-href=@("/Admin/Details/" + item.ID)>
+                    <tr>
                         <td>
                             @Html.DisplayFor(modelItem => item.ID)
                         </td>
@@ -54,20 +54,3 @@
         </table>
     </div>
 </div>
-
-
-<style>
-
-    #table-row td:hover {
-        cursor: pointer;
-    }
-</style>
-
-
-<script src="~/lib/jquery/dist/jquery.js"></script>
-
-<script type="text/javascript">$(document).ready(function ($) {
-        $(".d-table-row").click(function () {
-            window.document.location = $(this).data("href");
-        });
-    });</script>
