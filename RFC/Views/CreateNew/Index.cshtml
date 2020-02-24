@@ -9,8 +9,15 @@
 }
 
 <div id="right">
-    <div class="header">
-        <h1>View Requests</h1>
+    <div class="header" style="display:flex; justify-content: space-between;">
+        <h1 style="display:inline-block; width:auto; vertical-align: top;">Requests</h1>
+        <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
+            <div class="otherButtons">
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
+            </div>
+        </div>
+    </div>
+    <div class="rightContent">
         @using (Html.BeginForm())
         {
             <p>
@@ -23,8 +30,6 @@
                 <input type="submit" value="Search" />
             </p>
         }
-    </div>
-    <div class="rightContent">
         <table class="table table-bordered table-condensed table-striped table-hover">
             <thead>
                 <tr>
@@ -69,9 +74,6 @@
             </tbody>
         </table>
         <div class="buttons">
-            <div class="otherButtons">
-                <a class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
-            </div>
             <div class="formButtons">
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
