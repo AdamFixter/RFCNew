@@ -28,6 +28,7 @@
           "Microsoft.EntityFrameworkCore.Tools": "3.0.0",
           "Microsoft.Extensions.Logging.Debug": "3.0.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.0.0",
+          "Moment.js": "2.24.0",
           "Microsoft.AspNetCore.Antiforgery": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.0.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.0.0.0",
@@ -916,6 +917,7 @@
           "System.Security.Principal.Windows": "4.5.0"
         }
       },
+      "Moment.js/2.24.0": {},
       "NETStandard.Library/1.6.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "2.1.2",
@@ -4010,6 +4012,13 @@
       "sha512": "sha512-+FWlwd//+Tt56316p00hVePBCouXyEzT86Jb3+AuRotTND0IYn0OO3obs1gnQEs/txEnt+rF2JBGLItTG+Be6A==",
       "path": "microsoft.win32.registry/4.5.0",
       "hashPath": "microsoft.win32.registry.4.5.0.nupkg.sha512"
+    },
+    "Moment.js/2.24.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EklynJ92k3/mjOu+ux0CQvXMZqPkkuuV5SuGQNfAnbsVIdNEa8Lj0HQovfbeK4xRlFJ6BAMQB05esoM1KkyvNg==",
+      "path": "moment.js/2.24.0",
+      "hashPath": "moment.js.2.24.0.nupkg.sha512"
     },
     "NETStandard.Library/1.6.1": {
       "type": "package",
