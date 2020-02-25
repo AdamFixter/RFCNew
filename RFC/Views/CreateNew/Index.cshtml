@@ -4,6 +4,8 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var priorityList = Html.GetEnumSelectList<Priority>();
 }
 
 <div id="right">
@@ -18,14 +20,15 @@
     <div class="rightContent">
         @using (Html.BeginForm())
         {
-        <p>
+        <p id="filter">
             Find in
             @Html.DropDownList("ColumnSelect", "Select a Column")
             by:
-            @Html.TextBox("searchString", null, new { style="background-color: #e7e7e7;" }) @*It just works :)*@
+            @Html.TextBox("searchString", null, new { style = "background-color: #e7e7e7;", list = "datalist", autocomplete="off"}) @*It just works :)*@
             @Html.TextBox("DateTo")
             <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
             <input type="submit" value="Search" />
+            <datalist id="datalist"></datalist>
         </p>
         }
         <table class="table table-bordered table-condensed table-striped table-hover">
@@ -35,7 +38,7 @@
                         @Html.ActionLink("ID" + (string.IsNullOrEmpty(ViewBag.sortOrder) ? " ▼" : "") + (ViewBag.sortOrder == "IDDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.IDSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("RFC Type" + (ViewBag.sortOrder == "RFCTypeAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RFCTypeDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
+                        @Html.ActionLink("Priority" + (ViewBag.sortOrder == "RFCTypeAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RFCTypeDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
                     </th>
                     <th>
                         @Html.ActionLink("Product Name" + (ViewBag.sortOrder == "ProductNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ProductNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.ProductNameSortParm })
@@ -116,7 +119,9 @@
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
     var input = document.getElementById("searchString");
+    input.value = "";
     var dateRangeTo = document.getElementById("DateTo");
+    var datalist = document.getElementById("datalist");
     dateRangeTo.type = "date";
     dateRangeTo.format = "{0:yyyy-MM-dd}";
 
@@ -125,21 +130,35 @@
 
     $('#ColumnSelect').on('change', function () {
         var index = $(this).find('option:selected').index();
-
-        if (index == 5) {
-            dateRangeTo.value = "";
-            input.type = "date";
-            input.format = "{0:yyyy-MM-dd}";
-            dateRangeTo.style.display = "inline-block";
-            document.getElementById("weeklyAgenda").style.display="inline-block";
-        } else {
-            input.type = "text";
-            input.format = null;
-            dateRangeTo.innerHTML = "";
-            dateRangeTo.style.display = "none";
-            document.getElementById("weeklyAgenda").style.display="none";
+        switch (index) {
+            case 2:
+                datalist.innerHTML = `<option value="Retrospective"></option>
+                                      <option value="Normal"></option>
+                                      <option value="Emergency"></option>`;
+                break;
+            case 3:
+                datalist.innerHTML = `<option value="RIO"></option>
+                                      <option value="Flow"></option>
+                                      <option value="Oceano"></option>
+                                      <option value="Conexes"></option>
+                                      <option value="Mosaic"></option>`;
+                break;
+            case 5:
+                dateRangeTo.value = "";
+                input.type = "date";
+                input.format = "{0:yyyy-MM-dd}";
+                dateRangeTo.style.display = "inline-block";
+                document.getElementById("weeklyAgenda").style.display="inline-block";
+                break;
+            default:
+                datalist.innerHTML = "";
+                input.type = "text";
+                input.format = null;
+                dateRangeTo.innerHTML = "";
+                dateRangeTo.style.display = "none";
+                document.getElementById("weeklyAgenda").style.display="none";
+                break;
         }
-        input.value = "";
     })
 
     function testfunction() {

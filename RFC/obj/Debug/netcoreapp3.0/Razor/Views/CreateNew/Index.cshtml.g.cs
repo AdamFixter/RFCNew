@@ -70,6 +70,8 @@ using RFC.Models;
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
+    var priorityList = Html.GetEnumSelectList<Priority>();
+
 #line default
 #line hidden
 #nullable disable
@@ -434,7 +436,9 @@ AddHtmlAttributeValue(" ", 4680, !Model.HasNextPage ? "disabled" : "", 4681, 39,
             WriteLiteral(@"
 <script>
     var input = document.getElementById(""searchString"");
+    input.value = """";
     var dateRangeTo = document.getElementById(""DateTo"");
+    var datalist = document.getElementById(""datalist"");
     dateRangeTo.type = ""date"";
     dateRangeTo.format = ""{0:yyyy-MM-dd}"";
 
@@ -457,7 +461,6 @@ AddHtmlAttributeValue(" ", 4680, !Model.HasNextPage ? "disabled" : "", 4681, 39,
             dateRangeTo.style.display = ""none"";
             document.getElementById(""weeklyAgenda"").style.display=""none"";
         }
-        input.value = """";
     })
 
     function testfunction() {
