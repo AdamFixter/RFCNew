@@ -730,6 +730,9 @@
           }
         }
       },
+      "Moment.js/2.24.0": {
+        "type": "package"
+      },
       "NETStandard.Library/1.6.1": {
         "type": "package",
         "dependencies": {
@@ -3657,6 +3660,21 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.dll",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "Moment.js/2.24.0": {
+      "sha512": "EklynJ92k3/mjOu+ux0CQvXMZqPkkuuV5SuGQNfAnbsVIdNEa8Lj0HQovfbeK4xRlFJ6BAMQB05esoM1KkyvNg==",
+      "type": "package",
+      "path": "moment.js/2.24.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Content/Scripts/moment-with-locales.js",
+        "Content/Scripts/moment-with-locales.min.js",
+        "Content/Scripts/moment.js",
+        "Content/Scripts/moment.min.js",
+        "moment.js.2.24.0.nupkg.sha512",
+        "moment.js.nuspec"
       ]
     },
     "NETStandard.Library/1.6.1": {
@@ -8120,27 +8138,30 @@
       "Microsoft.EntityFrameworkCore.SqlServer >= 3.0.0",
       "Microsoft.EntityFrameworkCore.Tools >= 3.0.0",
       "Microsoft.Extensions.Logging.Debug >= 3.0.0",
-      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.0.0"
+      "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 3.0.0",
+      "Moment.js >= 2.24.0"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Christian.Cybaniak\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Adam.Sutton\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
+      "projectUniqueName": "C:\\Users\\Adam.Sutton\\Documents\\GitHub\\RFC MVC\\RFCNew\\RFC\\RFC.csproj",
       "projectName": "RFC",
-      "projectPath": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
-      "packagesPath": "C:\\Users\\Christian.Cybaniak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\obj\\",
+      "projectPath": "C:\\Users\\Adam.Sutton\\Documents\\GitHub\\RFC MVC\\RFCNew\\RFC\\RFC.csproj",
+      "packagesPath": "C:\\Users\\Adam.Sutton\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Adam.Sutton\\Documents\\GitHub\\RFC MVC\\RFCNew\\RFC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Christian.Cybaniak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Adam.Sutton\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
@@ -8182,6 +8203,10 @@
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
             "version": "[3.0.0, )"
+          },
+          "Moment.js": {
+            "target": "Package",
+            "version": "[2.24.0, )"
           }
         },
         "imports": [
@@ -8194,24 +8219,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.0.1, 3.0.1]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.0.2, 3.0.2]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.0.0, 3.0.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.0.0, 3.0.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8220,7 +8227,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

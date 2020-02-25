@@ -272,3 +272,5 @@ __pycache__/
 # tools/
 
 # End of https://www.gitignore.io/api/aspnetcore
+.vs/RFC/v16/Server/sqlite3/storage.ide
+*.ide
