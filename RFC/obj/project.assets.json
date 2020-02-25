@@ -8143,23 +8143,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\travis.melton\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Adam.Fixter\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
+      "projectUniqueName": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj",
       "projectName": "RFC",
-      "projectPath": "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
-      "packagesPath": "C:\\Users\\travis.melton\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\obj\\",
+      "projectPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj",
+      "packagesPath": "C:\\Users\\Adam.Fixter\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\travis.melton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Adam.Fixter\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
