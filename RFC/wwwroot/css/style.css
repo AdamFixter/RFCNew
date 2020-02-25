@@ -99,7 +99,7 @@ html, body {
                 border-collapse: collapse;
             }
 
-                .RFCForm #right .rightContent .table thead th {
+                .RFCForm #right .rightContent .table thead {
                     position: sticky;
                     top: 0;
                     background: #f3f3f3ff;
@@ -203,4 +203,38 @@ p, label, h1 {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+
+
+/*added thanks to making darkmode work*/
+
+.content {
+    padding: 0 18px;
+    display: block;
+    overflow: hidden;
+    background-color: #d2d2d2;
+}
+
+.collapsible {
+    background-color: #f3f3f3;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    border-color: #f3f3f3;
+    outline: none;
+}
+
+.active, .collapsible:hover {
+    background-color: #d2d2d2;
+}
+
+
+#Question {
+    background: #d2d2d2;
 }
