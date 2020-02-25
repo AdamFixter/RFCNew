@@ -10969,3 +10969,8 @@ th {
     color: white;
     background-color: #303030;
 }
+
+
+/* TODO:
+-hover colour issue on tables
+-close boxes in the details page of a submission doesn't turn it back into the background colour (use  javascript as originally)*/
