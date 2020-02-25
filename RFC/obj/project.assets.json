@@ -8143,24 +8143,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\travis.melton\\.nuget\\packages\\": {},
+    "C:\\Users\\Adam.Sutton\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
+      "projectUniqueName": "C:\\Users\\Adam.Sutton\\Documents\\GitHub\\RFC MVC\\RFCNew\\RFC\\RFC.csproj",
       "projectName": "RFC",
-      "projectPath": "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
-      "packagesPath": "C:\\Users\\travis.melton\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\obj\\",
+      "projectPath": "C:\\Users\\Adam.Sutton\\Documents\\GitHub\\RFC MVC\\RFCNew\\RFC\\RFC.csproj",
+      "packagesPath": "C:\\Users\\Adam.Sutton\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Adam.Sutton\\Documents\\GitHub\\RFC MVC\\RFCNew\\RFC\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\travis.melton\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Adam.Sutton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
