@@ -97,6 +97,9 @@
                     Next
                 </a>
             </div>
+            <div>
+                <button id="weeklyAgenda" onclick="weeklyAgenda()">Weekly Agenda</button>
+            </div>
         </div>
     </div>
 </div>
@@ -106,6 +109,9 @@
 
     #table-row td:hover {
         cursor: pointer;
+    }
+    #weeklyAgenda {
+        display : none;
     }
 </style>
 
@@ -142,6 +148,7 @@
                 input.type = "date";
                 input.format = "{0:yyyy-MM-dd}";
                 dateRangeTo.style.display = "inline-block";
+                document.getElementById("weeklyAgenda").style.display="inline-block";
                 break;
             default:
                 datalist.innerHTML = "";
@@ -149,6 +156,7 @@
                 input.format = null;
                 dateRangeTo.innerHTML = "";
                 dateRangeTo.style.display = "none";
+                document.getElementById("weeklyAgenda").style.display="none";
                 break;
         }
     })
@@ -173,6 +181,45 @@
             window.document.location = $(this).data("href");
         });
     });
+</script>
+
+<script src="~/lib/moment/moment.min.js"></script>
+<script>
+
+    function weeklyAgenda()
+    {
+
+        var todayDate = moment().format("YYYY-MM-DD");
+        var lastWeek = moment().subtract(7, "day").format("YYYY-MM-DD");
+
+        console.log(todayDate);
+        console.log(lastWeek);
+
+
+        var dateFrom = document.getElementById("searchString");
+        var dateTo = document.getElementById("DateTo");
+
+        dateFrom.value = lastWeek;      //line252
+        dateTo.value = todayDate;       //line253
+
+        //const sevenDays = (60 * 60 * 24 * 7);
+        //var today = new Date();
+        //var lastWeek = ((today.getTime) - (60 * 60 * 24 * 7));
+
+        
+        //console.log(today);
+        //console.log(sevenDays);
+        //console.log(lastWeek);
+        //var todayDate = new Date();
+        //todayDate.setDate(todayDate.getDate());
+        //console.log(todayDate.getDay());
+
+        //var lastWeek = new Date();
+        //lastWeek.setDate((lastWeek.getDate() - 7));
+        //console.log(lastWeek);
+    }
+
+
 </script>
 
 @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@

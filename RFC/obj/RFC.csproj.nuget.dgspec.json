@@ -1,20 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj": {}
+    "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj": {
+    "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj",
+        "projectUniqueName": "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
         "projectName": "RFC",
-        "projectPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj",
-        "packagesPath": "C:\\Users\\Adam.Fixter\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\obj\\",
+        "projectPath": "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
+        "packagesPath": "C:\\Users\\travis.melton\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\travis.melton\\Documents\\GitHub\\RFCNew\\RFC\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
-          "C:\\Users\\Adam.Fixter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\travis.melton\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,6 +58,10 @@
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[3.0.0, )"
+            },
+            "Moment.js": {
+              "target": "Package",
+              "version": "[2.24.0, )"
             }
           },
           "imports": [
