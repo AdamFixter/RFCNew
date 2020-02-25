@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -14,7 +15,7 @@ namespace RFC.Controllers
     public class CreateNewController : Controller
     {
         private readonly RFCContext _context;
-
+        private TextInfo textInfo = new CultureInfo("en-US", false).TextInfo;
         public CreateNewController(RFCContext context)
         {
             _context = context;
@@ -72,28 +73,24 @@ namespace RFC.Controllers
                     case "RequestedDueDate":
                         submissions = submissions.Where(s => s.DueDate >= Convert.ToDateTime(searchString) && s.DueDate <= DateTo);
                         break;
-                    //case "RFCType":
-                    //    if (Enum.GetNames(typeof(Priority)).ToList().IndexOf(searchString) != -1) //Check if the string includes a valid enum.
-                    //    {
-                    //        Priority foundPriority = (Priority)Enum.Parse(typeof(Priority), searchString); //Parse the search string to the Priority.
-                    //        submissions = submissions.Where(s => s.Priority == foundPriority);
-                    //    }
-                    //    else
-                    //    {
-                    //        submissions = Enumerable.Empty<CreateNew>().AsQueryable();
-                    //    }
-                    //    break;
-                    //case "ProductName":
-                    //    if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1)
-                    //    {
-                    //        Product foundProduct = (Product)Enum.Parse(typeof(Product), searchString);
-                    //        submissions = submissions.Where(s => s.Product == foundProduct);
-                    //    }
-                    //    else
-                    //    {
-                    //        submissions = Enumerable.Empty<CreateNew>().AsQueryable();
-                    //    }
-                    //    break;
+                    case "RFCType":
+                        searchString = textInfo.ToTitleCase(searchString);
+                        if (Enum.GetNames(typeof(Priority)).ToList().IndexOf(searchString) != -1) //Check if the string includes a valid enum.
+                        {
+                            Debug.WriteLine("\n\n   - Found: Yes");
+                            Priority foundPriority = (Priority)Enum.Parse(typeof(Priority), searchString); //Parse the search string to the Priority.
+                            submissions = submissions.Where(s => s.Priority == foundPriority);
+                            Debug.WriteLine($"\n\n   - Filtered: {submissions}");
+                        }
+                        break;
+                    case "ProductName":
+                        searchString = textInfo.ToTitleCase(searchString);
+                        if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1)
+                        {
+                            Product foundProduct = (Product)Enum.Parse(typeof(Product), searchString);
+                            submissions = submissions.Where(s => s.Product == foundProduct);
+                        }
+                        break;
                     case "CustomerName":
                         submissions = submissions.Where(s => s.customers.Contains(searchString));
                         break;
