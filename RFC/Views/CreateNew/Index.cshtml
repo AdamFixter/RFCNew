@@ -1,96 +1,159 @@
-﻿@model PaginatedList<RFC.Models.CreateNew>
+﻿
+@model PaginatedList<RFC.Models.CreateNew>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
 }
 
 <div id="right">
-    <div class="header">
-        <h1>View Requests</h1>
-        @using (Html.BeginForm())
-        {
-            <p>
-                Find in
-                @Html.DropDownList("ColumnSelect", "Select a Column")
-                by name
-                @Html.TextBox("searchString")
-                <input type="submit" value="Search" />
-            </p>
-        }
+    <div class="header" style="display:flex; justify-content: space-between;">
+        <h1 style="display:inline-block; width:auto; vertical-align: top;">Requests</h1>
+        <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
+            <div class="otherButtons">
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
+            </div>
+        </div>
     </div>
     <div class="rightContent">
-        <table class="table">
+        @using (Html.BeginForm())
+        {
+        <p>
+            Find in
+            @Html.DropDownList("ColumnSelect", "Select a Column")
+            by:
+            @Html.TextBox("searchString", null, new { style="background-color: #e7e7e7;" }) @*It just works :)*@
+            @Html.TextBox("DateTo")
+            <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+            <input type="submit" value="Search" />
+        </p>
+        }
+        <table class="table table-bordered table-condensed table-striped table-hover">
             <thead>
                 <tr>
                     <th>
-                        @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm })
+                        @Html.ActionLink("ID" + (string.IsNullOrEmpty(ViewBag.sortOrder) ? " ▼" : "") + (ViewBag.sortOrder == "IDDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.IDSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("RFC Type", "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
+                        @Html.ActionLink("RFC Type" + (ViewBag.sortOrder == "RFCTypeAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RFCTypeDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Product Name", "Index", new { sortOrder = ViewBag.ProductNameSortParm })
+                        @Html.ActionLink("Product Name" + (ViewBag.sortOrder == "ProductNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ProductNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.ProductNameSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Customer Name", "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
+                        @Html.ActionLink("Customer Name" + (ViewBag.sortOrder == "CustomerNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "CustomerNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
                     </th>
                     <th>
-                        @Html.ActionLink("Requested Due Date", "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
+                        @Html.ActionLink("Requested Due Date" + (ViewBag.sortOrder == "RequestedDueDateAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RequestedDueDateDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
                     </th>
                     <th>
+                        @Html.ActionLink("Approved" + (ViewBag.sortOrder == "ApprovedAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ApprovedDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.Approved })
                     </th>
                 </tr>
             </thead>
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Priority)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Product)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CustomersAffected)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DueDate)
-                        </td>
-                        <td>
-                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                        </td>
-                    </tr>
+                <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ID)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Priority)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Product)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CustomersAffected)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DueDate)
+                    </td>
+                    <td>
+                        @(item.Approved ? "✓" : "✕")
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>
         <div class="buttons">
-            <div class="otherButtons">
-                <a class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
-            </div>
             <div class="formButtons">
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
                    asp-route-pageNumber="@(Model.PageIndex - 1)"
                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class="button submit btn btn-default @prevDisabled">
-                   Previous
+                   class="button submit btn btn-default @(!Model.HasPreviousPage ? "disabled" : "")">
+                    Previous
                 </a>
                 <a asp-action="Index"
-                    asp-route-sortOrder="@ViewData["CurrentSort"]"
-                    asp-route-pageNumber="@(Model.PageIndex + 1)"
-                    asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                    class="button submit btn btn-default @nextDisabled">
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
                     Next
                 </a>
             </div>
         </div>
     </div>
 </div>
+
+
+<style>
+
+    #table-row td:hover {
+        cursor: pointer;
+    }
+</style>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+    var input = document.getElementById("searchString");
+    var dateRangeTo = document.getElementById("DateTo");
+    dateRangeTo.type = "date";
+    dateRangeTo.format = "{0:yyyy-MM-dd}";
+
+    dateRangeTo.style.display = "none";
+    window.onload = testfunction;
+
+    $('#ColumnSelect').on('change', function () {
+        var index = $(this).find('option:selected').index();
+
+        if (index == 5) {
+            dateRangeTo.value = "";
+            input.type = "date";
+            input.format = "{0:yyyy-MM-dd}";
+            dateRangeTo.style.display = "inline-block";
+        } else {
+            input.type = "text";
+            input.format = null;
+            dateRangeTo.innerHTML = "";
+            dateRangeTo.style.display = "none";
+        }
+        input.value = "";
+    })
+
+    function testfunction() {
+
+        var columnselect = document.getElementById("ColumnSelect");
+
+        if (columnselect.options[columnselect.selectedIndex].text == "Requested Due Date") {
+            input.type = "date";
+            input.format = "{0:yyyy-MM-dd}";
+            dateRangeTo.style.display = "inline-block";
+        }
+    }
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function ($) {
+        $(".d-table-row").click(function () {
+            window.document.location = $(this).data("href");
+        });
+    });
+</script>
+
+@*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -20,7 +21,7 @@ namespace RFC.Controllers
 
         // GET: Admin
         [Route("admin")]
-        public async Task<IActionResult> Index(string sortOrder, string currentFilter, string searchString, int? pageNumber)
+        public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User user, string sortOrder, string currentFilter, string searchString, int? pageNumber)
         {
             ViewData["CurrentSort"] = sortOrder;
             ViewData["IDSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
@@ -66,7 +67,7 @@ namespace RFC.Controllers
         }
 
         // GET: Admin/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details([Bind("ID,Name,Role,DomainUser")] User CurrentUser, int? id)
         {
             if (id == null)
             {
@@ -94,7 +95,7 @@ namespace RFC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,Role")] User user)
+        public async Task<IActionResult> Create([Bind("ID,Name,Role,DomainUser")] User user)
         {
             if (ModelState.IsValid)
             {
@@ -106,8 +107,9 @@ namespace RFC.Controllers
         }
 
         // GET: Admin/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit([Bind("ID,Name,Role,DomainUser")] User CurrentUser, int? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -126,7 +128,7 @@ namespace RFC.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Role")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,Name,Role,DomainUser")] User user)
         {
             if (id != user.ID)
             {
@@ -157,7 +159,7 @@ namespace RFC.Controllers
         }
 
         // GET: Admin/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete([Bind("ID,Name,Role,DomainUser")] User CurrentUser, int? id)
         {
             if (id == null)
             {

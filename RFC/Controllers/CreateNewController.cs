@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using RFC.Models;
+using RFC.ViewModel;
 
 namespace RFC.Controllers
 {
@@ -21,8 +22,9 @@ namespace RFC.Controllers
 
         // GET: CreateNew
         [Route("submissions")]
-        public async Task<IActionResult> Index(string sortOrder, string searchString, string columnSelect, int? pageNumber)
+        public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User CurrentUser, string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
         {
+
             ViewData["CurrentSort"] = sortOrder;
 
             if (searchString != null)
@@ -38,10 +40,11 @@ namespace RFC.Controllers
             List<SelectListItem> items = new List<SelectListItem>   //// Creates list of possible columns to select in drop-down menu
             {
                 new SelectListItem { Value = "ID", Text = "ID" },
-                new SelectListItem { Value = "RFCType", Text = "RFC Type" },
+                new SelectListItem { Value = "RFCType", Text = "Type" },
                 new SelectListItem { Value = "ProductName", Text = "Product Name" },
                 new SelectListItem { Value = "CustomerName", Text = "Customer Name" },
                 new SelectListItem { Value = "RequestedDueDate", Text = "Requested Due Date" },
+                new SelectListItem { Value = "Approved", Text = "Approved" }
             };
             ViewBag.columnSelect = items;   //// Adds the pre-created list into the variable that will use it as dropdown values
 
@@ -52,6 +55,7 @@ namespace RFC.Controllers
             ViewBag.ProductNameSortParm = sortOrder == "ProductNameAsc" ? "ProductNameDesc" : "ProductNameAsc";
             ViewBag.CustomerNameSortParm = sortOrder == "CustomerNameAsc" ? "CustomerNameDesc" : "CustomerNameAsc";
             ViewBag.RequestedDueDateSortParm = sortOrder == "RequestedDueDateAsc" ? "RequestedDueDateDesc" : "RequestedDueDateAsc";
+            ViewBag.Approved = sortOrder == "ApprovedAsc" ? "ApprovedDesc" : "ApprovedAsc";
 
             //// The 'submissions' is the variable with the data from the table
             var submissions = from s in _context.CreateNew
@@ -65,40 +69,38 @@ namespace RFC.Controllers
                     case "ID":
                         submissions = submissions.Where(s => s.ID.ToString().Contains(searchString));
                         break;
-                    case "RFCType":
-                        if (Enum.GetNames(typeof(Priority)).ToList().IndexOf(searchString) != -1) //Check if the string includes a valid enum.
-                        {
-                            Priority foundPriority = (Priority)Enum.Parse(typeof(Priority), searchString); //Parse the search string to the Priority.
-                            submissions = submissions.Where(s => s.Priority == foundPriority);
-                        }
-                        else
-                        {
-                            submissions = Enumerable.Empty<CreateNew>().AsQueryable();
-                        }
+                    case "RequestedDueDate":
+                        submissions = submissions.Where(s => s.DueDate >= Convert.ToDateTime(searchString) && s.DueDate <= DateTo);
                         break;
-                    case "ProductName":
-                        if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1) 
-                        {
-                            Product foundProduct = (Product) Enum.Parse(typeof(Product), searchString);
-                            submissions = submissions.Where(s => s.Product == foundProduct);
-                        } else
-                        {
-                            submissions = Enumerable.Empty<CreateNew>().AsQueryable();
-                        }
-                        break;
+                    //case "RFCType":
+                    //    if (Enum.GetNames(typeof(Priority)).ToList().IndexOf(searchString) != -1) //Check if the string includes a valid enum.
+                    //    {
+                    //        Priority foundPriority = (Priority)Enum.Parse(typeof(Priority), searchString); //Parse the search string to the Priority.
+                    //        submissions = submissions.Where(s => s.Priority == foundPriority);
+                    //    }
+                    //    else
+                    //    {
+                    //        submissions = Enumerable.Empty<CreateNew>().AsQueryable();
+                    //    }
+                    //    break;
+                    //case "ProductName":
+                    //    if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1)
+                    //    {
+                    //        Product foundProduct = (Product)Enum.Parse(typeof(Product), searchString);
+                    //        submissions = submissions.Where(s => s.Product == foundProduct);
+                    //    }
+                    //    else
+                    //    {
+                    //        submissions = Enumerable.Empty<CreateNew>().AsQueryable();
+                    //    }
+                    //    break;
                     case "CustomerName":
                         submissions = submissions.Where(s => s.customers.Contains(searchString));
                         break;
-                    case "RequestedDueDate":
-                        submissions = submissions.Where(s => s.DueDate.ToString().Contains(searchString));
-                        break;
-                    default:
-                        break;
-
                 }
             }
 
-
+            ViewBag.sortOrder = sortOrder;
             switch (sortOrder)  //// Sorts the columns when you click on them  by Asc or Desc
             {
                 case "IDDesc":
@@ -128,6 +130,12 @@ namespace RFC.Controllers
                 case "RequestedDueDateDesc":
                     submissions = submissions.OrderByDescending(submission => submission.DueDate);
                     break;
+                case "ApprovedAsc":
+                    submissions = submissions.OrderBy(submission => submission.Approved);
+                    break;
+                case "ApprovedDesc":
+                    submissions = submissions.OrderByDescending(submission => submission.Approved);
+                    break;
                 default:
                     submissions = submissions.OrderBy(submission => submission.ID);
                     break;
@@ -137,8 +145,9 @@ namespace RFC.Controllers
         }
 
         // GET: CreateNew/Details/5
-        public async Task<IActionResult> Details(long? id)
+        public async Task<IActionResult> Details([Bind("ID,Name,Role,DomainUser")] User CurrentUser, long? id)
         {
+
             if (id == null)
             {
                 return NotFound();
@@ -202,8 +211,10 @@ namespace RFC.Controllers
         }
 
         // GET: CreateNew/Delete/5
-        public async Task<IActionResult> Delete(long? id)
+        public async Task<IActionResult> Delete([Bind("ID,Name,Role,DomainUser")] User CurrentUser, long? id)
         {
+            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
+
             if (id == null)
             {
                 return NotFound();
@@ -222,8 +233,10 @@ namespace RFC.Controllers
         // POST: CreateNew/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(long id)
+        public async Task<IActionResult> DeleteConfirmed([Bind("ID,Name,Role,DomainUser")] User CurrentUser,long id)
         {
+            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
+
             var createNew = await _context.CreateNew.FindAsync(id);
             _context.CreateNew.Remove(createNew);
             await _context.SaveChangesAsync();
