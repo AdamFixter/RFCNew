@@ -504,6 +504,10 @@ AddHtmlAttributeValue(" ", 5146, !Model.HasNextPage ? "disabled" : "", 5147, 39,
     });
 </script>
 
+<script>
+    document.getElementById(""weeklyAgenda"").addEventListener(""submit"", weeklyAgenda);
+</script>
+
 ");
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("script", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "439b45075909972eef17c6ecf6864d02c6249a1929549", async() => {
             }
@@ -523,35 +527,13 @@ AddHtmlAttributeValue(" ", 5146, !Model.HasNextPage ? "disabled" : "", 5147, 39,
 
     function weeklyAgenda()
     {
-
         var todayDate = moment().format(""YYYY-MM-DD"");
-        var lastWeek = moment().subtract(7, ""day"").format(""YYYY-MM-DD"");
-
-        console.log(todayDate);
-        console.log(lastWeek);
-
-
+        var lastWeek = moment().subtract(8, ""day"").format(""YYYY-MM-DD"");
         var dateFrom = document.getElementById(""searchString"");
         var dateTo = document.getElementById(""DateTo"");
 
-        dateFrom.value = lastWeek;      //line252
-        dateTo.value = todayDate;       //line253
-
-        //const sevenDays = (60 * 60 * 24 * 7);
-        //var today = new Date();
-        //var lastWeek = ((today.getTime) - (60 * 60 * 24 * 7));
-
-        
-        //console.log(today);
-        //console.log(sevenDays);
-        //console.log(lastWeek);
-        //var todayDate = new Date();
-        //todayDate.setDate(todayDate.getDate());
-        //console.log(todayDate.getDay());
-
-        //var lastWeek = new Date();
-        //lastWeek.setDate((lastWeek.getDate() - 7));
-        //console.log(lastWeek);
+        dateFrom.value = lastWeek;
+        dateTo.value = todayDate;
     }
 
 

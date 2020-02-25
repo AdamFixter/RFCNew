@@ -80,7 +80,11 @@
                 }
             </tbody>
         </table>
+
         <div class="buttons">
+            <div >
+                <button id="weeklyAgenda" onclick="weeklyAgenda()" class="button btn btn-success">Weekly Agenda</button>
+            </div>
             <div class="formButtons">
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
@@ -97,9 +101,6 @@
                     Next
                 </a>
             </div>
-            <div class="WeeklyAgenda">
-                <button id="weeklyAgenda" onclick="weeklyAgenda()">Weekly Agenda</button>
-            </div>
         </div>
     </div>
 </div>
@@ -112,6 +113,7 @@
     }
     #weeklyAgenda {
         display : none;
+        white-space: nowrap;
     }
 </style>
 
@@ -188,38 +190,14 @@
 
     function weeklyAgenda()
     {
-
         var todayDate = moment().format("YYYY-MM-DD");
-        var lastWeek = moment().subtract(7, "day").format("YYYY-MM-DD");
-
-        console.log(todayDate);
-        console.log(lastWeek);
-
-
+        var lastWeek = moment().subtract(8, "day").format("YYYY-MM-DD");
         var dateFrom = document.getElementById("searchString");
         var dateTo = document.getElementById("DateTo");
 
-        dateFrom.value = lastWeek;      //line252
-        dateTo.value = todayDate;       //line253
-
-        //const sevenDays = (60 * 60 * 24 * 7);
-        //var today = new Date();
-        //var lastWeek = ((today.getTime) - (60 * 60 * 24 * 7));
-
-        
-        //console.log(today);
-        //console.log(sevenDays);
-        //console.log(lastWeek);
-        //var todayDate = new Date();
-        //todayDate.setDate(todayDate.getDate());
-        //console.log(todayDate.getDay());
-
-        //var lastWeek = new Date();
-        //lastWeek.setDate((lastWeek.getDate() - 7));
-        //console.log(lastWeek);
+        dateFrom.value = lastWeek;
+        dateTo.value = todayDate;
     }
-
-
 </script>
 
 @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
