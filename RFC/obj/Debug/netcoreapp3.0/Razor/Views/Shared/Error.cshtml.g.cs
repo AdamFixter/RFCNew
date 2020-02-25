@@ -26,8 +26,8 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4ecc4d2bcad30a6aee551879bc7e7094ebb4184d", @"/Views/Shared/Error.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc4ddab8934f76edf50d0bb6435f89b8c3095685", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d6a5625cc8fb4476f348b0fe9041c550465d8bf9", @"/Views/Shared/Error.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e7ca65db9ab1fb1d064de4b19e46dc6292ea35be", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared_Error : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<ErrorViewModel>
     {
         #pragma warning disable 1998
@@ -41,7 +41,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\n<h1 class=\"text-danger\">Error.</h1>\n<h2 class=\"text-danger\">An error occurred while processing your request.</h2>\n\n");
+            WriteLiteral("\r\n<h1 class=\"text-danger\">Error.</h1>\r\n<h2 class=\"text-danger\">An error occurred while processing your request.</h2>\r\n\r\n");
 #nullable restore
 #line 9 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Shared\Error.cshtml"
  if (Model.ShowRequestId)
@@ -50,7 +50,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("    <p>\n        <strong>Request ID:</strong> <code>");
+            WriteLiteral("    <p>\r\n        <strong>Request ID:</strong> <code>");
 #nullable restore
 #line 12 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Shared\Error.cshtml"
                                       Write(Model.RequestId);
@@ -58,7 +58,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("</code>\n    </p>\n");
+            WriteLiteral("</code>\r\n    </p>\r\n");
 #nullable restore
 #line 14 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Shared\Error.cshtml"
 }

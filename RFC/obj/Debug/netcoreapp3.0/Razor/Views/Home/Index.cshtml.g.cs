@@ -26,8 +26,8 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ad76d40f92bb7648a79b17243bab38be4f873caa", @"/Views/Home/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc4ddab8934f76edf50d0bb6435f89b8c3095685", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"72932d0349735045e240608fdae3df1db912632e", @"/Views/Home/Index.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e7ca65db9ab1fb1d064de4b19e46dc6292ea35be", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<RFC.Models.User>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("option"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -74,7 +74,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\n<div id=\"left\"></div>\n<div id=\"right\">\n    <div class=\"header\">\n        <h1 style=\"text-align:center\">");
+            WriteLiteral("\r\n<div id=\"left\"></div>\r\n<div id=\"right\">\r\n    <div class=\"header\">\r\n        <h1 style=\"text-align:center\">");
 #nullable restore
 #line 15 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
                                  Write(greetings[new Random().Next(0, greetings.Length)].Replace("%name%", Model.Name));
@@ -108,7 +108,7 @@ using RFC.Models;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\n");
+            WriteLiteral("\r\n");
 #nullable restore
 #line 25 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
              switch (Model.Role.ToString())
@@ -166,7 +166,7 @@ using RFC.Models;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\n");
+            WriteLiteral("\r\n");
 #nullable restore
 #line 36 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
                     break;
@@ -199,7 +199,7 @@ using RFC.Models;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\n");
+            WriteLiteral("\r\n");
 #nullable restore
 #line 42 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
                     break;
@@ -210,7 +210,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("        </div>\n    </div>\n</div>\n");
+            WriteLiteral("        </div>\r\n    </div>\r\n</div>\r\n");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
