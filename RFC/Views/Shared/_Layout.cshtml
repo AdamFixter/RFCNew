@@ -15,8 +15,10 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RFC</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.5/lib/darkmode-js.min.js"></script>*@
     <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    @*<link rel="stylesheet alternate" href="~/lib/bootstrap/dist/css/bootstrap-darkly.css" />*@
 </head>
 <body>
     <header>
@@ -50,11 +52,57 @@
         <div class="RFCForm">@RenderBody()</div>
     </div>
     @*<div class="footer">
-        <div id="motivationQuote"></div>
-    </div>*@
+            <div id="motivationQuote"></div>
+        </div>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+    <button class="btn btn-default button" id="changeCSSThemeButton" style="position: absolute; top: 5px; right: 10px; color:white;" onclick="changeCSSTheme()"></button>
 </body>
 </html>
+
+<script>
+
+    function changeCSSTheme()
+    {
+        if (localStorage.getItem('IsDarkMode') === null) {
+            localStorage.setItem('IsDarkMode', '0');
+        }
+        else if (localStorage.getItem('IsDarkMode') == '1') {
+            localStorage.setItem('IsDarkMode', '0');
+        }
+        else if (localStorage.getItem('IsDarkMode') == '0') {
+            localStorage.setItem('IsDarkMode', '1');
+        }
+
+        setCSSTheme();
+    }
+
+
+    function setCSSTheme()
+    {
+        if (localStorage.getItem('IsDarkMode') == '1') {
+            cssFile = '/lib/bootstrap/dist/css/bootstrap-darkly.css';
+            this.document.getElementById('changeCSSThemeButton').innerHTML = 'Light Mode'
+        } else if (localStorage.getItem('IsDarkMode') == '0') {
+            cssFile = '/lib/bootstrap/dist/css/bootstrap.min.css';
+            this.document.getElementById('changeCSSThemeButton').innerHTML = 'Dark Mode'
+        }
+
+        var oldlink = document.getElementsByTagName("link").item(1);
+
+        var newlink = document.createElement("link");
+        newlink.setAttribute("rel", "stylesheet");
+        newlink.setAttribute("href", cssFile);
+
+        document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+
+        usingCSSFile = cssFile;
+    }
+
+    window.onload = function () {
+        this.setCSSTheme();
+    }; 
+</script>
