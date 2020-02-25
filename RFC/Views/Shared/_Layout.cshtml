@@ -59,7 +59,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 
-    <button class="btn btn-default button" id="changeCSSThemeButton" style="position: absolute; top: 5px; right: 10px; color:white;" onclick="changeCSSTheme()"></button>
+    <button class="btn btn-default button" id="changeCSSThemeButton" style="position: absolute; top: 5px; right: 10px; color:white;" onclick="changeCSSTheme()">Dark Mode</button>
 </body>
 </html>
 
@@ -68,7 +68,7 @@
     function changeCSSTheme()
     {
         if (localStorage.getItem('IsDarkMode') === null) {
-            localStorage.setItem('IsDarkMode', '0');
+            localStorage.setItem('IsDarkMode', '1');
         }
         else if (localStorage.getItem('IsDarkMode') == '1') {
             localStorage.setItem('IsDarkMode', '0');
