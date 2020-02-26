@@ -31,7 +31,7 @@
                 <datalist id="datalist"></datalist>
             </p>
         }
-        <table class="table table-bordered table-condensed table-striped">
+        <table class="table table-bordered table-condensed table-striped table-hover">
             <thead>
                 <tr>
                     <th>
@@ -54,7 +54,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody id="row-hover">
+            <tbody>
                 @foreach (var item in Model)
                 {
                     <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
@@ -107,6 +107,10 @@
 
 
 <style>
+
+    #table-row td:hover {
+        cursor: pointer;
+    }
     #weeklyAgenda {
         display : none;
         white-space: nowrap;
