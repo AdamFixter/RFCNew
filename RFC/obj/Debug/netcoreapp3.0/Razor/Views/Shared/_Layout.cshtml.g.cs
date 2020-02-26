@@ -13,14 +13,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC.Models;
 
 #line default
@@ -75,7 +75,7 @@ using RFC.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
 #nullable restore
-#line 1 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Shared\_Layout.cshtml"
+#line 1 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Shared\_Layout.cshtml"
   
     var textInfo = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo;
     var args = User.Identity.Name.Split("\\");

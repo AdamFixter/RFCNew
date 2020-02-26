@@ -13,14 +13,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC.Models;
 
 #line default
@@ -77,7 +77,7 @@ using RFC.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
 #nullable restore
-#line 2 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 2 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
   
     ViewData["Title"] = "Home Page";
     var textInfo = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo;
@@ -92,7 +92,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n<div id=\"left\"></div>\r\n<div id=\"right\">\r\n    <div class=\"header\">\r\n        <h1 style=\"text-align:center\">");
 #nullable restore
-#line 15 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 15 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
                                  Write(greetings[new Random().Next(0, greetings.Length)].Replace("%name%", Model.Name));
 
 #line default
@@ -138,24 +138,14 @@ using RFC.Models;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n");
-#nullable restore
-#line 25 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Home\Index.cshtml"
-             switch (Model.Role.ToString())
-            {
-                case "Admin":
-
-#line default
-#line hidden
-#nullable disable
-            WriteLiteral("                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c1a8ea7242b2d2c9e68c0261e54c1db6e3920e08655", async() => {
+            WriteLiteral("\r\n            ");
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "3482318f7bc091df008b5c27991faad9955af4dd8372", async() => {
                 WriteLiteral(@"
-                        <div class=""icon"" style=""background-color: #ef8700 ;width:  30%;display:  flex;justify-content:  center;align-items:  center;"">
-                            <img src=""https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FmakeRequest.png?v=1579711825430"" />
-                        </div>
-                        <div class=""text"" style=""background-color: #cc7300"">Weekly Agenda</div>
-                    ");
+                <div class=""icon"" style=""background-color: #e82910ff ;width:  30%;display:  flex;justify-content:  center;align-items:  center;"">
+                    <img src=""https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FmakeRequest.png?v=1579711825430"" />
+                </div>
+                <div class=""text"" style=""background-color: #b5220fff"">Weekly Agenda</div>
+            ");
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
@@ -266,7 +256,7 @@ using RFC.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
 #nullable restore
-#line 42 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 42 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
                     break;
                 case "Power":
 
@@ -315,7 +305,7 @@ using RFC.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
 #nullable restore
-#line 54 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 48 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
                     break;
                 default:
                     break;

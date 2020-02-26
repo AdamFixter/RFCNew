@@ -13,14 +13,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC.Models;
 
 #line default
@@ -74,9 +74,9 @@ using RFC.Models;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
-            WriteLiteral("\r\n");
+            WriteLiteral("\n");
 #nullable restore
-#line 3 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 3 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
   
 	ViewData["Title"] = "Create";
 	Layout = "~/Views/Shared/_Layout.cshtml";
@@ -121,7 +121,7 @@ using RFC.Models;
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 23 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 23 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.Priority);
 
 #line default
@@ -155,13 +155,13 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     }
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                    WriteLiteral("\r\n                            ");
+                    WriteLiteral("\n                            ");
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper);
 #nullable restore
-#line 24 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 24 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.Priority);
 
 #line default
@@ -169,7 +169,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For = ModelExpressionProvi
 #nullable disable
                 __tagHelperExecutionContext.AddTagHelperAttribute("asp-for", __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #nullable restore
-#line 24 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 24 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.Items = Html.GetEnumSelectList<Priority>();
 
 #line default
@@ -190,7 +190,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.Items = Html.GetEnumSelect
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 31 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 31 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.Product);
 
 #line default
@@ -224,13 +224,13 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     }
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                    WriteLiteral("\r\n                            ");
+                    WriteLiteral("\n                            ");
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper);
 #nullable restore
-#line 32 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 32 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.Product);
 
 #line default
@@ -238,7 +238,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For = ModelExpressionProvi
 #nullable disable
                 __tagHelperExecutionContext.AddTagHelperAttribute("asp-for", __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #nullable restore
-#line 32 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 32 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.Items = Html.GetEnumSelectList<Product>();
 
 #line default
@@ -259,7 +259,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.Items = Html.GetEnumSelect
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 41 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 41 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.ReasonForChange);
 
 #line default
@@ -282,7 +282,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_8);
 #nullable restore
-#line 42 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 42 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.ReasonForChange);
 
 #line default
@@ -304,7 +304,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 47 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 47 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.ChangeDescription);
 
 #line default
@@ -327,7 +327,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_8);
 #nullable restore
-#line 48 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 48 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.ChangeDescription);
 
 #line default
@@ -349,7 +349,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 55 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 55 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.SystemAffected);
 
 #line default
@@ -372,7 +372,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_8);
 #nullable restore
-#line 56 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 56 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.SystemAffected);
 
 #line default
@@ -394,7 +394,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 61 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 61 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.customers);
 
 #line default
@@ -428,13 +428,13 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     }
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                    WriteLiteral("\r\n                            ");
+                    WriteLiteral("\n                            ");
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper);
 #nullable restore
-#line 62 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 62 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.CustomersAffected);
 
 #line default
@@ -442,7 +442,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For = ModelExpressionProvi
 #nullable disable
                 __tagHelperExecutionContext.AddTagHelperAttribute("asp-for", __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.For, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
 #nullable restore
-#line 62 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 62 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.Items = Html.GetEnumSelectList<CustomersAffected>();
 
 #line default
@@ -464,7 +464,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.Items = Html.GetEnumSelect
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_10);
 #nullable restore
-#line 65 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 65 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.customers);
 
 #line default
@@ -486,7 +486,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 72 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 72 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.WhoPerforming);
 
 #line default
@@ -509,7 +509,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_8);
 #nullable restore
-#line 73 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 73 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.WhoPerforming);
 
 #line default
@@ -531,7 +531,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 78 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 78 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.RiskOfChange);
 
 #line default
@@ -554,7 +554,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_8);
 #nullable restore
-#line 79 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 79 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.RiskOfChange);
 
 #line default
@@ -576,7 +576,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 86 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 86 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.RiskNoChange);
 
 #line default
@@ -599,7 +599,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_8);
 #nullable restore
-#line 87 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 87 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.RiskNoChange);
 
 #line default
@@ -621,7 +621,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 92 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 92 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.VerifyAfter);
 
 #line default
@@ -644,7 +644,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_8);
 #nullable restore
-#line 93 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 93 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.VerifyAfter);
 
 #line default
@@ -666,7 +666,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 100 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 100 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.RollBackPlan);
 
 #line default
@@ -689,7 +689,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_8);
 #nullable restore
-#line 101 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 101 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.RollBackPlan);
 
 #line default
@@ -711,7 +711,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 106 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 106 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.DueDate);
 
 #line default
@@ -733,7 +733,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.InputTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper);
 #nullable restore
-#line 107 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 107 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.DueDate);
 
 #line default
@@ -755,7 +755,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.LabelTagHelper>();
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper);
 #nullable restore
-#line 114 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 114 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.WhyDueDate);
 
 #line default
@@ -778,7 +778,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_8);
 #nullable restore
-#line 115 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 115 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.WhyDueDate);
 
 #line default
@@ -807,7 +807,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_TextAreaTagHelper.For = ModelExpressionPro
                 __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper);
                 __tagHelperExecutionContext.AddHtmlAttribute(__tagHelperAttribute_11);
 #nullable restore
-#line 121 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 121 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
 __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvider.CreateModelExpression(ViewData, __model => __model.ServiceImpact);
 
 #line default
@@ -823,7 +823,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
                 WriteLiteral(" ");
 #nullable restore
-#line 121 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
+#line 121 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Create.cshtml"
                                                                                       Write(Html.DisplayNameFor(model => model.ServiceImpact));
 
 #line default
