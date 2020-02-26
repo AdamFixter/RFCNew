@@ -13,14 +13,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC.Models;
 
 #line default
@@ -65,7 +65,7 @@ using RFC.Models;
             WriteLiteral("\r\n");
             WriteLiteral("\r\n");
 #nullable restore
-#line 4 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 4 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
   
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -105,7 +105,7 @@ using RFC.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"rightContent\">\r\n");
 #nullable restore
-#line 21 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 21 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
          using (Html.BeginForm())
         {
 
@@ -114,7 +114,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("            <p id=\"filter\">\r\n                Find in\r\n                ");
 #nullable restore
-#line 25 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 25 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
            Write(Html.DropDownList("ColumnSelect", "Select a Column"));
 
 #line default
@@ -122,7 +122,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                by:\r\n                ");
 #nullable restore
-#line 27 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 27 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
            Write(Html.TextBox("searchString", null, new { style = "background-color: #e7e7e7;", list = "datalist", autocomplete = "off" }));
 
 #line default
@@ -131,7 +131,7 @@ using RFC.Models;
             WriteLiteral(" ");
             WriteLiteral("\r\n                ");
 #nullable restore
-#line 28 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 28 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
            Write(Html.TextBox("DateTo"));
 
 #line default
@@ -139,7 +139,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                <ej-date-range-picker id=\"DateRange\" date-format=\"dd/MM/yyyy\" width=\"200px\"></ej-date-range-picker>\r\n                <input type=\"submit\" value=\"Search\" />\r\n                <datalist id=\"datalist\"></datalist>\r\n            </p>\r\n");
 #nullable restore
-#line 33 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 33 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
         }
 
 #line default
@@ -147,7 +147,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("        <table class=\"table table-bordered table-condensed table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th>\r\n                        ");
 #nullable restore
-#line 38 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 38 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("ID" + (string.IsNullOrEmpty(ViewBag.sortOrder) ? " ▼" : "") + (ViewBag.sortOrder == "IDDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.IDSortParm }));
 
 #line default
@@ -155,7 +155,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
 #nullable restore
-#line 41 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 41 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("Priority" + (ViewBag.sortOrder == "RFCTypeAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RFCTypeDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RFCTypeSortParm }));
 
 #line default
@@ -163,7 +163,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
 #nullable restore
-#line 44 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 44 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("Product Name" + (ViewBag.sortOrder == "ProductNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ProductNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.ProductNameSortParm }));
 
 #line default
@@ -171,7 +171,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
 #nullable restore
-#line 47 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 47 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("Customer Name" + (ViewBag.sortOrder == "CustomerNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "CustomerNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.CustomerNameSortParm }));
 
 #line default
@@ -179,7 +179,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
 #nullable restore
-#line 50 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 50 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("Requested Due Date" + (ViewBag.sortOrder == "RequestedDueDateAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RequestedDueDateDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm }));
 
 #line default
@@ -187,7 +187,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
 #nullable restore
-#line 53 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 53 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("Approved" + (ViewBag.sortOrder == "ApprovedAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ApprovedDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.Approved }));
 
 #line default
@@ -195,7 +195,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                    </th>\r\n                </tr>\r\n            </thead>\r\n            <tbody id=\"row-hover\">\r\n");
 #nullable restore
-#line 58 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 58 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                  foreach (var item in Model)
                 {
 
@@ -204,7 +204,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("                    <tr class=\"d-table-row\" id=\"table-row\" data-href=");
 #nullable restore
-#line 60 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 60 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                                                                  Write("/CreateNew/Details/" + item.ID);
 
 #line default
@@ -212,7 +212,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral(">\r\n                        <td>\r\n                            ");
 #nullable restore
-#line 62 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 62 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.ID));
 
 #line default
@@ -220,7 +220,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
 #nullable restore
-#line 65 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 65 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.Priority));
 
 #line default
@@ -228,7 +228,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
 #nullable restore
-#line 68 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 68 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.Product));
 
 #line default
@@ -236,7 +236,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
 #nullable restore
-#line 71 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 71 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.CustomersAffected));
 
 #line default
@@ -244,7 +244,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
 #nullable restore
-#line 74 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 74 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.DueDate));
 
 #line default
@@ -262,7 +262,7 @@ WriteAttributeValue("", 4153, item.Approved ? "images/tick-symbol.png" : "images
             EndWriteAttribute();
             WriteLiteral(" style=\"width: auto; height: 5%;\"/>\r\n                        </td>\r\n                    </tr>\r\n");
 #nullable restore
-#line 80 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 80 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                 }
 
 #line default
@@ -291,7 +291,7 @@ WriteAttributeValue("", 4153, item.Approved ? "images/tick-symbol.png" : "images
             }
             BeginWriteTagHelperAttribute();
 #nullable restore
-#line 90 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 90 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                             WriteLiteral(ViewData["CurrentSort"]);
 
 #line default
@@ -302,7 +302,7 @@ WriteAttributeValue("", 4153, item.Approved ? "images/tick-symbol.png" : "images
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-sortOrder", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["sortOrder"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginWriteTagHelperAttribute();
 #nullable restore
-#line 91 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 91 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                               WriteLiteral(Model.PageIndex - 1);
 
 #line default
@@ -313,7 +313,7 @@ WriteAttributeValue("", 4153, item.Approved ? "images/tick-symbol.png" : "images
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-pageNumber", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["pageNumber"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginWriteTagHelperAttribute();
 #nullable restore
-#line 92 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 92 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                                 WriteLiteral(ViewData["CurrentFilter"]);
 
 #line default
@@ -357,7 +357,7 @@ AddHtmlAttributeValue(" ", 4913, !Model.HasPreviousPage ? "disabled" : "", 4914,
             }
             BeginWriteTagHelperAttribute();
 #nullable restore
-#line 97 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 97 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                             WriteLiteral(ViewData["CurrentSort"]);
 
 #line default
@@ -368,7 +368,7 @@ AddHtmlAttributeValue(" ", 4913, !Model.HasPreviousPage ? "disabled" : "", 4914,
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-sortOrder", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["sortOrder"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginWriteTagHelperAttribute();
 #nullable restore
-#line 98 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 98 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                               WriteLiteral(Model.PageIndex + 1);
 
 #line default
@@ -379,7 +379,7 @@ AddHtmlAttributeValue(" ", 4913, !Model.HasPreviousPage ? "disabled" : "", 4914,
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-pageNumber", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["pageNumber"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginWriteTagHelperAttribute();
 #nullable restore
-#line 99 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
+#line 99 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                                 WriteLiteral(ViewData["CurrentFilter"]);
 
 #line default
