@@ -44,7 +44,7 @@ namespace RFC.Controllers
 
             ///// ViewBag.[something]Parm is used for sorting order by clicking column
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "IDDesc" : "";
-            ViewBag.NameSortParm = sortOrder == "RFCTypeAsc" ? "RFCTypeDesc" : "RFCTypeAsc";
+            ViewBag.NameSortParm = sortOrder == "NameAsc" ? "NameDesc" : "NameAsc";
 
             //// The 'submissions' is the variable with the data from the table
             var submissions = from s in _context.Customer
