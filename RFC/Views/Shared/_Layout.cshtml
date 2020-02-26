@@ -2,7 +2,6 @@
     var textInfo = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo;
     var args = User.Identity.Name.Split("\\");
     var name = textInfo.ToTitleCase(args[1].Replace(".", " "));
-    //var email = args[1] + "@" + textInfo.ToLower(args[0]) + ".com";
 
     var quotes = new string[]
     {
@@ -54,7 +53,7 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 
-    <button class="btn btn-default button" id="changeCSSThemeButton" style="position: absolute; top: 5px; right: 10px; color:white;" onclick="changeCSSTheme()">Dark Mode</button>
+    <button class="btn btn-default button btn-outline-dark" id="changeCSSThemeButton" style="position: absolute; top: 5px; right: 10px; color:white;" onclick="changeCSSTheme()">Dark Mode</button>
 </body>
 </html>
 

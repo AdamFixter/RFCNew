@@ -2931,13 +2931,13 @@ fieldset:disabled a.btn {
 }
 
 .btn-warning:hover {
-  color: #fff;
+  color: #000000;
   background-color: #d4860b;
   border-color: #c87f0a;
 }
 
 .btn-warning:focus, .btn-warning.focus {
-  color: #fff;
+  color: #000000;
   background-color: #d4860b;
   border-color: #c87f0a;
   -webkit-box-shadow: 0 0 0 0.2rem rgba(245, 171, 54, 0.5);

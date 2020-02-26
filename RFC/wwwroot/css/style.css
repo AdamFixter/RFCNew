@@ -192,16 +192,16 @@ a.button {
 -------------------------------------------------- */
 
 
-select, input, label, input, a {
+select, input, label, input, a, .btn {
     border: solid;
     border-color: transparent;
 }
 
 
-select:focus, input:active, label:active, input:focus, a:focus {
+/*select:focus, input:active, label:active, input:focus, a:focus {
     border: solid;
     border-color: #FFDD00;
-}
+}*/
 
 p, label, h1 {
     -webkit-touch-callout: none;
