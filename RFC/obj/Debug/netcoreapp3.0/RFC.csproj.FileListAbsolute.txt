@@ -809,3 +809,4 @@ C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.c
 C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.dll
 C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.pdb
 C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\CreateNew\WeeklyAgenda.cshtml.g.cs
+C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\CreateNew\WeeklyAgenda.cshtml.g.cs
