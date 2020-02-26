@@ -19,16 +19,16 @@
     </div>
     <div class="rightContent">
         @using (Html.BeginForm()) //Create the form that holds two date pickers
-         {
+        {
             <p id="filter">
                 Date From :
-            @Html.TextBox("DateFrom", null, new { style = "background-color: #e7e7e7;" })
+                @Html.TextBox("DateFrom", null, new { style = "background-color: #e7e7e7;" })
                 Date To :
-            @Html.TextBox("DateTo", null, new { style = "background-color: #e7e7e7;" })
-            <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
-            <input type="submit" value="Search" />
+                @Html.TextBox("DateTo", null, new { style = "background-color: #e7e7e7;" })
+                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+                <input type="submit" value="Search" />
             </p>
-         }
+        }
         <table class="table table-bordered table-condensed table-striped table-hover">
             <thead>
                 <tr>
@@ -78,11 +78,11 @@
                 }
             </tbody>
         </table>
-
+        <div>
+            <button id="weeklyAgenda" onclick="weeklyAgenda()" class="button btn btn-success">Weekly Agenda</button>
+        </div>
         <div class="buttons">
-            <div>
-                <button id="weeklyAgenda" onclick="weeklyAgenda()" class="button btn btn-success">Weekly Agenda</button>
-            </div>
+
             <div class="formButtons">
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
@@ -140,16 +140,16 @@
 
 <script src="~/lib/moment/moment.min.js"></script>
 <script>
-    function weeklyAgenda()
-    {
+        //autopopulate the dates in the date picker//
+
         var todayDate = moment().format("YYYY-MM-DD");
         var lastWeek = moment().subtract(8, "day").format("YYYY-MM-DD");
-        var dateFrom = document.getElementById("searchString");
+        var dateFrom = document.getElementById("DateFrom");
         var dateTo = document.getElementById("DateTo");
 
         dateFrom.value = lastWeek;
         dateTo.value = todayDate;
-    }
+
 </script>
 
 @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
