@@ -81,11 +81,15 @@
         if (localStorage.getItem('IsDarkMode') == '1') {
             cssFile = '/lib/bootstrap/dist/css/bootstrap-darkly.css';
             this.document.getElementById('changeCSSThemeButton').innerHTML = 'Light Mode'
-            document.getElementById('left').style.background = "url(images/frontImage-edited.png)";
+            if (document.getElementById('left') != null) {
+                document.getElementById('left').style.background = "url(images/frontImage-edited.png)";
+            }
         } else if (localStorage.getItem('IsDarkMode') == '0') {
             cssFile = '/lib/bootstrap/dist/css/bootstrap.min.css';
             this.document.getElementById('changeCSSThemeButton').innerHTML = 'Dark Mode'
-            document.getElementById('left').style.background = "url(images/frontImage.png)";
+            if (document.getElementById('left') != null) {
+                document.getElementById('left').style.background = "url(images/frontImage.png)";
+            }
         }
 
         var oldlink = document.getElementsByTagName("link").item(1);
