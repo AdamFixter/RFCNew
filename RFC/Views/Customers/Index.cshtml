@@ -1,0 +1,99 @@
+﻿@model PaginatedList<RFC.Models.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<div id="right">
+    <div class="header" style="display:flex; justify-content: space-between;">
+        <h1 style="display:inline-block; width:auto; vertical-align: top;">Manage Customers</h1>
+        <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
+            <div class="otherButtons">
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Administration" asp-action="Index">Go Back</a>
+            </div>
+        </div>
+    </div>
+    <div class="rightContent">
+        @using (Html.BeginForm())
+        {
+        <p id="filter">
+            Find in
+            @Html.DropDownList("ColumnSelect", "Select a Column")
+            by:
+            @Html.TextBox("searchString", null, new { style = "background-color: #e7e7e7;", list = "datalist", autocomplete = "off" }) @*It just works :)*@
+            @Html.TextBox("DateTo")
+            <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+            <input type="submit" value="Search" />
+            <datalist id="datalist"></datalist>
+        </p>
+        }
+        <table class="table table-bordered table-condensed table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameSortParam })
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="d-table-row" id="table-row" data-href=@("/Customers/Details/" + item.ID)>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <div class="buttons">
+            <div>
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Customers" asp-action="Create">Create</a>
+            </div>
+            <div class="formButtons">
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="button submit btn btn-default @(!Model.HasPreviousPage ? "disabled" : "")">
+                    Previous
+                </a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
+                    Next
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+
+    #table-row td:hover {
+        cursor: pointer;
+    }
+
+    #weeklyAgenda {
+        display: none;
+        white-space: nowrap;
+    }
+</style>
+<script type="text/javascript">
+    $(document).ready(function ($) {
+        $(".d-table-row").click(function () {
+            window.document.location = $(this).data("href");
+        });
+    });
+</script>

@@ -89,7 +89,6 @@ html, body {
         }
 
         .RFCForm #right .rightContent {
-            position: relative;
             display: flex;
             height: 100%;
             flex-direction: column;
@@ -139,12 +138,15 @@ a.button {
 }
 
 .RFCForm #right .rightContent .options {
+    display: flex;
+    flex-direction: column;
     margin: 0 5%;
     height: 100%;
 }
 
     .RFCForm #right .rightContent .options .option {
         display: flex;
+        flex: 1;
         margin: 1%;
         height: 30%;
     }
