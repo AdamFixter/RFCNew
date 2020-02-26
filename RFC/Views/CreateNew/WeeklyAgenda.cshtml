@@ -1,0 +1,155 @@
+﻿
+@model PaginatedList<RFC.Models.CreateNew>
+
+@{
+    ViewData["Title"] = "WeeklyAgenda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var priorityList = Html.GetEnumSelectList<Priority>();
+}
+
+<div id="right">
+    <div class="header" style="display:flex; justify-content: space-between;">
+        <h1 style="display:inline-block; width:auto; vertical-align: top;">Weekly Agenda</h1>
+        <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
+            <div class="otherButtons">
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
+            </div>
+        </div>
+    </div>
+    <div class="rightContent">
+        @using (Html.BeginForm()) //Create the form that holds two date pickers
+         {
+            <p id="filter">
+                Date From :
+            @Html.TextBox("DateFrom", null, new { style = "background-color: #e7e7e7;" })
+                Date To :
+            @Html.TextBox("DateTo", null, new { style = "background-color: #e7e7e7;" })
+            <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+            <input type="submit" value="Search" />
+            </p>
+         }
+        <table class="table table-bordered table-condensed table-striped table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.ActionLink("ID" + (string.IsNullOrEmpty(ViewBag.sortOrder) ? " ▼" : "") + (ViewBag.sortOrder == "IDDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.IDSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Priority" + (ViewBag.sortOrder == "RFCTypeAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RFCTypeDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Product Name" + (ViewBag.sortOrder == "ProductNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ProductNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.ProductNameSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Customer Name" + (ViewBag.sortOrder == "CustomerNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "CustomerNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Requested Due Date" + (ViewBag.sortOrder == "RequestedDueDateAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RequestedDueDateDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
+                    </th>
+                    <th>
+                        @Html.ActionLink("Approved" + (ViewBag.sortOrder == "ApprovedAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ApprovedDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.Approved })
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.ID)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Priority)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Product)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CustomersAffected)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.DueDate)
+                        </td>
+                        <td>
+                            <img src="@(item.Approved ? "images/tick-symbol.png" : "images/cross-symbol.png")" style="width: auto; height: 5%;" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="buttons">
+            <div>
+                <button id="weeklyAgenda" onclick="weeklyAgenda()" class="button btn btn-success">Weekly Agenda</button>
+            </div>
+            <div class="formButtons">
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="button submit btn btn-default @(!Model.HasPreviousPage ? "disabled" : "")">
+                    Previous
+                </a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
+                    Next
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<style>
+
+    #table-row td:hover {
+        cursor: pointer;
+    }
+
+    #weeklyAgenda {
+        display: none;
+        white-space: nowrap;
+    }
+</style>
+
+
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script> // Render two empty date pickers
+    var dateRangeFrom = document.getElementById("DateFrom");
+    dateRangeFrom.type = "date";
+    dateRangeFrom.format = "{0:yyyy-MM-dd}";
+    dateRangeFrom.style.display = "inline-block";
+
+    var dateRangeTo = document.getElementById("DateTo");
+    dateRangeTo.type = "date";
+    dateRangeTo.format = "{0:yyyy-MM-dd}";
+    dateRangeTo.style.display = "inline-block";
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function ($) {
+        $(".d-table-row").click(function () {
+            window.document.location = $(this).data("href");
+        });
+    });
+</script>
+
+<script src="~/lib/moment/moment.min.js"></script>
+<script>
+    function weeklyAgenda()
+    {
+        var todayDate = moment().format("YYYY-MM-DD");
+        var lastWeek = moment().subtract(8, "day").format("YYYY-MM-DD");
+        var dateFrom = document.getElementById("searchString");
+        var dateTo = document.getElementById("DateTo");
+
+        dateFrom.value = lastWeek;
+        dateTo.value = todayDate;
+    }
+</script>
+
+@*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
