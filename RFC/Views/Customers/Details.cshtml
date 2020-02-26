@@ -1,0 +1,80 @@
+﻿@model RFC.Models.Customer
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div id="right">
+    <div class="header" style="display:flex; justify-content: space-between;">
+        <h1 style="display:inline-block; width:auto; vertical-align: top;">Details</h1>
+        <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
+            <div class="otherButtons">
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Customers" asp-action="Index">Go Back</a>
+            </div>
+        </div>
+    </div>
+    <div class="rightContent">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Name
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Model.ID
+                    </td>
+                    <td>
+                        @Model.Name
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="form-group">
+            <input type="submit" value="Save" class="btn btn-primary" />
+            <a class="btn btn-default button btn-danger" asp-action="Delete" asp-route-id="@Model.ID">Delete</a>
+        </div>
+    </div>
+</div>
+
+
+<style>
+
+    .p-wrapped {
+        word-break: break-all;
+        white-space: normal
+    }
+
+    #Question:focus {
+        outline: none;
+    }
+</style>
+
+
+<script>
+
+    let coll = document.getElementsByClassName("collapsible");
+    for (let i = 0; i < coll.length; i++) {
+        let question = coll[i];
+        let content = question.nextElementSibling;
+
+        question.addEventListener("click", function () {
+            if (content.style.display == "" || content.style.display == "block") {
+                content.style.display = "none";
+                //question.style.background = "#f3f3f3";
+            } else {
+
+                content.style.display = "block";
+                //question.style.background = "#d2d2d2";
+            }
+        });
+    }
+
+</script>

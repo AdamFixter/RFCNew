@@ -6,7 +6,7 @@
     var quotes = new string[]
     {
         ""
-    };
+            };
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -59,8 +59,7 @@
 
 <script>
 
-    function changeCSSTheme()
-    {
+    function changeCSSTheme() {
         if (localStorage.getItem('IsDarkMode') === null) {
             localStorage.setItem('IsDarkMode', '1');
         }
@@ -75,8 +74,7 @@
     }
 
 
-    function setCSSTheme()
-    {
+    function setCSSTheme() {
         if (localStorage.getItem('IsDarkMode') == '1') {
             cssFile = '/lib/bootstrap/dist/css/bootstrap-darkly.css';
             this.document.getElementById('changeCSSThemeButton').innerHTML = 'Light Mode'
@@ -135,5 +133,5 @@
 
     window.onload = function () {
         this.setCSSTheme();
-    }; 
+    };
 </script>

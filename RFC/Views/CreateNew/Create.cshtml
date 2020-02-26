@@ -1,171 +1,171 @@
 ﻿@model RFC.Models.CreateNew
 
 @{
-	ViewData["Title"] = "Create";
-	Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <div id="right">
-        <div class="header" style="display:flex; justify-content: space-between;">
-            <h1 style="display:inline-block; width:auto; vertical-align: top;">Make a request</h1>
-            <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
-                <div class="otherButtons">
-                    <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
-                </div>
+<div id="right">
+    <div class="header" style="display:flex; justify-content: space-between;">
+        <h1 style="display:inline-block; width:auto; vertical-align: top;">Make a request</h1>
+        <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
+            <div class="otherButtons">
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
             </div>
         </div>
-        <div class="rightContent">
-            <p>All fields marked with a <strong class="error">*</strong> are required.</p>
-            <form asp-action="Create">
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="Priority" class="control-label"></label><strong class="error">*</strong>
-                            <select asp-for="Priority" asp-items="Html.GetEnumSelectList<Priority>()">
-                                <option selected="selected" value="">Please select</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="Product" class="control-label"></label><strong class="error">*</strong>
-                            <select asp-for="Product" asp-items="Html.GetEnumSelectList<Product>()">
-                                <option selected="selected" value="">Please select</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="ReasonForChange" class="control-label"></label><strong class="error">*</strong>
-                            <textarea placeholder="Enter here" asp-for="ReasonForChange" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="ChangeDescription" class="control-label"></label><strong class="error">*</strong>
-                            <textarea placeholder="Enter here" asp-for="ChangeDescription" class="form-control"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="SystemAffected" class="control-label"></label><strong class="error">*</strong>
-                            <textarea placeholder="Enter here" asp-for="SystemAffected" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="customers" class="control-label"></label><strong class="error">*</strong>
-                            <select asp-for="CustomersAffected" asp-items="Html.GetEnumSelectList<CustomersAffected>()">
-                                <option selected="selected" value="">Please select</option>
-                            </select>
-                            <textarea placeholder="Enter Description here" asp-for="customers" class="form-control"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="WhoPerforming" class="control-label"></label><strong class="error">*</strong>
-                            <textarea placeholder="Enter here" asp-for="WhoPerforming" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="RiskOfChange" class="control-label"></label><strong class="error">*</strong>
-                            <textarea placeholder="Enter here" asp-for="RiskOfChange" class="form-control"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="RiskNoChange" class="control-label"></label><strong class="error">*</strong>
-                            <textarea placeholder="Enter here" asp-for="RiskNoChange" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="VerifyAfter" class="control-label"></label><strong class="error">*</strong>
-                            <textarea placeholder="Enter here" asp-for="VerifyAfter" class="form-control"></textarea>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="RollBackPlan" class="control-label"></label><strong class="error">*</strong>
-                            <textarea placeholder="Enter here" asp-for="RollBackPlan" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="DueDate" class="control-label"></label><strong class="error">*</strong>
-                            <input asp-for="DueDate" class="form-control" />
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label asp-for="WhyDueDate" class="control-label"></label><strong class="error">*</strong>
-                            <textarea placeholder="Enter here" asp-for="WhyDueDate" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group form-check">
-                            <label class="form-check-label">
-                                <input class="form-check-input" asp-for="ServiceImpact" /> @Html.DisplayNameFor(model => model.ServiceImpact)
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="buttons">
-                    <div class="formButtons">
-                        <div class="form-group form-check">
-                            <input id="submitbuttonID" type="submit" value="Create" class="button submit btn btn-primary" />
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
     </div>
+    <div class="rightContent">
+        <p>All fields marked with a <strong class="error">*</strong> are required.</p>
+        <form asp-action="Create">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Priority" class="control-label"></label><strong class="error">*</strong>
+                        <select asp-for="Priority" asp-items="Html.GetEnumSelectList<Priority>()">
+                            <option selected="selected" value="">Please select</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="Product" class="control-label"></label><strong class="error">*</strong>
+                        <select asp-for="Product" asp-items="Html.GetEnumSelectList<Product>()">
+                            <option selected="selected" value="">Please select</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="ReasonForChange" class="control-label"></label><strong class="error">*</strong>
+                        <textarea placeholder="Enter here" asp-for="ReasonForChange" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="ChangeDescription" class="control-label"></label><strong class="error">*</strong>
+                        <textarea placeholder="Enter here" asp-for="ChangeDescription" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="SystemAffected" class="control-label"></label><strong class="error">*</strong>
+                        <textarea placeholder="Enter here" asp-for="SystemAffected" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="customers" class="control-label"></label><strong class="error">*</strong>
+                        <select asp-for="CustomersAffected" asp-items="Html.GetEnumSelectList<CustomersAffected>()">
+                            <option selected="selected" value="">Please select</option>
+                        </select>
+                        <textarea placeholder="Enter Description here" asp-for="customers" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="WhoPerforming" class="control-label"></label><strong class="error">*</strong>
+                        <textarea placeholder="Enter here" asp-for="WhoPerforming" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="RiskOfChange" class="control-label"></label><strong class="error">*</strong>
+                        <textarea placeholder="Enter here" asp-for="RiskOfChange" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="RiskNoChange" class="control-label"></label><strong class="error">*</strong>
+                        <textarea placeholder="Enter here" asp-for="RiskNoChange" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="VerifyAfter" class="control-label"></label><strong class="error">*</strong>
+                        <textarea placeholder="Enter here" asp-for="VerifyAfter" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="RollBackPlan" class="control-label"></label><strong class="error">*</strong>
+                        <textarea placeholder="Enter here" asp-for="RollBackPlan" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="DueDate" class="control-label"></label><strong class="error">*</strong>
+                        <input asp-for="DueDate" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label asp-for="WhyDueDate" class="control-label"></label><strong class="error">*</strong>
+                        <textarea placeholder="Enter here" asp-for="WhyDueDate" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="ServiceImpact" /> @Html.DisplayNameFor(model => model.ServiceImpact)
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="formButtons">
+                    <div class="form-group form-check">
+                        <input id="submitbuttonID" type="submit" value="Create" class="button submit btn btn-primary" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
 
 <style>
-	textarea {
-		min-height: 5em;
-		max-height: 25vh;
-		width: 100%;
-		resize: none;
-		transition: height ease-in 0.5s;
-	}
+    textarea {
+        min-height: 5em;
+        max-height: 25vh;
+        width: 100%;
+        resize: none;
+        transition: height ease-in 0.5s;
+    }
 </style>
 
 <script>
-document.addEventListener('input', function (event) {
-if (event.target.tagName.toLowerCase() !== 'textarea') return;
-autoExpand(event.target);
-}, false);
+    document.addEventListener('input', function (event) {
+        if (event.target.tagName.toLowerCase() !== 'textarea') return;
+        autoExpand(event.target);
+    }, false);
 
-var autoExpand = function (field) {
+    var autoExpand = function (field) {
 
-// Reset field height
-field.style.height = 'inherit';
+        // Reset field height
+        field.style.height = 'inherit';
 
-// Get the computed styles for the element
-var computed = window.getComputedStyle(field);
+        // Get the computed styles for the element
+        var computed = window.getComputedStyle(field);
 
-// Calculate the height
-var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
-				+ parseInt(computed.getPropertyValue('padding-top'), 10)
-				+ field.scrollHeight
-				+ parseInt(computed.getPropertyValue('padding-bottom'), 10)
-				+ parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+        // Calculate the height
+        var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+            + parseInt(computed.getPropertyValue('padding-top'), 10)
+            + field.scrollHeight
+            + parseInt(computed.getPropertyValue('padding-bottom'), 10)
+            + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
 
-field.style.height = height + 'px';
+        field.style.height = height + 'px';
 
-};
+    };
 </script>

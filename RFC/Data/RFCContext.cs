@@ -21,5 +21,7 @@ namespace RFC.Models
         public DbSet<RFC.Models.CreateNew> CreateNew { get; set; }
 
         public DbSet<RFC.Models.User> User { get; set; }
+
+        public DbSet<RFC.Models.Customer> Customer { get; set; }
     }
 }
