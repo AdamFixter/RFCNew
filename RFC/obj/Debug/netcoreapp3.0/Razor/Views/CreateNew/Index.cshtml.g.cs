@@ -323,10 +323,10 @@ WriteAttributeValue("", 4150, item.Approved ? "images/tick-symbol.png" : "images
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"] = __tagHelperStringValueBuffer;
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-currentFilter", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "class", 5, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            AddHtmlAttributeValue("", 4881, "button", 4881, 6, true);
-            AddHtmlAttributeValue(" ", 4887, "submit", 4888, 7, true);
-            AddHtmlAttributeValue(" ", 4894, "btn", 4895, 4, true);
-            AddHtmlAttributeValue(" ", 4898, "btn-default", 4899, 12, true);
+            AddHtmlAttributeValue("", 4719, "button", 4719, 6, true);
+            AddHtmlAttributeValue(" ", 4725, "submit", 4726, 7, true);
+            AddHtmlAttributeValue(" ", 4732, "btn", 4733, 4, true);
+            AddHtmlAttributeValue(" ", 4736, "btn-default", 4737, 12, true);
 #nullable restore
 #line 93 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
 AddHtmlAttributeValue(" ", 4910, !Model.HasPreviousPage ? "disabled" : "", 4911, 43, false);
@@ -389,10 +389,10 @@ AddHtmlAttributeValue(" ", 4910, !Model.HasPreviousPage ? "disabled" : "", 4911,
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"] = __tagHelperStringValueBuffer;
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-currentFilter", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "class", 5, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            AddHtmlAttributeValue("", 5281, "button", 5281, 6, true);
-            AddHtmlAttributeValue(" ", 5287, "submit", 5288, 7, true);
-            AddHtmlAttributeValue(" ", 5294, "btn", 5295, 4, true);
-            AddHtmlAttributeValue(" ", 5298, "btn-default", 5299, 12, true);
+            AddHtmlAttributeValue("", 5119, "button", 5119, 6, true);
+            AddHtmlAttributeValue(" ", 5125, "submit", 5126, 7, true);
+            AddHtmlAttributeValue(" ", 5132, "btn", 5133, 4, true);
+            AddHtmlAttributeValue(" ", 5136, "btn-default", 5137, 12, true);
 #nullable restore
 #line 100 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
 AddHtmlAttributeValue(" ", 5310, !Model.HasNextPage ? "disabled" : "", 5311, 39, false);
@@ -431,7 +431,7 @@ AddHtmlAttributeValue(" ", 5310, !Model.HasNextPage ? "disabled" : "", 5311, 39,
     dateRangeTo.type = ""date"";
     dateRangeTo.format = ""{0:yyyy-MM-dd}"";
 
-    dateRangeTo.style.display = ""none"";
+    dateRangeTo.style.display = ""inline-block"";
     window.onload = testfunction;
 
     $('#ColumnSelect').on('change', function () {
@@ -446,8 +446,8 @@ AddHtmlAttributeValue(" ", 5310, !Model.HasNextPage ? "disabled" : "", 5311, 39,
                 datalist.innerHTML = `<option value=""RIO""></option>
                                       <option value=""Flow""></option>
                                       <option value=""Oceano""></option>
-                ");
-            WriteLiteral(@"                      <option value=""Conexes""></option>
+        ");
+            WriteLiteral(@"                              <option value=""Conexes""></option>
                                       <option value=""Mosaic""></option>`;
                 break;
             case 5:
@@ -472,8 +472,8 @@ AddHtmlAttributeValue(" ", 5310, !Model.HasNextPage ? "disabled" : "", 5311, 39,
 
         var columnselect = document.getElementById(""ColumnSelect"");
 
-        if (columnselect.options[columnselect.selectedIndex].text == ""Requested D");
-            WriteLiteral(@"ue Date"") {
+        if (columnselect.options[columnselect.selectedIndex].text == ""Req");
+            WriteLiteral(@"uested Due Date"") {
             input.type = ""date"";
             input.format = ""{0:yyyy-MM-dd}"";
             dateRangeTo.style.display = ""inline-block"";
