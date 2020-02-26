@@ -72,6 +72,7 @@ html, body {
         min-width: 50%;
         border-right: 3px solid var(--servelec-gray);
         background: url(https://www.servelec.co.uk/media/1482/education-teacher-plus-sen_cmyk-small.png?anchor=center&mode=crop&width=700&height=600&rnd=132114625750000000) no-repeat center center;
+        background-position: center;
         transition: min-width 0.5s ease;
     }
 
