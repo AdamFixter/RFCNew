@@ -10970,6 +10970,9 @@ th {
     background-color: #303030;
 }
 
+#row-hover tr:hover {
+    background-color: #464646;
+}
 
 /* TODO:
 -hover colour issue on tables
