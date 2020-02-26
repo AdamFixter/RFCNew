@@ -15,8 +15,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - RFC</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/style.css" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 </head>
 <body>
     <header>
@@ -45,16 +45,61 @@
         </nav>
     </header>
     <div id="content">
-        <a href="/"><img class="logo" src="https://cdn.glitch.com/d66e74b3-acc7-403c-b17e-9e443968d32a%2FnewSDLogo.png?v=1579617391361"></a>
+        <a href="/"><img class="logo" src="~/images/Servelec-D-Logo.png"></a>
         <div class="background"></div>
         <div class="RFCForm">@RenderBody()</div>
     </div>
-    @*<div class="footer">
-        <div id="motivationQuote"></div>
-    </div>*@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
+
+    <button class="btn btn-default button" id="changeCSSThemeButton" style="position: absolute; top: 5px; right: 10px; color:white;" onclick="changeCSSTheme()">Dark Mode</button>
 </body>
 </html>
+
+<script>
+
+    function changeCSSTheme()
+    {
+        if (localStorage.getItem('IsDarkMode') === null) {
+            localStorage.setItem('IsDarkMode', '1');
+        }
+        else if (localStorage.getItem('IsDarkMode') == '1') {
+            localStorage.setItem('IsDarkMode', '0');
+        }
+        else if (localStorage.getItem('IsDarkMode') == '0') {
+            localStorage.setItem('IsDarkMode', '1');
+        }
+
+        setCSSTheme();
+    }
+
+
+    function setCSSTheme()
+    {
+        if (localStorage.getItem('IsDarkMode') == '1') {
+            cssFile = '/lib/bootstrap/dist/css/bootstrap-darkly.css';
+            this.document.getElementById('changeCSSThemeButton').innerHTML = 'Light Mode'
+            document.getElementById('left').style.background = "url(images/frontImage-edited.png)";
+        } else if (localStorage.getItem('IsDarkMode') == '0') {
+            cssFile = '/lib/bootstrap/dist/css/bootstrap.min.css';
+            this.document.getElementById('changeCSSThemeButton').innerHTML = 'Dark Mode'
+            document.getElementById('left').style.background = "url(images/frontImage.png)";
+        }
+
+        var oldlink = document.getElementsByTagName("link").item(1);
+
+        var newlink = document.createElement("link");
+        newlink.setAttribute("rel", "stylesheet");
+        newlink.setAttribute("href", cssFile);
+
+        document.getElementsByTagName("head").item(0).replaceChild(newlink, oldlink);
+
+        usingCSSFile = cssFile;
+    }
+
+    window.onload = function () {
+        this.setCSSTheme();
+    }; 
+</script>

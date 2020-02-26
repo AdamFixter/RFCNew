@@ -202,7 +202,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("                <tr class=\"d-table-row\" id=\"table-row\" data-href=");
+            WriteLiteral("                    <tr class=\"d-table-row\" id=\"table-row\" data-href=");
 #nullable restore
 #line 60 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                                                              Write("/CreateNew/Details/" + item.ID);
@@ -521,35 +521,13 @@ AddHtmlAttributeValue(" ", 4935, !Model.HasNextPage ? "disabled" : "", 4936, 39,
 
     function weeklyAgenda()
     {
-
         var todayDate = moment().format(""YYYY-MM-DD"");
-        var lastWeek = moment().subtract(7, ""day"").format(""YYYY-MM-DD"");
-
-        console.log(todayDate);
-        console.log(lastWeek);
-
-
+        var lastWeek = moment().subtract(8, ""day"").format(""YYYY-MM-DD"");
         var dateFrom = document.getElementById(""searchString"");
         var dateTo = document.getElementById(""DateTo"");
 
-        dateFrom.value = lastWeek;      //line252
-        dateTo.value = todayDate;       //line253
-
-        //const sevenDays = (60 * 60 * 24 * 7);
-        //var today = new Date();
-        //var lastWeek = ((today.getTime) - (60 * 60 * 24 * 7));
-
-        
-        //console.log(today);
-        //console.log(sevenDays);
-        //console.log(lastWeek);
-        //var todayDate = new Date();
-        //todayDate.setDate(todayDate.getDate());
-        //console.log(todayDate.getDay());
-
-        //var lastWeek = new Date();
-        //lastWeek.setDate((lastWeek.getDate() - 7));
-        //console.log(lastWeek);
+        dateFrom.value = lastWeek;
+        dateTo.value = todayDate;
     }
 
 

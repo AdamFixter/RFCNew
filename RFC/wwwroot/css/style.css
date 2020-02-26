@@ -72,6 +72,7 @@ html, body {
         min-width: 50%;
         border-right: 3px solid var(--servelec-gray);
         background: url(https://www.servelec.co.uk/media/1482/education-teacher-plus-sen_cmyk-small.png?anchor=center&mode=crop&width=700&height=600&rnd=132114625750000000) no-repeat center center;
+        background-position: center;
         transition: min-width 0.5s ease;
     }
 
@@ -99,7 +100,7 @@ html, body {
                 border-collapse: collapse;
             }
 
-                .RFCForm #right .rightContent .table thead th {
+                .RFCForm #right .rightContent .table thead {
                     position: sticky;
                     top: 0;
                     background: #f3f3f3ff;
@@ -203,4 +204,38 @@ p, label, h1 {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+
+
+
+/*added thanks to making darkmode work*/
+
+.content {
+    padding: 0 18px;
+    display: block;
+    overflow: hidden;
+    background-color: #d2d2d2;
+}
+
+.collapsible {
+    background-color: #f3f3f3;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    font-weight: bold;
+    border-color: #f3f3f3;
+    outline: none;
+}
+
+.active, .collapsible:hover {
+    background-color: #d2d2d2;
+}
+
+
+#Question {
+    background: #d2d2d2;
 }
