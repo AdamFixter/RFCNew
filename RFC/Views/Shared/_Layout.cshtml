@@ -84,11 +84,38 @@
             if (document.getElementById('left') != null) {
                 document.getElementById('left').style.background = "url(images/frontImage-edited.png)";
             }
+            else if (document.getElementsByClassName("collapsible") != null) {
+                let coll = document.getElementsByClassName("collapsible");
+                for (let i = 0; i < coll.length; i++) {
+                    let question = coll[i];
+                    let content = question.nextElementSibling;
+                    if (content.style.display == "" || content.style.display == "block") {
+                        question.style.backgroundColor = "#303030";
+                    }
+                    else {
+                        question.style.backgroundColor = "black";
+                    }
+                }
+            }
         } else if (localStorage.getItem('IsDarkMode') == '0') {
             cssFile = '/lib/bootstrap/dist/css/bootstrap.min.css';
             this.document.getElementById('changeCSSThemeButton').innerHTML = 'Dark Mode'
             if (document.getElementById('left') != null) {
                 document.getElementById('left').style.background = "url(images/frontImage.png)";
+            }
+            else if (document.getElementsByClassName("collapsible") != null) {
+                let coll = document.getElementsByClassName("collapsible");
+                for (let i = 0; i < coll.length; i++) {
+                    let question = coll[i];
+                    let content = question.nextElementSibling;
+
+                    if (content.style.display == "" || content.style.display == "block") {
+                        question.style.backgroundColor = "#d2d2d2";
+                    }
+                    else {
+                        question.style.backgroundColor = "white";
+                    }
+                }
             }
         }
 
