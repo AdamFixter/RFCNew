@@ -188,22 +188,11 @@
         question.addEventListener("click", function () {
             if (content.style.display == "" || content.style.display == "block") {
                 content.style.display = "none";
-                if (localStorage.getItem('IsDarkMode') == '1') {
-                    question.style.background = "#000000";
-                }
-                else if (localStorage.getItem('IsDarkMode') == '0') {
-                    question.style.background = "#f3f3f3";
-                }
-
+                //question.style.background = "#f3f3f3";
             } else {
 
                 content.style.display = "block";
-                if (localStorage.getItem('IsDarkMode') == '1') {
-                    question.style.background = "#303030";
-                }
-                else if (localStorage.getItem('IsDarkMode') == '0') {
-                    question.style.background = "#d2d2d2";
-                }
+                //question.style.background = "#d2d2d2";
             }
         });
     }
