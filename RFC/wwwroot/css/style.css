@@ -89,6 +89,7 @@ html, body {
         }
 
         .RFCForm #right .rightContent {
+            position: relative;
             display: flex;
             height: 100%;
             flex-direction: column;
@@ -138,15 +139,12 @@ a.button {
 }
 
 .RFCForm #right .rightContent .options {
-    display: flex;
-    flex-direction: column;
     margin: 0 5%;
     height: 100%;
 }
 
     .RFCForm #right .rightContent .options .option {
         display: flex;
-        flex: 1;
         margin: 1%;
         height: 30%;
     }
@@ -185,20 +183,25 @@ a.button {
     }
 }
 
+#row-hover tr:hover {
+    cursor: pointer;
+    background-color: #d7d7d7;
+}
+
 /* Accessibility yellow highlighting assistance
 -------------------------------------------------- */
 
 
-select, input, label, input, a {
+select, input, label, input, a, .btn {
     border: solid;
     border-color: transparent;
 }
 
 
-    select:focus, input:active, label:active, input:focus, a:focus {
-        border: solid;
-        border-color: #FFDD00;
-    }
+/*select:focus, input:active, label:active, input:focus, a:focus {
+    border: solid;
+    border-color: #FFDD00;
+}*/
 
 p, label, h1 {
     -webkit-touch-callout: none;
