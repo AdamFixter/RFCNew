@@ -2,12 +2,11 @@
     var textInfo = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo;
     var args = User.Identity.Name.Split("\\");
     var name = textInfo.ToTitleCase(args[1].Replace(".", " "));
-    //var email = args[1] + "@" + textInfo.ToLower(args[0]) + ".com";
 
     var quotes = new string[]
     {
         ""
-    };
+            };
 }
 <!DOCTYPE html>
 <html lang="en">
@@ -47,21 +46,20 @@
     <div id="content">
         <a href="/"><img class="logo" src="~/images/Servelec-D-Logo.png"></a>
         <div class="background"></div>
-        <div class="RFCForm">@RenderBody()</div>
+        <div class="RFCForm" id="RFCFormID" style="top: 18%;">@RenderBody()</div>
     </div>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 
-    <button class="btn btn-default button" id="changeCSSThemeButton" style="position: absolute; top: 5px; right: 10px; color:white;" onclick="changeCSSTheme()">Dark Mode</button>
+    <button class="btn btn-default button btn-outline-dark" id="changeCSSThemeButton" style="position: absolute; top: 5px; right: 10px; color:white;" onclick="changeCSSTheme()">Dark Mode</button>
 </body>
 </html>
 
 <script>
 
-    function changeCSSTheme()
-    {
+    function changeCSSTheme() {
         if (localStorage.getItem('IsDarkMode') === null) {
             localStorage.setItem('IsDarkMode', '1');
         }
@@ -76,19 +74,49 @@
     }
 
 
-    function setCSSTheme()
-    {
+    function setCSSTheme() {
         if (localStorage.getItem('IsDarkMode') == '1') {
             cssFile = '/lib/bootstrap/dist/css/bootstrap-darkly.css';
             this.document.getElementById('changeCSSThemeButton').innerHTML = 'Light Mode'
-            if (document.getElementById('left') != null) {
-                document.getElementById('left').style.background = "url(images/frontImage-edited.png)";
+            if (document.getElementById("Question") != null) {
+                console.log("this is the page");
+                document.getElementById("RFCFormID").style.top = "5%";
+                let coll = document.getElementsByClassName("collapsible");
+                for (let i = 0; i < coll.length; i++) {
+                    let question = coll[i];
+                    let content = question.nextElementSibling;
+                    if (content.style.display == "" || content.style.display == "block") {
+                        question.style.backgroundColor = "#303030";
+                    }
+                    else {
+                        question.style.backgroundColor = "black";
+                    }
+                }
+            }
+            else if (document.getElementById("submitbuttonID") != null) {
+                document.getElementById("RFCFormID").style.top = "5%";
             }
         } else if (localStorage.getItem('IsDarkMode') == '0') {
             cssFile = '/lib/bootstrap/dist/css/bootstrap.min.css';
             this.document.getElementById('changeCSSThemeButton').innerHTML = 'Dark Mode'
-            if (document.getElementById('left') != null) {
-                document.getElementById('left').style.background = "url(images/frontImage.png)";
+            if (document.getElementById("Question") != null) {
+                console.log("this is the page");
+                document.getElementById("RFCFormID").style.top = "5%";
+                let coll = document.getElementsByClassName("collapsible");
+                for (let i = 0; i < coll.length; i++) {
+                    let question = coll[i];
+                    let content = question.nextElementSibling;
+
+                    if (content.style.display == "" || content.style.display == "block") {
+                        question.style.backgroundColor = "#d2d2d2";
+                    }
+                    else {
+                        question.style.backgroundColor = "white";
+                    }
+                }
+            }
+            else if (document.getElementById("submitbuttonID") != null) {
+                document.getElementById("RFCFormID").style.top = "5%";
             }
         }
 
@@ -105,5 +133,5 @@
 
     window.onload = function () {
         this.setCSSTheme();
-    }; 
+    };
 </script>
