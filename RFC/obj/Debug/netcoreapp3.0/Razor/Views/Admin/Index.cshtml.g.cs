@@ -26,7 +26,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b476d5d41eab03f97e17943e8427878b8ae67dc0", @"/Views/Admin/Index.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ff9005ebbfed4b3d92a8355139d57bd542542ed7", @"/Views/Admin/Index.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc4ddab8934f76edf50d0bb6435f89b8c3095685", @"/Views/_ViewImports.cshtml")]
     public class Views_Admin_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PaginatedList<RFC.Models.User>>
     {
@@ -61,7 +61,7 @@ using RFC.Models;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
-            WriteLiteral("\r\n");
+            WriteLiteral("\n");
 #nullable restore
 #line 3 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
   
@@ -101,16 +101,7 @@ using RFC.Models;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral(@"
-            </div>
-        </div>
-    </div>
-    <div class=""rightContent"">
-        <table class=""table table-bordered table-condensed table-striped table-hover"">
-            <thead>
-                <tr>
-                    <th>
-                        ");
+            WriteLiteral("\n            </div>\n        </div>\n    </div>\n    <div class=\"rightContent\">\n        <table class=\"table table-bordered table-condensed table-striped table-hover\">\n            <thead>\n                <tr>\n                    <th>\n                        ");
 #nullable restore
 #line 24 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                    Write(Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm }));
@@ -118,7 +109,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
+            WriteLiteral("\n                    </th>\n                    <th>\n                        ");
 #nullable restore
 #line 27 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                    Write(Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameParm }));
@@ -126,7 +117,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
+            WriteLiteral("\n                    </th>\n                    <th>\n                        ");
 #nullable restore
 #line 30 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                    Write(Html.ActionLink("Role", "Index", new { sortOrder = ViewBag.RoleSortParam }));
@@ -134,7 +125,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n");
+            WriteLiteral("\n                    </th>\n                </tr>\n            </thead>\n            <tbody>\n");
 #nullable restore
 #line 35 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                  foreach (var item in Model)
@@ -151,7 +142,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral(">\r\n                        <td>\r\n                            ");
+            WriteLiteral(">\n                        <td>\n                            ");
 #nullable restore
 #line 39 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.ID));
@@ -159,7 +150,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+            WriteLiteral("\n                        </td>\n                        <td>\n                            ");
 #nullable restore
 #line 42 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.Name));
@@ -167,7 +158,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+            WriteLiteral("\n                        </td>\n                        <td>\n                            ");
 #nullable restore
 #line 45 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.Role));
@@ -175,7 +166,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                    </tr>\r\n");
+            WriteLiteral("\n                        </td>\n                    </tr>\n");
 #nullable restore
 #line 48 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Admin\Index.cshtml"
                 }
@@ -197,7 +188,7 @@ using RFC.Models;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n\r\n<script type=\"text/javascript\">\r\n$(document).ready(function ($) {\r\n        $(\".d-table-row\").click(function () {\r\n            window.document.location = $(this).data(\"href\");\r\n        });\r\n    });</script>\r\n");
+            WriteLiteral("\n\n<script type=\"text/javascript\">\n$(document).ready(function ($) {\n        $(\".d-table-row\").click(function () {\n            window.document.location = $(this).data(\"href\");\n        });\n    });</script>\n");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

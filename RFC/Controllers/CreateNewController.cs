@@ -23,81 +23,15 @@ namespace RFC.Controllers
 
         // GET: CreateNew
         [Route("submissions")]
-        public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User CurrentUser, string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
+        public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User CurrentUser, string sortOrder, string searchID, Priority searchPriority, Product searchProduct, string searchCustomer, string searchStatus, DateTime? searchDateStart, DateTime? searchDateEnd, string columnSelect, int? pageNumber)
         {
-
+            Debug.WriteLine($"\n\n{sortOrder}\n{searchID}\n{searchPriority.ToString()}\n{searchProduct.ToString()}\n{searchCustomer}\n{searchStatus}");
             ViewData["CurrentSort"] = sortOrder;
 
-            if (searchString != null)
-            {
-                pageNumber = 1;
-            }
-            else
-            {
-                searchString = "";
-            }
-
-
-            List<SelectListItem> items = new List<SelectListItem>   //// Creates list of possible columns to select in drop-down menu
-            {
-                new SelectListItem { Value = "ID", Text = "ID" },
-                new SelectListItem { Value = "RFCType", Text = "Type" },
-                new SelectListItem { Value = "ProductName", Text = "Product Name" },
-                new SelectListItem { Value = "CustomerName", Text = "Customer Name" },
-                new SelectListItem { Value = "RequestedDueDate", Text = "Requested Due Date" },
-                new SelectListItem { Value = "Approved", Text = "Approved" }
-            };
-            ViewBag.columnSelect = items;   //// Adds the pre-created list into the variable that will use it as dropdown values
-
-
-            ///// ViewBag.[something]Parm is used for sorting order by clicking column
-            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "IDDesc" : "";
-            ViewBag.RFCTypeSortParm = sortOrder == "RFCTypeAsc" ? "RFCTypeDesc" : "RFCTypeAsc";
-            ViewBag.ProductNameSortParm = sortOrder == "ProductNameAsc" ? "ProductNameDesc" : "ProductNameAsc";
-            ViewBag.CustomerNameSortParm = sortOrder == "CustomerNameAsc" ? "CustomerNameDesc" : "CustomerNameAsc";
-            ViewBag.RequestedDueDateSortParm = sortOrder == "RequestedDueDateAsc" ? "RequestedDueDateDesc" : "RequestedDueDateAsc";
-            ViewBag.Approved = sortOrder == "ApprovedAsc" ? "ApprovedDesc" : "ApprovedAsc";
-
-            //// The 'submissions' is the variable with the data from the table
             var submissions = from s in _context.CreateNew
                               select s;
 
-            if (!String.IsNullOrEmpty(searchString))    //// Filters the 'submissions' data out depending on the search performed and column selected from the dropdown list
-            {
-                searchString = searchString.ToLower();
-                switch (columnSelect)
-                {
-                    case "ID":
-                        submissions = submissions.Where(s => s.ID.ToString().Contains(searchString));
-                        break;
-                    case "RequestedDueDate":
-                        submissions = submissions.Where(s => s.DueDate >= Convert.ToDateTime(searchString) && s.DueDate <= DateTo);
-                        break;
-                    case "RFCType":
-                        searchString = textInfo.ToTitleCase(searchString);
-                        if (Enum.GetNames(typeof(Priority)).ToList().IndexOf(searchString) != -1) //Check if the string includes a valid enum.
-                        {
-                            Debug.WriteLine("\n\n   - Found: Yes");
-                            Priority foundPriority = (Priority)Enum.Parse(typeof(Priority), searchString); //Parse the search string to the Priority.
-                            submissions = submissions.Where(s => s.Priority == foundPriority);
-                            Debug.WriteLine($"\n\n   - Filtered: {submissions}");
-                        }
-                        break;
-                    case "ProductName":
-                        searchString = textInfo.ToTitleCase(searchString);
-                        if (Enum.GetNames(typeof(Product)).ToList().IndexOf(searchString) != -1)
-                        {
-                            Product foundProduct = (Product)Enum.Parse(typeof(Product), searchString);
-                            submissions = submissions.Where(s => s.Product == foundProduct);
-                        }
-                        break;
-                    case "CustomerName":
-                        submissions = submissions.Where(s => s.customers.Contains(searchString));
-                        break;
-                }
-            }
 
-            ViewBag.sortOrder = sortOrder;
             switch (sortOrder)  //// Sorts the columns when you click on them  by Asc or Desc
             {
                 case "IDDesc":
@@ -139,7 +73,10 @@ namespace RFC.Controllers
             }
             int pageSize = 5;
             return View(await PaginatedList<CreateNew>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize));
+
+
         }
+
 
         // GET: CreateNew/Details/5
         public async Task<IActionResult> Details([Bind("ID,Name,Role,DomainUser")] User CurrentUser, long? id)

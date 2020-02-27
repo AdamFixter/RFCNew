@@ -46,8 +46,8 @@
                         </td>
                         <td>
                             <div class="form-group">
-                                <select asp-for="Role" asp-items="Html.GetEnumSelectList<UserRole>()">
-                                    <option selected="selected" value="">@Model.Role</option>
+                                <select id="role" asp-for="Role" asp-items="Html.GetEnumSelectList<UserRole>()"> 
+                                    @*<option selected="selected" value="">@Model.Role</option>*@
                                 </select>
                             </div>
                         </td>
