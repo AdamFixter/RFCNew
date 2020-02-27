@@ -134,4 +134,21 @@
     window.onload = function () {
         this.setCSSTheme();
     };
+    let text = document.getElementById("fghryf");
+    let keysPressed = [];
+    let keysAllowed = [97, 100];
+    document.addEventListener("keypress", function (e) {
+        if (keysAllowed.indexOf(e.keyCode) == -1) return;
+
+        keysPressed.push(e.keyCode);
+        let isSame = keysPressed.length == keysAllowed.length && keysPressed.every((el, index) => el === keysAllowed[index]);
+        if (isSame) {
+            text.classList.toggle("secret");
+        }
+        if (keysPressed > 1) {
+            setTimeout(function () {
+                keysPressed = [];
+            }, 5000);
+        }
+    });
 </script>

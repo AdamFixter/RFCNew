@@ -20,7 +20,6 @@
     --servelec-normal: #d26e28;
     --servelec-retrospective: #54a402;
 }
-
 html, body {
     height: 90%;
 }
@@ -139,12 +138,15 @@ a.button {
 }
 
 .RFCForm #right .rightContent .options {
+    display: flex;
+    flex-direction: column;
     margin: 0 5%;
     height: 100%;
 }
 
     .RFCForm #right .rightContent .options .option {
         display: flex;
+        flex: 1;
         margin: 1%;
         height: 30%;
     }
@@ -243,4 +245,20 @@ p, label, h1 {
 
 #Question {
     background: #d2d2d2;
+}
+
+.secret {
+    background: linear-gradient(to right, var(--servelec-red) 20%, var(--servelec-purple) 30%, var(--servelec-blue) 70%, var(--servelec-orange) 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    background-size: 200% auto;
+    animation: textShine 7s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+    to {
+        background-position: 200%;
+    }
 }
