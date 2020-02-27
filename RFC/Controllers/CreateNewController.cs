@@ -154,7 +154,7 @@ namespace RFC.Controllers
         // GET: CreateNew/Delete/5
         public async Task<IActionResult> Delete([Bind("ID,Name,Role,DomainUser")] User CurrentUser, long? id)
         {
-            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
+            //if (CurrentUser.Role == UserRole.Standard) return RedirectToAction("Index", "Home", new { area = "" });   //// The CurrentUser.Role isn't valid for this to work
 
             if (id == null)
             {
@@ -176,7 +176,7 @@ namespace RFC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed([Bind("ID,Name,Role,DomainUser")] User CurrentUser,long id)
         {
-            if (CurrentUser.Role == UserRole.Standard) return RedirectToAction("Index", "Home", new { area = "" });
+            //if (CurrentUser.Role == UserRole.Standard) return RedirectToAction("Index", "Home", new { area = "" });   //// The CurrentUser.Role isn't valid for this to work
             var createNew = await _context.CreateNew.FindAsync(id);
             _context.CreateNew.Remove(createNew);
             await _context.SaveChangesAsync();
