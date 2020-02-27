@@ -26,7 +26,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b6926f7000866e661fc240b9a9db3e08a54dc82c", @"/Views/Shared/_Layout.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4238169c317ef0656b9593727ed6e712f4cd5efe", @"/Views/Shared/_Layout.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e7ca65db9ab1fb1d064de4b19e46dc6292ea35be", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
@@ -412,7 +412,32 @@ Write(RenderSection("Scripts", required: false));
         newlink.setAttribute(""href"", cssFile);
 
         document.getElement");
-            WriteLiteral("sByTagName(\"head\").item(0).replaceChild(newlink, oldlink);\r\n\r\n        usingCSSFile = cssFile;\r\n    }\r\n\r\n    window.onload = function () {\r\n        this.setCSSTheme();\r\n    };\r\n</script>");
+            WriteLiteral(@"sByTagName(""head"").item(0).replaceChild(newlink, oldlink);
+
+        usingCSSFile = cssFile;
+    }
+
+    window.onload = function () {
+        this.setCSSTheme();
+    };
+    let text = document.getElementById(""fghryf"");
+    let keysPressed = [];
+    let keysAllowed = [97, 100];
+    document.addEventListener(""keypress"", function (e) {
+        if (keysAllowed.indexOf(e.keyCode) == -1) return;
+
+        keysPressed.push(e.keyCode);
+        let isSame = keysPressed.length == keysAllowed.length && keysPressed.every((el, index) => el === keysAllowed[index]);
+        if (isSame) {
+            text.classList.toggle(""secret"");
+        }
+        if (keysPressed > 1) {
+            setTimeout(function () {
+                keysPressed = [];
+            }, 5000);
+        }
+    });
+</script>");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

@@ -26,7 +26,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"36b1f029fad8911a71c916a9aab8c6539db06383", @"/Views/Home/Index.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cb7a4edc6e31e2622c7f660086ea93a18a7f2bdd", @"/Views/Home/Index.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e7ca65db9ab1fb1d064de4b19e46dc6292ea35be", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<RFC.Models.User>
     {
@@ -91,7 +91,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n<div id=\"left\"></div>\r\n<div id=\"right\">\r\n    <div class=\"header\">\r\n        <h1 style=\"text-align:center\">");
+            WriteLiteral("\r\n<div id=\"left\"></div>\r\n<div id=\"right\">\r\n    <div class=\"header\">\r\n        <h1 id=\"fghryf\" style=\"text-align:center\">");
 #nullable restore
 #line 15 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Home\Index.cshtml"
                                  Write(greetings[new Random().Next(0, greetings.Length)].Replace("%name%", Model.Name));
@@ -197,9 +197,9 @@ using RFC.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n                    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "36b1f029fad8911a71c916a9aab8c6539db0638322674", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cb7a4edc6e31e2622c7f660086ea93a18a7f2bdd22634", async() => {
                 WriteLiteral("\r\n                        <div class=\"icon\" style=\"background-color: #164194; width:  30%;display:  flex;justify-content:  center;align-items:  center;\">");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "36b1f029fad8911a71c916a9aab8c6539db0638323085", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "cb7a4edc6e31e2622c7f660086ea93a18a7f2bdd23045", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
