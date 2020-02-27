@@ -9,6 +9,14 @@
     var greetings = new string[] { "Welcome back %name%", "Good day, %name%", "Long time no see, %name%", "Greetings %name%" };
 }
 
+<script>
+    // Some javascript is positioned here so the script executes before loading the HTML
+
+    if ("@TempData["submittedID"]" != "") {
+        alert("Your RFC is now submitted\nSubmission ID: " + "@TempData["submittedID"]");
+    }
+</script>
+
 <div id="left"></div>
 <div id="right">
     <div class="header">

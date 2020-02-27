@@ -117,7 +117,8 @@ namespace RFC.Controllers
             {
                 _context.Add(createNew);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                TempData["submittedID"] = createNew.ID.ToString();
+                return RedirectToAction("Index", "Home", new { area = "" });
             }
             return View(createNew);
         }
@@ -175,8 +176,7 @@ namespace RFC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed([Bind("ID,Name,Role,DomainUser")] User CurrentUser,long id)
         {
-            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
-
+            if (CurrentUser.Role == UserRole.Standard) return RedirectToAction("Index", "Home", new { area = "" });
             var createNew = await _context.CreateNew.FindAsync(id);
             _context.CreateNew.Remove(createNew);
             await _context.SaveChangesAsync();
