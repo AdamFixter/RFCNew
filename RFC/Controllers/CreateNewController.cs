@@ -135,15 +135,18 @@ namespace RFC.Controllers
             {
                 return NotFound();
             }
+            TempData["lastRowID"] = id.ToString();
             if (ModelState.IsValid)
             {
                 createNew.Approved = !createNew.Approved;
                 _context.Update(createNew);
                 await _context.SaveChangesAsync();
-                ViewBag.Message = id.ToString();
-
+                TempData["stateMessage"] = createNew.Approved;
+                TempData["stateStatus"] = true;
                 return RedirectToAction(nameof(Index));
             }
+            TempData["stateMessage"] = !createNew.Approved;
+            TempData["stateStatus"] = false;
             return RedirectToAction(nameof(Index));
         }
 

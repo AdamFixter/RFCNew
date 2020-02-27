@@ -7,6 +7,24 @@
     var priorityList = Html.GetEnumSelectList<Priority>();
 }
 
+<script>    // Some javascript is positioned here so the script executes before loading the HTML
+    if ("@TempData["lastRowID"]" != "") {
+        console.log("it is not empty");
+        var state = ""
+        if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "True")
+            endString = " is now approved";
+        else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "True")
+            endString = " is now unapproved";
+        else if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "False")
+            endString = " failed to be approved";
+        else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "False")
+            endString = " failed to be unapproved";
+
+        alert("Submission ID: " + "@TempData["lastRowID"]" + endString + "\n\nPress OK to go back to the Details");
+        window.location.href = '/CreateNew/Details/' + "@TempData["lastRowID"]";
+    }
+</script>
+
 <div id="right">
     <div class="header" style="display:flex; justify-content: space-between;">
         <h1 style="display:inline-block; width:auto; vertical-align: top;">Requests</h1>
@@ -112,9 +130,6 @@
     </div>
 </div>
 
-<input type="hidden" id="customInput" value="@ViewBag.Message" />
-
-
 <style>
     #weeklyAgenda {
         display: none;
@@ -183,15 +198,6 @@
     }
 </script>
 
-<script>
-    window.onload = function () {
-        console.log("message is |" + document.getElementById("customInput").value + "|");
-    };
-
-    @*if (@ViewBag.Message != null) {
-        window.document.location = $(this).data("Details/" + @ViewBag.Message);
-    }*@
-</script>
 
 
 @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
