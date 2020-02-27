@@ -1,4 +1,4 @@
-﻿@model RFC.Models.User
+﻿@model RFC.Models.Customer
 
 @{
     ViewData["Title"] = "Details";
@@ -10,7 +10,7 @@
         <h1 style="display:inline-block; width:auto; vertical-align: top;">Are you sure?</h1>
         <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
             <div class="otherButtons">
-                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Admin" asp-action="Details" asp-route-id="@Model.ID">Go Back</a>
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Customers" asp-action="Details" asp-route-id="@Model.ID">Go Back</a>
             </div>
         </div>
     </div>
@@ -25,9 +25,6 @@
                         <th>
                             Name
                         </th>
-                        <th>
-                            Role
-                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,15 +35,12 @@
                         <td>
                             @Model.Name
                         </td>
-                        <td>
-                            @Model.Role
-                        </td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-group">
                 <input type="submit" class="btn btn-success" value="Yes"></input>
-                <a asp-controller="Admin" asp-action="Details" asp-route-id="@Model.ID" type="submit" class="btn btn-danger">No</a>
+                <a asp-controller="Customers" asp-action="Details" asp-route-id="@Model.ID" type="submit" class="btn btn-danger">No</a>
             </div>
         </form>
     </div>

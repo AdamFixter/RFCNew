@@ -26,8 +26,8 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a816f996b79fc709a35a3eb07cb55a740e0214ae", @"/Views/Shared/_Layout.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc4ddab8934f76edf50d0bb6435f89b8c3095685", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b6926f7000866e661fc240b9a9db3e08a54dc82c", @"/Views/Shared/_Layout.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e7ca65db9ab1fb1d064de4b19e46dc6292ea35be", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__Layout : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("rel", new global::Microsoft.AspNetCore.Html.HtmlString("stylesheet"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -80,12 +80,11 @@ using RFC.Models;
     var textInfo = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo;
     var args = User.Identity.Name.Split("\\");
     var name = textInfo.ToTitleCase(args[1].Replace(".", " "));
-    //var email = args[1] + "@" + textInfo.ToLower(args[0]) + ".com";
 
     var quotes = new string[]
     {
         ""
-    };
+            };
 
 #line default
 #line hidden
@@ -257,7 +256,7 @@ using RFC.Models;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                WriteLiteral("</a>\r\n        <div class=\"background\"></div>\r\n        <div class=\"RFCForm\">");
+                WriteLiteral("</a>\r\n        <div class=\"background\"></div>\r\n        <div class=\"RFCForm\" id=\"RFCFormID\" style=\"top: 18%;\">");
 #nullable restore
 #line 50 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\Shared\_Layout.cshtml"
                         Write(RenderBody());
@@ -326,7 +325,7 @@ Write(RenderSection("Scripts", required: false));
 #line default
 #line hidden
 #nullable disable
-                WriteLiteral("\r\n\r\n    <button class=\"btn btn-default button\" id=\"changeCSSThemeButton\" style=\"position: absolute; top: 5px; right: 10px; color:white;\" onclick=\"changeCSSTheme()\">Dark Mode</button>\r\n");
+                WriteLiteral("\r\n\r\n    <button class=\"btn btn-default button btn-outline-dark\" id=\"changeCSSThemeButton\" style=\"position: absolute; top: 5px; right: 10px; color:white;\" onclick=\"changeCSSTheme()\">Dark Mode</button>\r\n");
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper>();
@@ -343,8 +342,7 @@ Write(RenderSection("Scripts", required: false));
 
 <script>
 
-    function changeCSSTheme()
-    {
+    function changeCSSTheme() {
         if (localStorage.getItem('IsDarkMode') === null) {
             localStorage.setItem('IsDarkMode', '1');
         }
@@ -359,20 +357,51 @@ Write(RenderSection("Scripts", required: false));
     }
 
 
-    function setCSSTheme()
-    {
+    function setCSSTheme() {
         if (localStorage.getItem('IsDarkMode') == '1') {
             cssFile = '/lib/bootstrap/dist/css/bootstrap-darkly.css';
             this.document.getElementById('changeCSSThemeButton').innerHTML = 'Light Mode'
-            if (document.getElementById('left') != null) {
-                document.getElementById('left').style.background = ""url(images/frontImage-edited.png)"";
+            if (document.getElementById(""Question"") != null) {
+                console.log(""this is the page"");
+                document.getElementById(""RFCFormID"").style.top = ""5%"";
+                let coll = document.getElementsByClassName(""collapsible"");
+                for (let i = 0; i < ");
+            WriteLiteral(@"coll.length; i++) {
+                    let question = coll[i];
+                    let content = question.nextElementSibling;
+                    if (content.style.display == """" || content.style.display == ""block"") {
+                        question.style.backgroundColor = ""#303030"";
+                    }
+                    else {
+                        question.style.backgroundColor = ""black"";
+                    }
+                }
+            }
+            else if (document.getElementById(""submitbuttonID"") != null) {
+                document.getElementById(""RFCFormID"").style.top = ""5%"";
             }
         } else if (localStorage.getItem('IsDarkMode') == '0') {
-            cssFile = '/lib/bootstrap/dist/");
-            WriteLiteral(@"css/bootstrap.min.css';
+            cssFile = '/lib/bootstrap/dist/css/bootstrap.min.css';
             this.document.getElementById('changeCSSThemeButton').innerHTML = 'Dark Mode'
-            if (document.getElementById('left') != null) {
-                document.getElementById('left').style.background = ""url(images/frontImage.png)"";
+            if (document.getElementById(""Question"") != null) {
+                console.log(""this is the page"");
+                document.getElementById(""RFCFormID"").style.");
+            WriteLiteral(@"top = ""5%"";
+                let coll = document.getElementsByClassName(""collapsible"");
+                for (let i = 0; i < coll.length; i++) {
+                    let question = coll[i];
+                    let content = question.nextElementSibling;
+
+                    if (content.style.display == """" || content.style.display == ""block"") {
+                        question.style.backgroundColor = ""#d2d2d2"";
+                    }
+                    else {
+                        question.style.backgroundColor = ""white"";
+                    }
+                }
+            }
+            else if (document.getElementById(""submitbuttonID"") != null) {
+                document.getElementById(""RFCFormID"").style.top = ""5%"";
             }
         }
 
@@ -382,15 +411,8 @@ Write(RenderSection("Scripts", required: false));
         newlink.setAttribute(""rel"", ""stylesheet"");
         newlink.setAttribute(""href"", cssFile);
 
-        document.getElementsByTagName(""head"").item(0).replaceChild(newlink, oldlink);
-
-        usingCSSFile = cssFile;
-    }
-
-    window.onload = function () {
-        this.setCSSTheme();
-    }; 
-</script>");
+        document.getElement");
+            WriteLiteral("sByTagName(\"head\").item(0).replaceChild(newlink, oldlink);\r\n\r\n        usingCSSFile = cssFile;\r\n    }\r\n\r\n    window.onload = function () {\r\n        this.setCSSTheme();\r\n    };\r\n</script>");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

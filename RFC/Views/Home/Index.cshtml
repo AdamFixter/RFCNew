@@ -16,27 +16,37 @@
     </div>
     <div class="rightContent">
         <div class="options">
-            <a class="option" asp-area="" asp-controller="CreateNew" asp-action="Create">
+            <a class="option" id="createRequestButtonID" style="border: solid; border-color: transparent; text-decoration: none;" asp-area="" asp-controller="CreateNew" asp-action="Create" onmouseover="this.style.borderColor='#e82910ff';" onmouseout="this.style.borderColor = 'transparent';">
                 <div class="icon" style="background-color: #e82910ff ;width:  30%;display:  flex;justify-content:  center;align-items:  center;">
-                    <img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FmakeRequest.png?v=1579711825430" />
+                    <img src="~/images/makeRequest-icon.png" />
                 </div>
                 <div class="text" style="background-color: #b5220fff">Make a request</div>
             </a>
             @switch (Model.Role.ToString())
             {
                 case "Admin":
-                    <a class="option" asp-area="" asp-controller="CreateNew" asp-action="Index">
-                        <div class="icon" style="background-color: #8b1065ff; width:  30%;display:  flex;justify-content:  center;align-items:  center;"><img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FviewRequests.png?v=1579711825530"></div>
+                    <a class="option" id="weeklyAgendaButtonID" style="border: solid; border-color: transparent; text-decoration: none;" asp-area="" asp-controller="CreateNew" asp-action="WeeklyAgenda" onmouseover="this.style.borderColor='#ef8700';" onmouseout="this.style.borderColor = 'transparent';">
+                        <div class="icon" style="background-color: #ef8700 ;width:  30%;display:  flex;justify-content:  center;align-items:  center;">
+                            <img src="~/images/makeRequest-icon.png" />
+                        </div>
+                        <div class="text" style="background-color: #cc7300">Weekly Agenda</div>
+                    </a>
+                    <a class="option" id="viewRequestsButtonID" style="border: solid; border-color: transparent; text-decoration: none;" asp-area="" asp-controller="CreateNew" asp-action="Index" onclick="viewRequestsClick()" onmouseover="this.style.borderColor='#8b1065ff';" onmouseout="this.style.borderColor = 'transparent';">
+                        <div class="icon" style="background-color: #8b1065ff; width:  30%;display:  flex;justify-content:  center;align-items:  center;"><img src="~/images/viewRequests-icon.png"></div>
                         <div class="text" style="background-color: #670d4bff">View Requests</div>
                     </a>
-                    <a class="option" asp-area="" asp-controller="Admin" asp-action="Index">
-                        <div class="icon" style="background-color: #164194; width:  30%;display:  flex;justify-content:  center;align-items:  center;"><img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FmanageRequests.png?v=1579711825680"></div>
-                        <div class="text" style="background-color: #123476">Manage Users</div>
+                    <a class="option" id="adminButtonID" style="border: solid; border-color: transparent; text-decoration: none;" asp-area="" asp-controller="Administration" asp-action="Index" onmouseover="this.style.borderColor='#164194';" onmouseout="this.style.borderColor = 'transparent';">
+                        <div class="icon" style="background-color: #164194; width:  30%;display:  flex;justify-content:  center;align-items:  center;"><img src="~/images/manage-icon.png"></div>
+                        <div class="text" style="background-color: #123476">Administration</div>
                     </a>
                     break;
                 case "Power":
-                    <a class="option" asp-area="" asp-controller="CreateNew" asp-action="Index">
-                        <div class="icon" style="background-color: #8b1065ff; width:  30%;display:  flex;justify-content:  center;align-items:  center;"><img src="https://cdn.glitch.com/c6b364c6-db89-45d2-b2d7-18559fbc4e64%2FviewRequests.png?v=1579711825530"></div>
+                    <a class="option" id="weeklyAgendaButtonID" style="border: solid; border-color: transparent; text-decoration: none;" asp-area="" asp-controller="CreateNew" asp-action="WeeklyAgenda" onmouseover="this.style.borderColor='yellow';" onmouseout="this.style.borderColor = 'transparent';">
+                        <div class="icon" style="background-color: #e82910ff ;width:  30%;display:  flex;justify-content:  center;align-items:  center;"><img src="~/images/makeRequest-icon.png" /></div>
+                        <div class="text" style="background-color: #b5220fff">Weekly Agenda</div>
+                    </a>
+                    <a class="option" id="viewRequestsButtonID" style="border: solid; border-color: transparent; text-decoration: none;" asp-area="" asp-controller="CreateNew" asp-action="Index" onclick="viewRequestsClick()" onmouseover="this.style.borderColor='#8b1065ff';" onmouseout="this.style.borderColor = 'transparent';">
+                        <div class="icon" style="background-color: #8b1065ff; width:  30%;display:  flex;justify-content:  center;align-items:  center;"><img src="~/images/viewRequests-icon.png"></div>
                         <div class="text" style="background-color: #670d4bff">View Requests</div>
                     </a>
                     break;
@@ -46,3 +56,9 @@
         </div>
     </div>
 </div>
+
+<script>
+    function viewRequestsClick() {
+        document.getElementById("viewrequestsText").innerHTML = "Connecting to database...";
+    }
+</script>

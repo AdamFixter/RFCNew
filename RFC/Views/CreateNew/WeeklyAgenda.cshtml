@@ -2,7 +2,7 @@
 @model PaginatedList<RFC.Models.CreateNew>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "WeeklyAgenda";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
     var priorityList = Html.GetEnumSelectList<Priority>();
@@ -10,7 +10,7 @@
 
 <div id="right">
     <div class="header" style="display:flex; justify-content: space-between;">
-        <h1 style="display:inline-block; width:auto; vertical-align: top;">Requests</h1>
+        <h1 style="display:inline-block; width:auto; vertical-align: top;">Weekly Agenda</h1>
         <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
             <div class="otherButtons">
                 <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
@@ -18,28 +18,18 @@
         </div>
     </div>
     <div class="rightContent">
-        @using (Html.BeginForm())
+        @using (Html.BeginForm()) //Create the form that holds two date pickers
         {
             <p id="filter">
-                <div class="searchBoxFormat">
-                    @Html.TextBox("searchID", null, new { @class = "searchBox", placeholder = "Search by ID", list = "datalist", autocomplete = "off" })
-                    <input list="searchPriority" placeholder="Search by Priority" class="searchBox"/>
-                    <datalist id="searchPriority"></datalist>
-                    <input list="searchProduct" placeholder="Search by Product" class="searchBox"/>
-                    <datalist id="searchProduct"></datalist>
-                    @Html.TextBox("searchCustomer", null, new { @class = "searchBox", placeholder = "Search by Customer", list = "datalist", autocomplete = "off" })
-                    @Html.TextBox("searchApproved", null, new { @class = "searchBox", placeholder = "Search by Status", list = "datalist", autocomplete = "off" })
-                </div>
-                <div class="searchBoxFormat">
-                    @Html.TextBox("searchDateStart", null, new { @class = "searchBox", list = "datalist", autocomplete = "off" })
-                    @Html.TextBox("searchDateEnd", null, new { @class = "searchBox", list = "datalist", autocomplete = "off" })
-                </div>
-
+                Date From :
+                @Html.TextBox("DateFrom", null, new { style = "background-color: #e7e7e7;" })
+                Date To :
+                @Html.TextBox("DateTo", null, new { style = "background-color: #e7e7e7;" })
+                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
                 <input type="submit" value="Search" />
-                <datalist id="datalist"></datalist>
             </p>
         }
-        <table class="table table-bordered table-condensed table-striped">
+        <table class="table table-bordered table-condensed table-striped table-hover">
             <thead>
                 <tr>
                     <th>
@@ -62,7 +52,7 @@
                     </th>
                 </tr>
             </thead>
-            <tbody id="row-hover">
+            <tbody>
                 @foreach (var item in Model)
                 {
                     <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
@@ -82,14 +72,17 @@
                             @Html.DisplayFor(modelItem => item.DueDate)
                         </td>
                         <td>
-                           <img src="@(item.Approved ? "images/tick-symbol.png" : "images/cross-symbol.png")" style="width: auto; height: 5%;"/>
+                            <img src="@(item.Approved ? "images/tick-symbol.png" : "images/cross-symbol.png")" style="width: auto; height: 5%;" />
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
-
+        <div>
+            <button id="weeklyAgenda" onclick="weeklyAgenda()" class="button btn btn-success">Weekly Agenda</button>
+        </div>
         <div class="buttons">
+
             <div class="formButtons">
                 <a asp-action="Index"
                    asp-route-sortOrder="@ViewData["CurrentSort"]"
@@ -105,9 +98,6 @@
                    class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
                     Next
                 </a>
-                <div>
-                    <button id="weeklyAgenda" onclick="weeklyAgenda()" class="button btn btn-success">Weekly Agenda</button>
-                </div>
             </div>
         </div>
     </div>
@@ -115,47 +105,29 @@
 
 
 <style>
+
+    #table-row td:hover {
+        cursor: pointer;
+    }
+
     #weeklyAgenda {
-        display : none;
+        display: none;
         white-space: nowrap;
-    }
-    .searchBox {
-        width: 17.5%;
-        margin: 0.3%;
-        background-color: #e7e7e7;
-    }
-    .searchBoxFormat {
-        align-content: center;
-        width: 100%;
     }
 </style>
 
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
-<script>
-    var dateRangeFrom = document.getElementById("searchDateStart");
-    var dateRangeTo = document.getElementById("searchDateEnd");
-    var priority = document.getElementById("searchPriority")
-    var product = document.getElementById("searchProduct")
-
+<script> // Render two empty date pickers
+    var dateRangeFrom = document.getElementById("DateFrom");
     dateRangeFrom.type = "date";
     dateRangeFrom.format = "{0:yyyy-MM-dd}";
+    dateRangeFrom.style.display = "inline-block";
 
+    var dateRangeTo = document.getElementById("DateTo");
     dateRangeTo.type = "date";
     dateRangeTo.format = "{0:yyyy-MM-dd}";
-
-
-    priority.innerHTML = `<option value="Retrospective"></option>
-                            <option value="Normal"></option>
-                            <option value="Emergency"></option>`;
-
-    product.innerHTML = `<option value="RIO"></option>
-                            <option value="Flow"></option>
-                            <option value="Oceano"></option>
-                            <option value="Conexes"></option>
-                            <option value="Mosaic"></option>`;
-
-
+    dateRangeTo.style.display = "inline-block";
 </script>
 
 <script type="text/javascript">
@@ -168,17 +140,16 @@
 
 <script src="~/lib/moment/moment.min.js"></script>
 <script>
+        //autopopulate the dates in the date picker//
 
-    function weeklyAgenda()
-    {
         var todayDate = moment().format("YYYY-MM-DD");
         var lastWeek = moment().subtract(8, "day").format("YYYY-MM-DD");
-        var dateFrom = document.getElementById("searchString");
+        var dateFrom = document.getElementById("DateFrom");
         var dateTo = document.getElementById("DateTo");
 
         dateFrom.value = lastWeek;
         dateTo.value = todayDate;
-    }
+
 </script>
 
 @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@

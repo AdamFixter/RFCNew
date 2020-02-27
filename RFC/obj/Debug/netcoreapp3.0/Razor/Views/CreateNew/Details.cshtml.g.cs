@@ -26,8 +26,8 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4c01ced78487cff5c9aa88e2595390c556bc763a", @"/Views/CreateNew/Details.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc4ddab8934f76edf50d0bb6435f89b8c3095685", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ced017cebf0ebdc8abd2f1c10e1af543563e6890", @"/Views/CreateNew/Details.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e7ca65db9ab1fb1d064de4b19e46dc6292ea35be", @"/Views/_ViewImports.cshtml")]
     public class Views_CreateNew_Details : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<RFC.Models.CreateNew>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("style", new global::Microsoft.AspNetCore.Html.HtmlString("width: 100%"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -480,11 +480,23 @@ AddHtmlAttributeValue(" ", 7133, Model.Approved ? "btn-warning" : "btn-success",
         question.addEventListener(""click"", function () {
             if (content.style.display == """" || content.style.display == ""block"") {
                 content.style.display = ""none"";
-                //question.style.background = ""#f3f3f3"";
+                if (localStorage.getItem('IsDarkMode') == '1') {
+                    question.style.background = ""#000000"";
+                }
+                else if (localStorage.getItem('IsDarkMode') == '0') {
+                    question.style.background = ""#f3f3f3"";
+                }
+
             } else {
 
                 content.style.display = ""block"";
-                //question.style.background = ""#d2d2d2"";
+                if (localStorage.getItem('IsD");
+            WriteLiteral(@"arkMode') == '1') {
+                    question.style.background = ""#303030"";
+                }
+                else if (localStorage.getItem('IsDarkMode') == '0') {
+                    question.style.background = ""#d2d2d2"";
+                }
             }
         });
     }

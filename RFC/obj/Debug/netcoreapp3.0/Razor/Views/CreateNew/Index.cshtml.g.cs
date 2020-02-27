@@ -165,7 +165,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("        <table class=\"table table-bordered table-condensed table-striped table-hover\">\r\n            <thead>\r\n                <tr>\r\n                    <th>\r\n                        ");
+            WriteLiteral("        <table class=\"table table-bordered table-condensed table-striped\">\r\n            <thead>\r\n                <tr>\r\n                    <th>\r\n                        ");
 #nullable restore
 #line 46 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("ID" + (string.IsNullOrEmpty(ViewBag.sortOrder) ? " ▼" : "") + (ViewBag.sortOrder == "IDDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.IDSortParm }));
@@ -213,7 +213,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n");
+            WriteLiteral("\r\n                    </th>\r\n                </tr>\r\n            </thead>\r\n            <tbody id=\"row-hover\">\r\n");
 #nullable restore
 #line 66 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                  foreach (var item in Model)
