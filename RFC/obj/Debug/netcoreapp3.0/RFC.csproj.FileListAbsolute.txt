@@ -958,3 +958,4 @@ C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.Vie
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.csproj.CopyComplete
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.dll
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.pdb
+C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.csprojAssemblyReference.cache
