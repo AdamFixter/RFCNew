@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Dynamic;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
@@ -101,6 +102,10 @@ namespace RFC.Controllers
         [Route("create")]
         public IActionResult Create()
         {
+            CreateRequestViewModel createRequest = new CreateRequestViewModel()
+            {
+                Customers = from s in _context.Customer select s
+            };
             return View();
         }
 
@@ -116,7 +121,8 @@ namespace RFC.Controllers
             {
                 _context.Add(createNew);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                TempData["submittedID"] = createNew.ID.ToString();
+                return RedirectToAction("Index", "Home", new { area = "" });
             }
             return View(createNew);
         }
@@ -134,20 +140,25 @@ namespace RFC.Controllers
             {
                 return NotFound();
             }
+            TempData["lastRowID"] = id.ToString();
             if (ModelState.IsValid)
             {
                 createNew.Approved = !createNew.Approved;
                 _context.Update(createNew);
                 await _context.SaveChangesAsync();
+                TempData["stateMessage"] = createNew.Approved;
+                TempData["stateStatus"] = true;
                 return RedirectToAction(nameof(Index));
             }
+            TempData["stateMessage"] = !createNew.Approved;
+            TempData["stateStatus"] = false;
             return RedirectToAction(nameof(Index));
         }
 
         // GET: CreateNew/Delete/5
         public async Task<IActionResult> Delete([Bind("ID,Name,Role,DomainUser")] User CurrentUser, long? id)
         {
-            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
+            //if (CurrentUser.Role == UserRole.Standard) return RedirectToAction("Index", "Home", new { area = "" });   //// The CurrentUser.Role isn't valid for this to work
 
             if (id == null)
             {
@@ -169,8 +180,7 @@ namespace RFC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed([Bind("ID,Name,Role,DomainUser")] User CurrentUser,long id)
         {
-            if (CurrentUser.Role != UserRole.Power) return RedirectToAction("Index", "Home", new { area = "" });
-
+            //if (CurrentUser.Role == UserRole.Standard) return RedirectToAction("Index", "Home", new { area = "" });   //// The CurrentUser.Role isn't valid for this to work
             var createNew = await _context.CreateNew.FindAsync(id);
             _context.CreateNew.Remove(createNew);
             await _context.SaveChangesAsync();

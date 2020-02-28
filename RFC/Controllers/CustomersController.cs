@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -19,11 +20,10 @@ namespace RFC.Controllers
         }
 
         // GET: Customers
+        /*TODO: Filters don't work for this page. Still needs to be done. - AdamF*/
         public async Task<IActionResult> Index([Bind("ID,Name")] Customer customer, string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
         {
-
             ViewData["CurrentSort"] = sortOrder;
-
             if (searchString != null)
             {
                 pageNumber = 1;
@@ -33,15 +33,6 @@ namespace RFC.Controllers
                 searchString = "";
             }
 
-
-            List<SelectListItem> items = new List<SelectListItem>   //// Creates list of possible columns to select in drop-down menu
-            {
-                new SelectListItem { Value = "ID", Text = "ID" },
-                new SelectListItem { Value = "Name", Text = "Name" }
-            };
-            ViewBag.columnSelect = items;   //// Adds the pre-created list into the variable that will use it as dropdown values
-
-
             ///// ViewBag.[something]Parm is used for sorting order by clicking column
             ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "IDDesc" : "";
             ViewBag.NameSortParm = sortOrder == "NameAsc" ? "NameDesc" : "NameAsc";
@@ -49,6 +40,7 @@ namespace RFC.Controllers
             //// The 'submissions' is the variable with the data from the table
             var submissions = from s in _context.Customer
                               select s;
+            ViewData["Customers"] = submissions;
 
             if (!String.IsNullOrEmpty(searchString))    //// Filters the 'submissions' data out depending on the search performed and column selected from the dropdown list
             {

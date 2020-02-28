@@ -1,5 +1,4 @@
-﻿
-@model PaginatedList<RFC.Models.CreateNew>
+﻿@model PaginatedList<RFC.Models.CreateNew>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,6 +6,24 @@
 
     var priorityList = Html.GetEnumSelectList<Priority>();
 }
+
+<script>    // Some javascript is positioned here so the script executes before loading the HTML
+    if ("@TempData["lastRowID"]" != "") {
+        console.log("it is not empty");
+        var state = ""
+        if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "True")
+            endString = " is now approved";
+        else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "True")
+            endString = " is now unapproved";
+        else if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "False")
+            endString = " failed to be approved";
+        else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "False")
+            endString = " failed to be unapproved";
+
+        alert("Submission ID: " + "@TempData["lastRowID"]" + endString + "\n\nPress OK to go back to the Details");
+        window.location.href = '/CreateNew/Details/' + "@TempData["lastRowID"]";
+    }
+</script>
 
 <div id="right">
     <div class="header" style="display:flex; justify-content: space-between;">
@@ -23,9 +40,9 @@
             <p id="filter">
                 <div class="searchBoxFormat">
                     @Html.TextBox("searchID", null, new { @class = "searchBox", placeholder = "Search by ID", list = "datalist", autocomplete = "off" })
-                    <input list="searchPriority" placeholder="Search by Priority" class="searchBox"/>
+                    <input list="searchPriority" placeholder="Search by Priority" class="searchBox" />
                     <datalist id="searchPriority"></datalist>
-                    <input list="searchProduct" placeholder="Search by Product" class="searchBox"/>
+                    <input list="searchProduct" placeholder="Search by Product" class="searchBox" />
                     <datalist id="searchProduct"></datalist>
                     @Html.TextBox("searchCustomer", null, new { @class = "searchBox", placeholder = "Search by Customer", list = "datalist", autocomplete = "off" })
                     @Html.TextBox("searchApproved", null, new { @class = "searchBox", placeholder = "Search by Status", list = "datalist", autocomplete = "off" })
@@ -82,7 +99,7 @@
                             @Html.DisplayFor(modelItem => item.DueDate)
                         </td>
                         <td>
-                           <img src="@(item.Approved ? "images/tick-symbol.png" : "images/cross-symbol.png")" style="width: auto; height: 5%;"/>
+                            <img src="@(item.Approved ? "images/tick-symbol.png" : "images/cross-symbol.png")" style="width: auto; height: 5%;" />
                         </td>
                     </tr>
                 }
@@ -113,17 +130,18 @@
     </div>
 </div>
 
-
 <style>
     #weeklyAgenda {
-        display : none;
+        display: none;
         white-space: nowrap;
     }
+
     .searchBox {
         width: 17.5%;
         margin: 0.3%;
         background-color: #e7e7e7;
     }
+
     .searchBoxFormat {
         align-content: center;
         width: 100%;
@@ -169,8 +187,7 @@
 <script src="~/lib/moment/moment.min.js"></script>
 <script>
 
-    function weeklyAgenda()
-    {
+    function weeklyAgenda() {
         var todayDate = moment().format("YYYY-MM-DD");
         var lastWeek = moment().subtract(8, "day").format("YYYY-MM-DD");
         var dateFrom = document.getElementById("searchString");
@@ -180,5 +197,7 @@
         dateTo.value = todayDate;
     }
 </script>
+
+
 
 @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
