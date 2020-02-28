@@ -1,5 +1,4 @@
-﻿
-@model PaginatedList<RFC.Models.CreateNew>
+﻿@model PaginatedList<RFC.Models.CreateNew>
 
 @{
     ViewData["Title"] = "Index";
@@ -7,6 +6,24 @@
 
     var priorityList = Html.GetEnumSelectList<Priority>();
 }
+
+<script>    // Some javascript is positioned here so the script executes before loading the HTML
+    if ("@TempData["lastRowID"]" != "") {
+        console.log("it is not empty");
+        var state = ""
+        if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "True")
+            endString = " is now approved";
+        else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "True")
+            endString = " is now unapproved";
+        else if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "False")
+            endString = " failed to be approved";
+        else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "False")
+            endString = " failed to be unapproved";
+
+        alert("Submission ID: " + "@TempData["lastRowID"]" + endString + "\n\nPress OK to go back to the Details");
+        window.location.href = '/CreateNew/Details/' + "@TempData["lastRowID"]";
+    }
+</script>
 
 <div id="right">
     <div class="header" style="display:flex; justify-content: space-between;">
@@ -21,12 +38,20 @@
         @using (Html.BeginForm())
         {
             <p id="filter">
-                Find in
-                @Html.DropDownList("ColumnSelect", "Select a Column")
-                by:
-                @Html.TextBox("searchString", null, new { style = "background-color: #e7e7e7;", list = "datalist", autocomplete = "off" }) @*It just works :)*@
-                @Html.TextBox("DateTo")
-                <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+                <div class="searchBoxFormat">
+                    @Html.TextBox("searchID", null, new { @class = "searchBox", placeholder = "Search by ID", list = "datalist", autocomplete = "off" })
+                    <input list="searchPriority" placeholder="Search by Priority" class="searchBox" />
+                    <datalist id="searchPriority"></datalist>
+                    <input list="searchProduct" placeholder="Search by Product" class="searchBox" />
+                    <datalist id="searchProduct"></datalist>
+                    @Html.TextBox("searchCustomer", null, new { @class = "searchBox", placeholder = "Search by Customer", list = "datalist", autocomplete = "off" })
+                    @Html.TextBox("searchApproved", null, new { @class = "searchBox", placeholder = "Search by Status", list = "datalist", autocomplete = "off" })
+                </div>
+                <div class="searchBoxFormat">
+                    @Html.TextBox("searchDateStart", null, new { @class = "searchBox", list = "datalist", autocomplete = "off" })
+                    @Html.TextBox("searchDateEnd", null, new { @class = "searchBox", list = "datalist", autocomplete = "off" })
+                </div>
+
                 <input type="submit" value="Search" />
                 <datalist id="datalist"></datalist>
             </p>
@@ -74,7 +99,7 @@
                             @Html.DisplayFor(modelItem => item.DueDate)
                         </td>
                         <td>
-                           <img src="@(item.Approved ? "images/tick-symbol.png" : "images/cross-symbol.png")" style="width: auto; height: 5%;"/>
+                            <img src="@(item.Approved ? "images/tick-symbol.png" : "images/cross-symbol.png")" style="width: auto; height: 5%;" />
                         </td>
                     </tr>
                 }
@@ -105,70 +130,48 @@
     </div>
 </div>
 
-
 <style>
     #weeklyAgenda {
-        display : none;
+        display: none;
         white-space: nowrap;
+    }
+
+    .searchBox {
+        width: 17.5%;
+        margin: 0.3%;
+        background-color: #e7e7e7;
+    }
+
+    .searchBoxFormat {
+        align-content: center;
+        width: 100%;
     }
 </style>
 
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
-    var input = document.getElementById("searchString");
-    input.value = "";
-    var dateRangeTo = document.getElementById("DateTo");
-    var datalist = document.getElementById("datalist");
+    var dateRangeFrom = document.getElementById("searchDateStart");
+    var dateRangeTo = document.getElementById("searchDateEnd");
+    var priority = document.getElementById("searchPriority")
+    var product = document.getElementById("searchProduct")
+
+    dateRangeFrom.type = "date";
+    dateRangeFrom.format = "{0:yyyy-MM-dd}";
+
     dateRangeTo.type = "date";
     dateRangeTo.format = "{0:yyyy-MM-dd}";
 
-    dateRangeTo.style.display = "inline-block";
-    window.onload = testfunction;
 
-    $('#ColumnSelect').on('change', function () {
-        var index = $(this).find('option:selected').index();
-        switch (index) {
-            case 2:
-                datalist.innerHTML = `<option value="Retrospective"></option>
-                                      <option value="Normal"></option>
-                                      <option value="Emergency"></option>`;
-                break;
-            case 3:
-                datalist.innerHTML = `<option value="RIO"></option>
-                                      <option value="Flow"></option>
-                                      <option value="Oceano"></option>
-                                      <option value="Conexes"></option>
-                                      <option value="Mosaic"></option>`;
-                break;
-            case 5:
-                dateRangeTo.value = "";
-                input.type = "date";
-                input.format = "{0:yyyy-MM-dd}";
-                dateRangeTo.style.display = "inline-block";
-                document.getElementById("weeklyAgenda").style.display="inline-block";
-                break;
-            default:
-                datalist.innerHTML = "";
-                input.type = "text";
-                input.format = null;
-                dateRangeTo.innerHTML = "";
-                dateRangeTo.style.display = "none";
-                document.getElementById("weeklyAgenda").style.display="none";
-                break;
-        }
-    })
+    priority.innerHTML = `<option value="Retrospective"></option>
+                            <option value="Normal"></option>
+                            <option value="Emergency"></option>`;
 
-    function testfunction() {
-
-        var columnselect = document.getElementById("ColumnSelect");
-
-        if (columnselect.options[columnselect.selectedIndex].text == "Requested Due Date") {
-            input.type = "date";
-            input.format = "{0:yyyy-MM-dd}";
-            dateRangeTo.style.display = "inline-block";
-        }
-    }
+    product.innerHTML = `<option value="RIO"></option>
+                            <option value="Flow"></option>
+                            <option value="Oceano"></option>
+                            <option value="Conexes"></option>
+                            <option value="Mosaic"></option>`;
 
 
 </script>
@@ -184,8 +187,7 @@
 <script src="~/lib/moment/moment.min.js"></script>
 <script>
 
-    function weeklyAgenda()
-    {
+    function weeklyAgenda() {
         var todayDate = moment().format("YYYY-MM-DD");
         var lastWeek = moment().subtract(8, "day").format("YYYY-MM-DD");
         var dateFrom = document.getElementById("searchString");
@@ -195,5 +197,7 @@
         dateTo.value = todayDate;
     }
 </script>
+
+
 
 @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
