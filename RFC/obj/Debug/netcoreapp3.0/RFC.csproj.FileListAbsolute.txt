@@ -393,7 +393,6 @@ C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\V
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\CreateNew\Details.cshtml.g.cs
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\CreateNew\Edit.cshtml.g.cs
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\CreateNew\Index.cshtml.g.cs
-C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\CreateNew\WeeklyAgenda.cshtml.g.cs
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Customers\Create.cshtml.g.cs
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Customers\Delete.cshtml.g.cs
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Customers\Details.cshtml.g.cs

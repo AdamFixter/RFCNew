@@ -39,7 +39,6 @@ namespace RFC.Models
         [DisplayName("What customers could potentially be impacted by this change ")]
         public string customers { get; set; }
 
-
         [Required]
         public CustomersAffected CustomersAffected { get; set; }
 
