@@ -62,7 +62,7 @@ namespace RFC.Controllers
                     break;
             }
 
-            int pageSize = 10;
+            int pageSize = 5;
             return View(await PaginatedList<User>.CreateAsync(users.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 

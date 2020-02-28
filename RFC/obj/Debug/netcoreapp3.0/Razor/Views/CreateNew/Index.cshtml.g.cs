@@ -82,7 +82,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" != \"\") {\r\n        console.log(\"it is not empty\");\r\n        var state = \"\"\r\n        if (\"");
+            WriteLiteral("\" != \"\") {\r\n        console.log(\"it is not empty\");\r\n        var startString = \"\"\r\n        if (\"");
 #nullable restore
 #line 14 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
         Write(TempData["stateMessage"]);
@@ -98,7 +98,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" == \"True\")\r\n            endString = \" is now approved\";\r\n        else if (\"");
+            WriteLiteral("\" == \"True\")\r\n            startString = \"You have accepted \";\r\n        else if (\"");
 #nullable restore
 #line 16 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
              Write(TempData["stateMessage"]);
@@ -114,7 +114,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" == \"True\")\r\n            endString = \" is now unapproved\";\r\n        else if (\"");
+            WriteLiteral("\" == \"True\")\r\n            startString = \"You have rejected \";\r\n        else if (\"");
 #nullable restore
 #line 18 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
              Write(TempData["stateMessage"]);
@@ -130,7 +130,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" == \"False\")\r\n            endString = \" failed to be approved\";\r\n        else if (\"");
+            WriteLiteral("\" == \"False\")\r\n            startString = \" failed to accept\";\r\n        else if (\"");
 #nullable restore
 #line 20 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
              Write(TempData["stateMessage"]);
@@ -146,7 +146,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" == \"False\")\r\n            endString = \" failed to be unapproved\";\r\n\r\n        alert(\"Submission ID: \" + \"");
+            WriteLiteral("\" == \"False\")\r\n            startString = \" failed to reject\";\r\n\r\n        alert(startString + \"Submission ID: \" + \"");
 #nullable restore
 #line 23 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                               Write(TempData["lastRowID"]);
@@ -154,7 +154,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" + endString + \"\\n\\nPress OK to go back to the Details\");\r\n        window.location.href = \'/CreateNew/Details/\' + \"");
+            WriteLiteral("\" + \"\\n\\nPress OK to go back to the Details\");\r\n        window.location.href = \'/CreateNew/Details/\' + \"");
 #nullable restore
 #line 24 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                                                    Write(TempData["lastRowID"]);
@@ -361,7 +361,7 @@ using RFC.Models;
 #line hidden
 #nullable disable
             WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            <img");
-            BeginWriteAttribute("src", " src=\"", 5939, "\"", 6016, 1);
+            BeginWriteAttribute("src", " src=\"", 5945, "\"", 6113, 1);
 #nullable restore
 #line 102 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
 WriteAttributeValue("", 5945, item.Approved ? "images/tick-symbol.png" : "images/cross-symbol.png", 5945, 71, false);
@@ -425,10 +425,10 @@ WriteAttributeValue("", 5945, item.Approved ? "images/tick-symbol.png" : "images
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"] = __tagHelperStringValueBuffer;
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-currentFilter", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "class", 5, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            AddHtmlAttributeValue("", 6515, "button", 6515, 6, true);
-            AddHtmlAttributeValue(" ", 6521, "submit", 6522, 7, true);
-            AddHtmlAttributeValue(" ", 6528, "btn", 6529, 4, true);
-            AddHtmlAttributeValue(" ", 6532, "btn-default", 6533, 12, true);
+            AddHtmlAttributeValue("", 6612, "button", 6612, 6, true);
+            AddHtmlAttributeValue(" ", 6618, "submit", 6619, 7, true);
+            AddHtmlAttributeValue(" ", 6625, "btn", 6626, 4, true);
+            AddHtmlAttributeValue(" ", 6629, "btn-default", 6630, 12, true);
 #nullable restore
 #line 115 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
 AddHtmlAttributeValue(" ", 6544, !Model.HasPreviousPage ? "disabled" : "", 6545, 43, false);
@@ -491,10 +491,10 @@ AddHtmlAttributeValue(" ", 6544, !Model.HasPreviousPage ? "disabled" : "", 6545,
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"] = __tagHelperStringValueBuffer;
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-currentFilter", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "class", 5, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            AddHtmlAttributeValue("", 6915, "button", 6915, 6, true);
-            AddHtmlAttributeValue(" ", 6921, "submit", 6922, 7, true);
-            AddHtmlAttributeValue(" ", 6928, "btn", 6929, 4, true);
-            AddHtmlAttributeValue(" ", 6932, "btn-default", 6933, 12, true);
+            AddHtmlAttributeValue("", 7012, "button", 7012, 6, true);
+            AddHtmlAttributeValue(" ", 7018, "submit", 7019, 7, true);
+            AddHtmlAttributeValue(" ", 7025, "btn", 7026, 4, true);
+            AddHtmlAttributeValue(" ", 7029, "btn-default", 7030, 12, true);
 #nullable restore
 #line 122 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Index.cshtml"
 AddHtmlAttributeValue(" ", 6944, !Model.HasNextPage ? "disabled" : "", 6945, 39, false);

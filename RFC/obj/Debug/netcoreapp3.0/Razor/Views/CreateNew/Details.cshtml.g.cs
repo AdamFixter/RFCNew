@@ -123,6 +123,9 @@ using RFC.Models;
                     <th>
                         Requested Due Date
                     </th>
+                    <th>
+                        Status
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -164,6 +167,14 @@ using RFC.Models;
 #nullable restore
 #line 53 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                    Write(Model.DueDate);
+
+#line default
+#line hidden
+#nullable disable
+            WriteLiteral("\r\n                    </td>\r\n                    <td>\r\n                        ");
+#nullable restore
+#line 59 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+                    Write(Model.Approved == RequestStatus.Accept ? "Accepted" : (Model.Approved == RequestStatus.Reject ? "Rejected" : "Pending"));
 
 #line default
 #line hidden
@@ -416,9 +427,9 @@ using RFC.Models;
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.AnchorTagHelper>();
             __tagHelperExecutionContext.Add(__Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "class", 4, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            AddHtmlAttributeValue("", 7111, "btn", 7111, 3, true);
-            AddHtmlAttributeValue(" ", 7114, "btn-default", 7115, 12, true);
-            AddHtmlAttributeValue(" ", 7126, "button", 7127, 7, true);
+            AddHtmlAttributeValue("", 7397, "btn", 7397, 3, true);
+            AddHtmlAttributeValue(" ", 7400, "btn-default", 7401, 12, true);
+            AddHtmlAttributeValue(" ", 7412, "button", 7413, 7, true);
 #nullable restore
 #line 162 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
 AddHtmlAttributeValue(" ", 7133, Model.Approved ? "btn-warning" : "btn-success", 7134, 49, false);

@@ -10,17 +10,17 @@
 <script>    // Some javascript is positioned here so the script executes before loading the HTML
     if ("@TempData["lastRowID"]" != "") {
         console.log("it is not empty");
-        var state = ""
+        var startString = ""
         if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "True")
-            endString = " is now approved";
+            startString = "You have accepted ";
         else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "True")
-            endString = " is now unapproved";
+            startString = "You have rejected ";
         else if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "False")
-            endString = " failed to be approved";
+            startString = " failed to accept";
         else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "False")
-            endString = " failed to be unapproved";
+            startString = " failed to reject";
 
-        alert("Submission ID: " + "@TempData["lastRowID"]" + endString + "\n\nPress OK to go back to the Details");
+        alert(startString + "Submission ID: " + "@TempData["lastRowID"]" + "\n\nPress OK to go back to the Details");
         window.location.href = '/CreateNew/Details/' + "@TempData["lastRowID"]";
     }
 </script>
@@ -99,7 +99,7 @@
                             @Html.DisplayFor(modelItem => item.DueDate)
                         </td>
                         <td>
-                            <img src="@(item.Approved ? "images/tick-symbol.png" : "images/cross-symbol.png")" style="width: auto; height: 5%;" />
+                            <img src="@(item.Approved == RequestStatus.Accept ? "images/tick-symbol.png" : (item.Approved == RequestStatus.Reject ? "images/cross-symbol.png" : "images/sandclock.png"))" style="width: auto; height: 5%;" />
                         </td>
                     </tr>
                 }

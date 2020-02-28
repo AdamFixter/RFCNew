@@ -48,6 +48,27 @@
                 }
             </tbody>
         </table>
+        <div class="buttons">
+            <div>
+                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Admin" asp-action="Create">Create</a>
+            </div>
+            <div class="formButtons">
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.PageIndex - 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="button submit btn btn-default @(!Model.HasPreviousPage ? "disabled" : "")">
+                    Previous
+                </a>
+                <a asp-action="Index"
+                   asp-route-sortOrder="@ViewData["CurrentSort"]"
+                   asp-route-pageNumber="@(Model.PageIndex + 1)"
+                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+                   class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
+                    Next
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 

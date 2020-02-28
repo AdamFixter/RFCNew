@@ -40,7 +40,7 @@ namespace RFC.Models
         public string customers { get; set; }
 
         [Required]
-        public CustomersAffected CustomersAffected { get; set; }
+        public string CustomersAffected { get; set; }
 
 
         [Required]
@@ -83,6 +83,6 @@ namespace RFC.Models
         [DisplayName("Who will be performing the change?")]
         public string WhoPerforming { get; set; }
 
-        public bool Approved { get; set; }
+        public RequestStatus Approved { get; set; }
     }
 }
