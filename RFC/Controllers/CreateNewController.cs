@@ -25,7 +25,9 @@ namespace RFC.Controllers
         [Route("submissions")]
         public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User CurrentUser, string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
         {
-
+            var varOne = 0;
+            var varTwo = 1;
+            var tuple = (myVar: varOne, myVar2: varTwo);
             ViewData["CurrentSort"] = sortOrder;
 
             if (searchString != null)
@@ -164,6 +166,10 @@ namespace RFC.Controllers
         [Route("create")]
         public IActionResult Create()
         {
+            CreateRequestViewModel createRequest = new CreateRequestViewModel()
+            {
+                Customers = from s in _context.Customer select s
+            };
             return View();
         }
 
