@@ -673,7 +673,6 @@ C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.V
 C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.csproj.CopyComplete
 C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.dll
 C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.pdb
-C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\CreateNew\WeeklyAgenda.cshtml.g.cs
 C:\Users\Christian.Cybaniak\Downloads\RFCNew (1)\RFCNew\RFC\bin\Debug\netcoreapp3.0\appsettings.Development.json
 C:\Users\Christian.Cybaniak\Downloads\RFCNew (1)\RFCNew\RFC\bin\Debug\netcoreapp3.0\appsettings.json
 C:\Users\Christian.Cybaniak\Downloads\RFCNew (1)\RFCNew\RFC\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
