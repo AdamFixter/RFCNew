@@ -33,6 +33,9 @@
                     <th>
                         Requested Due Date
                     </th>
+                    <th>
+                        Status
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -51,6 +54,9 @@
                     </td>
                     <td>
                         @Model.DueDate
+                    </td>
+                    <td>
+                        @(Model.Approved == RequestStatus.Accept ? "Accepted" : (Model.Approved == RequestStatus.Reject ? "Rejected" : "Pending"))
                     </td>
                 </tr>
             </tbody>
@@ -159,7 +165,7 @@
 
         <div class="buttons" style="display: flex; justify-content: space-around">
             <a class="btn btn-default button btn-danger" asp-action="Delete" asp-route-id="@Model.ID">Delete</a>
-            <a class="btn btn-default button @(Model.Approved ? "btn-warning" : "btn-success")" asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved ? "Unapprove" : "Approve")</a>
+            <a class="btn btn-default button @(Model.Approved == RequestStatus.Pending || Model.Approved == RequestStatus.Reject ? "btn-success" : "btn-warning")" asp-action="Approve" asp-route-id="@Model.ID">@(Model.Approved == RequestStatus.Pending || Model.Approved == RequestStatus.Reject ? "Accept" : "Reject")</a>
         </div>
     </div>
 </div>

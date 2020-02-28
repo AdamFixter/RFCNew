@@ -26,7 +26,6 @@ namespace RFC.Controllers
         [Route("submissions")]
         public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User CurrentUser, string sortOrder, string searchID, Priority searchPriority, Product searchProduct, string searchCustomer, string searchStatus, DateTime? searchDateStart, DateTime? searchDateEnd, string columnSelect, int? pageNumber)
         {
-            Debug.WriteLine($"\n\n{sortOrder}\n{searchID}\n{searchPriority.ToString()}\n{searchProduct.ToString()}\n{searchCustomer}\n{searchStatus}");
             ViewData["CurrentSort"] = sortOrder;
             var submissions = from s in _context.CreateNew
                               select s;
@@ -101,11 +100,12 @@ namespace RFC.Controllers
         [Route("create")]
         public IActionResult Create()
         {
-            List<Customer> customers = new List<Customer>();
-
-            customers = (from s in _context.Customer select s).ToList();
-            ViewData["ListOfCustomers"] = customers;
-            return View();
+            CreateRequestViewModel model = new CreateRequestViewModel();
+            List<SelectListItem> items = new List<SelectListItem>();
+            var customers = from s in _context.Customer select s;
+            customers.ToList().ForEach(customer => items.Add(new SelectListItem { Text = customer.Name, Value = customer.Name }));
+            model.CustomerList = items;
+            return View(model);
         }
 
         // POST: CreateNew/Create
@@ -114,8 +114,9 @@ namespace RFC.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Route("create")]
-        public async Task<IActionResult> Create([Bind("ID,Priority,ChangeDescription,ReasonForChange,Product,SystemAffected,CustomersAffected,customers,ServiceImpact,RiskOfChange,RiskNoChange,VerifyAfter,RollBackPlan,DueDate,WhyDueDate,WhoPerforming")] CreateNew createNew)
+        public async Task<IActionResult> Create([Bind("Request, CustomerList")] CreateRequestViewModel createRequest)
         {
+            var createNew = createRequest.Request;
             if (ModelState.IsValid)
             {
                 _context.Add(createNew);
@@ -123,7 +124,14 @@ namespace RFC.Controllers
                 TempData["submittedID"] = createNew.ID.ToString();
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
-            return View(createNew);
+
+            //
+            CreateRequestViewModel model = new CreateRequestViewModel();
+            List<SelectListItem> items = new List<SelectListItem>();
+            var customers = from s in _context.Customer select s;
+            customers.ToList().ForEach(customer => items.Add(new SelectListItem { Text = customer.Name, Value = customer.Name }));
+            model.CustomerList = items;
+            return View(model);
         }
 
         // GET: Movies/Edit/5
@@ -142,14 +150,24 @@ namespace RFC.Controllers
             TempData["lastRowID"] = id.ToString();
             if (ModelState.IsValid)
             {
-                createNew.Approved = !createNew.Approved;
+                if (createNew.Approved == RequestStatus.Accept)
+                    createNew.Approved = RequestStatus.Reject;
+                else if (createNew.Approved == RequestStatus.Reject || createNew.Approved == RequestStatus.Pending)
+                    createNew.Approved = RequestStatus.Accept;
                 _context.Update(createNew);
                 await _context.SaveChangesAsync();
-                TempData["stateMessage"] = createNew.Approved;
+                if (createNew.Approved == RequestStatus.Accept)
+                    TempData["stateMessage"] = true;
+                else if (createNew.Approved == RequestStatus.Reject)
+                    TempData["stateMessage"] = false;
                 TempData["stateStatus"] = true;
                 return RedirectToAction(nameof(Index));
             }
-            TempData["stateMessage"] = !createNew.Approved;
+
+            if (createNew.Approved == RequestStatus.Accept)
+                TempData["stateMessage"] = true;
+            else if (createNew.Approved == RequestStatus.Reject)
+                TempData["stateMessage"] = false;
             TempData["stateStatus"] = false;
             return RedirectToAction(nameof(Index));
         }
