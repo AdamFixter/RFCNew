@@ -9,8 +9,5 @@ namespace RFC.ViewModel
     public class CreateRequestViewModel
     {
         public CreateNew Request { get; set; }
-
-        public IEnumerable<Priority> Priorities { get; set; }
-        public IEnumerable<Customer> Customers { get; set; }
     }
 }

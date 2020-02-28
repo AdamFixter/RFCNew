@@ -7,6 +7,6 @@ namespace RFC.Models
 {
     public enum CustomersAffected
     {
-        CustomerName1, CustomerName2, CustomerName3
+        TestCustomer
     }
 }

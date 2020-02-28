@@ -8483,25 +8483,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Christian.Cybaniak\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Adam.Fixter\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
+      "projectUniqueName": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj",
       "projectName": "RFC",
-      "projectPath": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
-      "packagesPath": "C:\\Users\\Christian.Cybaniak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\obj\\",
+      "projectPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj",
+      "packagesPath": "C:\\Users\\Adam.Fixter\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Christian.Cybaniak\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Adam.Fixter\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.0"
@@ -8561,24 +8556,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.0.1, 3.0.1]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[3.0.2, 3.0.2]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.0.0, 3.0.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.0.0, 3.0.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -8587,7 +8564,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }

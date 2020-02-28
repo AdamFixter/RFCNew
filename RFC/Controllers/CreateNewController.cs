@@ -28,7 +28,6 @@ namespace RFC.Controllers
         {
             Debug.WriteLine($"\n\n{sortOrder}\n{searchID}\n{searchPriority.ToString()}\n{searchProduct.ToString()}\n{searchCustomer}\n{searchStatus}");
             ViewData["CurrentSort"] = sortOrder;
-
             var submissions = from s in _context.CreateNew
                               select s;
 
@@ -102,10 +101,10 @@ namespace RFC.Controllers
         [Route("create")]
         public IActionResult Create()
         {
-            CreateRequestViewModel createRequest = new CreateRequestViewModel()
-            {
-                Customers = from s in _context.Customer select s
-            };
+            List<Customer> customers = new List<Customer>();
+
+            customers = (from s in _context.Customer select s).ToList();
+            ViewData["ListOfCustomers"] = customers;
             return View();
         }
 

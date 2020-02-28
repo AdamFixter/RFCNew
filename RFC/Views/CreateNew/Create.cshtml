@@ -27,7 +27,7 @@
 						</div>
 					</div>
 					<div class="col">
-						<div class="form-group">
+						<div class="form-group"> 
 							<label asp-for="Product" class="control-label"></label><strong class="error">*</strong>
 							<select asp-for="Product" asp-items="Html.GetEnumSelectList<Product>()">
 								<option value="" disabled selected>Please select</option>
@@ -57,13 +57,12 @@
 						</div>
 					</div>
 					<div class="col">
-						<div class="form-group">
-							<label asp-for="customers" class="control-label"></label><strong class="error">*</strong>
-							<select asp-for="CustomersAffected" asp-items="Html.GetEnumSelectList<CustomersAffected>()">
-								<option value="" disabled selected>Please select</option>
-							</select>
-							<textarea placeholder="Enter Description here" asp-for="customers" class="form-control"></textarea>
-						</div>
+                        <div class="form-group">
+                            <label asp-for="customers" class="control-label"></label><strong class="error">*</strong>
+                            @*<select class="form-control" id="CustomersAffected" name="CustomersAffected" asp-for="CustomersAffected"
+                                    asp-items=""></select>*@
+                            <textarea placeholder="Enter Description here" asp-for="customers" class="form-control"></textarea>
+                        </div>
 					</div>
 				</div>
 				<div class="row">
