@@ -10,7 +10,7 @@
         <h1 style="display:inline-block; width:auto; vertical-align: top;">Details</h1>
         <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
             <div class="otherButtons">
-                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="CreateNew" asp-action="Index">Go Back</a>
+                <button style="width: 100%" class="button submit btn btn-default" onclick="goBack()">Go Back</button>
             </div>
         </div>
     </div>
@@ -208,4 +208,14 @@
         });
     }
 
+</script>
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
+<script>
+    if ( window.history.replaceState ) {
+    window.history.replaceState( null, null, window.location.href );
+    }
 </script>
