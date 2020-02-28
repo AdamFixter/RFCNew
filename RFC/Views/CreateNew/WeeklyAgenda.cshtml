@@ -26,7 +26,7 @@
                 Date To :
                 @Html.TextBox("DateTo", null, new { style = "background-color: #e7e7e7;" })
                 <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
-                <input type="submit" value="Search" />
+                <input id="submitBtn" type="submit" value="Search" />
             </p>
         }
         <table class="table table-bordered table-condensed table-striped table-hover">
@@ -141,15 +141,17 @@
 <script src="~/lib/moment/moment.min.js"></script>
 <script>
         //autopopulate the dates in the date picker//
-
+    function getWeeklyRequests()
+    {
         var todayDate = moment().format("YYYY-MM-DD");
         var lastWeek = moment().subtract(8, "day").format("YYYY-MM-DD");
         var dateFrom = document.getElementById("DateFrom");
         var dateTo = document.getElementById("DateTo");
-
         dateFrom.value = lastWeek;
         dateTo.value = todayDate;
-
+        $("#submitBtn").click(); // auto-search function
+    }
+    getWeeklyRequests();
 </script>
 
 @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
