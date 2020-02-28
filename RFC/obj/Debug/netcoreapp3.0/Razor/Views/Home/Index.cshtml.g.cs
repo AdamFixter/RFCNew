@@ -13,14 +13,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC.Models;
 
 #line default
@@ -79,7 +79,7 @@ using RFC.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
 #nullable restore
-#line 2 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 2 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
   
     ViewData["Title"] = "Home Page";
     var textInfo = System.Threading.Thread.CurrentThread.CurrentCulture.TextInfo;
@@ -94,7 +94,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\r\n<script>\r\n    // Some javascript is positioned here so the script executes before loading the HTML\r\n\r\n    if (\"");
 #nullable restore
-#line 15 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 15 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
     Write(TempData["submittedID"]);
 
 #line default
@@ -102,7 +102,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\" != \"\") {\r\n        alert(\"Your RFC is now submitted\\nSubmission ID: \" + \"");
 #nullable restore
-#line 16 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 16 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
                                                          Write(TempData["submittedID"]);
 
 #line default
@@ -110,7 +110,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\");\r\n    }\r\n</script>\r\n\r\n<div id=\"left\"></div>\r\n<div id=\"right\">\r\n    <div class=\"header\">\r\n        <h1 id=\"fghryf\" style=\"text-align:center\">");
 #nullable restore
-#line 23 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 23 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
                                              Write(greetings[new Random().Next(0, greetings.Length)].Replace("%name%", Model.Name));
 
 #line default
@@ -157,7 +157,7 @@ using RFC.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
 #nullable restore
-#line 33 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
+#line 33 "C:\Users\travis.melton\Documents\GitHub\RFCNew\RFC\Views\Home\Index.cshtml"
              switch (Model.Role.ToString())
             {
                 case "Admin":
