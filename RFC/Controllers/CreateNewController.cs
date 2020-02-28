@@ -102,6 +102,10 @@ namespace RFC.Controllers
         [Route("create")]
         public IActionResult Create()
         {
+            CreateRequestViewModel createRequest = new CreateRequestViewModel()
+            {
+                Customers = from s in _context.Customer select s
+            };
             return View();
         }
 
