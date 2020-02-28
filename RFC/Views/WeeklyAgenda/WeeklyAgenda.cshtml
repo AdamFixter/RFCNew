@@ -152,7 +152,14 @@
         dateTo.value = todayDate;
         $("#submitBtn").click(); // auto-search function
     }
-    getWeeklyRequests();
+
+    if (localStorage.getItem("hasSearched") != "1") {
+        localStorage.setItem("hasSearched", "1");
+        getWeeklyRequests();
+    }
+    else if (localStorage.getItem("hasSearched") == "1") {
+        localStorage.setItem("hasSearched", "0");
+    }
 </script>
 
 @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
