@@ -72,7 +72,7 @@
                             @Html.DisplayFor(modelItem => item.DueDate)
                         </td>
                         <td>
-                            <img src="@(item.Approved ? "images/tick-symbol.png" : "images/cross-symbol.png")" style="width: auto; height: 5%;" />
+                            <img src="@(item.Approved == RequestStatus.Accept ? "images/tick-symbol.png" : (item.Approved == RequestStatus.Reject ? "images/cross-symbol.png" : "images/sandclock.png"))" style="width: auto; height: 5%;" />
                         </td>
                     </tr>
                 }
@@ -153,8 +153,8 @@
     }
 
     if (localStorage.getItem("hasSearched") != "1") {
-            localStorage.setItem("hasSearched", "1");
-            getWeeklyRequests();
+        localStorage.setItem("hasSearched", "1");
+        getWeeklyRequests();
     }
     else if (localStorage.getItem("hasSearched") == "1") {
         localStorage.setItem("hasSearched", "0");

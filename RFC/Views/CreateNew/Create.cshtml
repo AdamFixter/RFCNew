@@ -1,4 +1,4 @@
-﻿@model RFC.Models.CreateNew
+﻿@model RFC.ViewModel.CreateRequestViewModel
 
 @{
     ViewData["Title"] = "Create";
@@ -20,16 +20,16 @@
 				<div class="row">
 					<div class="col">
 						<div class="form-group">
-							<label asp-for="Priority" class="control-label"></label><strong class="error">*</strong>
-							<select asp-for="Priority" asp-items="Html.GetEnumSelectList<Priority>()">
+							<label asp-for="@Model.Request.Priority" class="control-label"></label><strong class="error">*</strong>
+							<select asp-for="@Model.Request.Priority" asp-items="Html.GetEnumSelectList<Priority>()">
 								<option value=""disabled selected>Please select</option>
 							</select>
 						</div>
 					</div>
 					<div class="col">
-						<div class="form-group">
-							<label asp-for="Product" class="control-label"></label><strong class="error">*</strong>
-							<select asp-for="Product" asp-items="Html.GetEnumSelectList<Product>()">
+						<div class="form-group"> 
+							<label asp-for="@Model.Request.Product" class="control-label"></label><strong class="error">*</strong>
+							<select asp-for="@Model.Request.Product" asp-items="Html.GetEnumSelectList<Product>()">
 								<option value="" disabled selected>Please select</option>
 							</select>
 						</div>
@@ -38,87 +38,87 @@
 				<div class="row">
 					<div class="col">
 						<div class="form-group">
-							<label asp-for="ReasonForChange" class="control-label"></label><strong class="error">*</strong>
-							<textarea placeholder="Enter here" asp-for="ReasonForChange" class="form-control"></textarea>
+							<label asp-for="@Model.Request.ReasonForChange" class="control-label"></label><strong class="error">*</strong>
+							<textarea placeholder="Enter here" asp-for="@Model.Request.ReasonForChange" class="form-control"></textarea>
 						</div>
 					</div>
 					<div class="col">
 						<div class="form-group">
-							<label asp-for="ChangeDescription" class="control-label"></label><strong class="error">*</strong>
-							<textarea placeholder="Enter here" asp-for="ChangeDescription" class="form-control"></textarea>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col">
-						<div class="form-group">
-							<label asp-for="SystemAffected" class="control-label"></label><strong class="error">*</strong>
-							<textarea placeholder="Enter here" asp-for="SystemAffected" class="form-control"></textarea>
-						</div>
-					</div>
-					<div class="col">
-						<div class="form-group">
-							<label asp-for="customers" class="control-label"></label><strong class="error">*</strong>
-							<select asp-for="CustomersAffected" asp-items="Html.GetEnumSelectList<CustomersAffected>()">
-								<option value="" disabled selected>Please select</option>
-							</select>
-							<textarea placeholder="Enter Description here" asp-for="customers" class="form-control"></textarea>
+							<label asp-for="@Model.Request.ChangeDescription" class="control-label"></label><strong class="error">*</strong>
+							<textarea placeholder="Enter here" asp-for="@Model.Request.ChangeDescription" class="form-control"></textarea>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
 						<div class="form-group">
-							<label asp-for="WhoPerforming" class="control-label"></label><strong class="error">*</strong>
-							<textarea placeholder="Enter here" asp-for="WhoPerforming" class="form-control"></textarea>
+							<label asp-for="@Model.Request.SystemAffected" class="control-label"></label><strong class="error">*</strong>
+							<textarea placeholder="Enter here" asp-for="@Model.Request.SystemAffected" class="form-control"></textarea>
+						</div>
+					</div>
+					<div class="col">
+                        <div class="form-group">
+                            <label asp-for="@Model.Request.customers" class="control-label"></label><strong class="error">*</strong>
+                            <select asp-for="@Model.Request.CustomersAffected" asp-items="@Model.CustomerList">
+                                <option value="" disabled selected>Please select</option>
+                            </select>
+                            <textarea placeholder="Enter Description here" asp-for="@Model.Request.customers" class="form-control"></textarea>
+                        </div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label asp-for="@Model.Request.WhoPerforming" class="control-label"></label><strong class="error">*</strong>
+							<textarea placeholder="Enter here" asp-for="@Model.Request.WhoPerforming" class="form-control"></textarea>
 						</div>
 					</div>
 					<div class="col">
 						<div class="form-group">
-							<label asp-for="RiskOfChange" class="control-label"></label><strong class="error">*</strong>
-							<textarea placeholder="Enter here" asp-for="RiskOfChange" class="form-control"></textarea>
+							<label asp-for="@Model.Request.RiskOfChange" class="control-label"></label><strong class="error">*</strong>
+							<textarea placeholder="Enter here" asp-for="@Model.Request.RiskOfChange" class="form-control"></textarea>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
 						<div class="form-group">
-							<label asp-for="RiskNoChange" class="control-label"></label><strong class="error">*</strong>
-							<textarea placeholder="Enter here" asp-for="RiskNoChange" class="form-control"></textarea>
+							<label asp-for="@Model.Request.RiskNoChange" class="control-label"></label><strong class="error">*</strong>
+							<textarea placeholder="Enter here" asp-for="@Model.Request.RiskNoChange" class="form-control"></textarea>
 						</div>
 					</div>
 					<div class="col">
 						<div class="form-group">
-							<label asp-for="VerifyAfter" class="control-label"></label><strong class="error">*</strong>
-							<textarea placeholder="Enter here" asp-for="VerifyAfter" class="form-control"></textarea>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col">
-						<div class="form-group">
-							<label asp-for="RollBackPlan" class="control-label"></label><strong class="error">*</strong>
-							<textarea placeholder="Enter here" asp-for="RollBackPlan" class="form-control"></textarea>
-						</div>
-					</div>
-					<div class="col">
-						<div class="form-group">
-							<label asp-for="DueDate" class="control-label"></label><strong class="error">*</strong>
-							<input asp-for="DueDate" class="form-control" />
+							<label asp-for="@Model.Request.VerifyAfter" class="control-label"></label><strong class="error">*</strong>
+							<textarea placeholder="Enter here" asp-for="@Model.Request.VerifyAfter" class="form-control"></textarea>
 						</div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col">
 						<div class="form-group">
-							<label asp-for="WhyDueDate" class="control-label"></label><strong class="error">*</strong>
-							<textarea placeholder="Enter here" asp-for="WhyDueDate" class="form-control"></textarea>
+							<label asp-for="@Model.Request.RollBackPlan" class="control-label"></label><strong class="error">*</strong>
+							<textarea placeholder="Enter here" asp-for="@Model.Request.RollBackPlan" class="form-control"></textarea>
+						</div>
+					</div>
+					<div class="col">
+						<div class="form-group">
+							<label asp-for="@Model.Request.DueDate" class="control-label"></label><strong class="error">*</strong>
+							<input asp-for="@Model.Request.DueDate" class="form-control" />
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col">
+						<div class="form-group">
+							<label asp-for="@Model.Request.WhyDueDate" class="control-label"></label><strong class="error">*</strong>
+							<textarea placeholder="Enter here" asp-for="@Model.Request.WhyDueDate" class="form-control"></textarea>
 						</div>
 					</div>
 					<div class="col">
 						<div class="form-group form-check">
 							<label class="form-check-label">
-								<input class="form-check-input" asp-for="ServiceImpact" /> @Html.DisplayNameFor(model => model.ServiceImpact)
+								<input class="form-check-input" asp-for="@Model.Request.ServiceImpact" /> @Html.DisplayNameFor(model => model.Request.ServiceImpact)
 							</label>
 						</div>
 					</div>
