@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\Adam.Fixter\\Desktop\\REDO\\RFC\\RFCNew\\RFC\\RFC.csproj": {}
   },
   "projects": {
@@ -16,6 +17,27 @@
         "configFilePaths": [
           "C:\\Users\\Adam.Fixter\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+=======
+    "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
+        "projectName": "RFC",
+        "projectPath": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\RFC.csproj",
+        "packagesPath": "C:\\Users\\Christian.Cybaniak\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Christian.Cybaniak\\Documents\\GitHub\\RFCNew\\RFC\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Christian.Cybaniak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+>>>>>>> parent of 3ce4671... Revert filtering on view page
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.0"

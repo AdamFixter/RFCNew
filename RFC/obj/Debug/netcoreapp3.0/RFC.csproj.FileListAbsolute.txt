@@ -674,6 +674,7 @@ C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.dll
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.pdb
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Administration\Index.cshtml.g.cs
+C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\CreateNew\WeeklyAgenda.cshtml.g.cs
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Customers\Create.cshtml.g.cs
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Customers\Delete.cshtml.g.cs
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Customers\Details.cshtml.g.cs
@@ -852,6 +853,7 @@ C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\
 C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\WeeklyAgenda\Details.cshtml.g.cs
 C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\WeeklyAgenda\Edit.cshtml.g.cs
 C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\WeeklyAgenda\WeeklyAgenda.cshtml.g.cs
+<<<<<<< HEAD
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\bin\Debug\netcoreapp3.0\appsettings.Development.json
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\bin\Debug\netcoreapp3.0\appsettings.json
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\bin\Debug\netcoreapp3.0\Properties\launchSettings.json
@@ -1018,3 +1020,5 @@ C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.Vie
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.csproj.CopyComplete
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.dll
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.pdb
+=======
+>>>>>>> parent of 3ce4671... Revert filtering on view page
