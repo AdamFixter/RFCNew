@@ -148,44 +148,14 @@
     }
 </style>
 
-
-<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/moment/moment.min.js"></script>
 <script>
-    var dateRangeFrom = document.getElementById("searchDateStart");
-    var dateRangeTo = document.getElementById("searchDateEnd");
-    var priority = document.getElementById("searchPriority")
-    var product = document.getElementById("searchProduct")
-
-    dateRangeFrom.type = "date";
-    dateRangeFrom.format = "{0:yyyy-MM-dd}";
-
-    dateRangeTo.type = "date";
-    dateRangeTo.format = "{0:yyyy-MM-dd}";
-
-
-    priority.innerHTML = `<option value="Retrospective"></option>
-                            <option value="Normal"></option>
-                            <option value="Emergency"></option>`;
-
-    product.innerHTML = `<option value="RIO"></option>
-                            <option value="Flow"></option>
-                            <option value="Oceano"></option>
-                            <option value="Conexes"></option>
-                            <option value="Mosaic"></option>`;
-
-
-</script>
-
-<script type="text/javascript">
+    @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
     $(document).ready(function ($) {
         $(".d-table-row").click(function () {
             window.document.location = $(this).data("href");
         });
     });
-</script>
-
-<script src="~/lib/moment/moment.min.js"></script>
-<script>
 
     function weeklyAgenda() {
         var todayDate = moment().format("YYYY-MM-DD");
@@ -197,7 +167,3 @@
         dateTo.value = todayDate;
     }
 </script>
-
-
-
-@*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@
