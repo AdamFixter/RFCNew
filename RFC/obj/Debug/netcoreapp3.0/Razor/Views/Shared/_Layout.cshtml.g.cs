@@ -157,7 +157,7 @@ using RFC.Models;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                WriteLiteral("\r\n\r\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\r\n\r\n");
+                WriteLiteral("\n\n    <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css\">\n\n");
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_HeadTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.HeadTagHelper>();
@@ -284,7 +284,7 @@ using RFC.Models;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                WriteLiteral("</a>\r\n        <div class=\"background\"></div>\r\n        <div class=\"RFCForm\" id=\"RFCFormID\" style=\"top: 18%;\">");
+                WriteLiteral("</a>\n        <div class=\"background\"></div>\n        <div class=\"RFCForm\" id=\"RFCFormID\" style=\"top: 18%;\">");
 #nullable restore
 #line 54 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Shared\_Layout.cshtml"
                                                          Write(RenderBody());
@@ -317,7 +317,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_ScriptTagHelper.AppendVersion = true;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                WriteLiteral("\r\n    ");
+                WriteLiteral("\n    ");
 #nullable restore
 #line 57 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Shared\_Layout.cshtml"
 Write(RenderSection("Scripts", required: false));
@@ -325,7 +325,7 @@ Write(RenderSection("Scripts", required: false));
 #line default
 #line hidden
 #nullable disable
-                WriteLiteral("\r\n\r\n    <button class=\"btn btn-default button btn-outline-dark\" id=\"changeCSSThemeButton\" style=\"position: absolute; top: 5px; right: 10px; color:white;\" onclick=\"changeCSSTheme()\">Dark Mode</button>\r\n");
+                WriteLiteral("\n\n    <button class=\"btn btn-default button btn-outline-dark\" id=\"changeCSSThemeButton\" style=\"position: absolute; top: 5px; right: 10px; color:white;\" onclick=\"changeCSSTheme()\">Dark Mode</button>\n");
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_BodyTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.BodyTagHelper>();
@@ -365,9 +365,9 @@ Write(RenderSection("Scripts", required: false));
                 console.log(""this is the page"");
                 document.getElementById(""RFCFormID"").style.top = ""5%"";
                 let coll = document.getElementsByClassName(""collapsible"");
-                for (let i = 0; i < ");
-            WriteLiteral(@"coll.length; i++) {
-                    let question = coll[i];
+                for (let i = 0; i < coll.length; i++) {
+        ");
+            WriteLiteral(@"            let question = coll[i];
                     let content = question.nextElementSibling;
                     if (content.style.display == """" || content.style.display == ""block"") {
                         question.style.backgroundColor = ""#303030"";
@@ -385,9 +385,9 @@ Write(RenderSection("Scripts", required: false));
             this.document.getElementById('changeCSSThemeButton').innerHTML = 'Dark Mode'
             if (document.getElementById(""Question"") != null) {
                 console.log(""this is the page"");
-                document.getElementById(""RFCFormID"").style.");
-            WriteLiteral(@"top = ""5%"";
-                let coll = document.getElementsByClassName(""collapsible"");
+                document.getElementById(""RFCFormID"").style.top = ""5%"";
+                let coll = document");
+            WriteLiteral(@".getElementsByClassName(""collapsible"");
                 for (let i = 0; i < coll.length; i++) {
                     let question = coll[i];
                     let content = question.nextElementSibling;
@@ -411,10 +411,10 @@ Write(RenderSection("Scripts", required: false));
         newlink.setAttribute(""rel"", ""stylesheet"");
         newlink.setAttribute(""href"", cssFile);
 
-        document.getEleme");
-            WriteLiteral(@"ntsByTagName(""head"").item(0).replaceChild(newlink, oldlink);
+        document.getElementsByTagName(""head"").item(0).replaceChild(newlink, oldlink);
 
-        usingCSSFile = cssFile;
+        us");
+            WriteLiteral(@"ingCSSFile = cssFile;
     }
 
     window.onload = function () {

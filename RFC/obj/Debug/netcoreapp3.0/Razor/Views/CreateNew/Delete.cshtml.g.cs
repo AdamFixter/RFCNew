@@ -64,7 +64,7 @@ using RFC.Models;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
-            WriteLiteral("\r\n");
+            WriteLiteral("\n");
 #nullable restore
 #line 3 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Delete.cshtml"
   
@@ -151,7 +151,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-                WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+                WriteLiteral("\n                        </td>\n                        <td>\n                            ");
 #nullable restore
 #line 45 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Delete.cshtml"
                        Write(Model.Priority);
@@ -159,7 +159,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-                WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+                WriteLiteral("\n                        </td>\n                        <td>\n                            ");
 #nullable restore
 #line 48 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Delete.cshtml"
                        Write(Model.Product);
@@ -167,7 +167,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-                WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+                WriteLiteral("\n                        </td>\n                        <td>\n                            ");
 #nullable restore
 #line 51 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Delete.cshtml"
                        Write(Model.CustomersAffected);
@@ -175,7 +175,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-                WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+                WriteLiteral("\n                        </td>\n                        <td>\n                            ");
 #nullable restore
 #line 54 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Delete.cshtml"
                        Write(Model.DueDate);
@@ -218,7 +218,7 @@ using RFC.Models;
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                WriteLiteral("\r\n            </div>\r\n        ");
+                WriteLiteral("\n            </div>\n        ");
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper>();
@@ -283,8 +283,9 @@ using RFC.Models;
     for (i = 0; i < coll.length; i++) {
         coll[i].addEventListener(""click"", function () {
             this.classList.toggle(""active"");
-            var content = this.nextElementSibling;");
-            WriteLiteral("\r\n            if (content.style.display === \"block\") {\r\n                content.style.display = \"none\";\r\n            } else {\r\n                content.style.display = \"block\";\r\n            }\r\n        });\r\n    }\r\n</script>");
+            var content = this.nextElementSibling;
+            if (content.style.display === ""block");
+            WriteLiteral("\") {\n                content.style.display = \"none\";\n            } else {\n                content.style.display = \"block\";\n            }\n        });\n    }\n</script>");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

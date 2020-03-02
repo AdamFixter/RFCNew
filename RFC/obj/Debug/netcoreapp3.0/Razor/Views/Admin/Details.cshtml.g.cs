@@ -68,7 +68,7 @@ using RFC.Models;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
-            WriteLiteral("\r\n");
+            WriteLiteral("\n");
 #nullable restore
 #line 3 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Admin\Details.cshtml"
   
@@ -203,10 +203,10 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
 #line default
 #line hidden
 #nullable disable
-                WriteLiteral("\r\n                            </div>\r\n                        </td>\r\n                        <td>\r\n                            <div");
-                BeginWriteAttribute("asp-for", " asp-for=\"", 1656, "\"", 1666, 0);
+                WriteLiteral("\n                            </div>\n                        </td>\n                        <td>\n                            <div");
+                BeginWriteAttribute("asp-for", " asp-for=\"", 1614, "\"", 1624, 0);
                 EndWriteAttribute();
-                WriteLiteral(" class=\"form-group\">\r\n                                ");
+                WriteLiteral(" class=\"form-group\">\n                                ");
 #nullable restore
 #line 44 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\Admin\Details.cshtml"
                            Write(Model.Name);
@@ -286,7 +286,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.Items = Html.GetEnumSelect
                 }
                 Write(__tagHelperExecutionContext.Output);
                 __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                WriteLiteral("\r\n            </div>\r\n        ");
+                WriteLiteral("\n            </div>\n        ");
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_FormTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.FormTagHelper>();
@@ -302,7 +302,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper.Items = Html.GetEnumSelect
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n    </div>\r\n</div>");
+            WriteLiteral("\n    </div>\n</div>");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

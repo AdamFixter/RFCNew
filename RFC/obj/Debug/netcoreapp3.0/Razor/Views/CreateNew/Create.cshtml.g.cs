@@ -77,8 +77,8 @@ using RFC.Models;
 #nullable restore
 #line 3 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Create.cshtml"
   
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Create";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 
 #line default
 #line hidden
@@ -442,7 +442,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_LabelTagHelper.For = ModelExpressionProvid
                     }
                     Write(__tagHelperExecutionContext.Output);
                     __tagHelperExecutionContext = __tagHelperScopeManager.End();
-                    WriteLiteral("\r\n                            ");
+                    WriteLiteral("\r\n\t\t\t\t\t\t\t");
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_TagHelpers_SelectTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.SelectTagHelper>();
@@ -883,28 +883,31 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_InputTagHelper.For = ModelExpressionProvid
 </style>
 
 <script>
-    document.addEventListener('input', function (event) {
-        if (event.target.tagName.toLowerCase() !== 'textarea') return;
-        autoExpand(event.target);
-    }, false);
+	document.addEventListener('input', function (event) {
+		if (event.target.tagName.toLowerCase() !== 'textarea') return;
+		autoExpand(event.target);
+	}, false);
 
-    var autoExpand = function (field) {
+	var autoExpand = function (field) {
 
-        // Reset field height
-        field.style.height = 'inherit';
+		// Reset field height
+		field.style.height = 'inherit';
 
-        // Get the computed styles for the element
-        var computed = window.getComputedStyle(field);
+		// Get the computed styles for the element
+		var computed = window.getComputedStyle(field);
 
-        // Calculate the height
-        var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
-            + parseInt(computed.getPropertyValue('padding-top'), 10)
-            + field.scrollHeight
-            + parseInt(computed.getPropertyValue('padding-bottom'), 10)
-            + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+		// Calculate the height
+		var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+			+ parseInt(computed.getPropertyValue('padding-top'), 10)
+			+ field.scrollHeight
+			+ parseInt(computed.getPropertyValue('padding-bottom'), 10)
+			+ parseInt(computed.getPropertyValue('border-bottom-width'), 10);
 
-      ");
-            WriteLiteral("  field.style.height = height + \'px\';\r\n\r\n    };\r\n</script>\r\n");
+		field.style.height = height + 'px';
+
+	};
+</script>
+");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

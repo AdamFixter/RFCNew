@@ -1,203 +1,223 @@
 ﻿@model PaginatedList<RFC.Models.CreateNew>
 
 @{
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 
-    var priorityList = Html.GetEnumSelectList<Priority>();
+	var priorityList = Html.GetEnumSelectList<Priority>();
 }
 
 <script>    // Some javascript is positioned here so the script executes before loading the HTML
-    if ("@TempData["lastRowID"]" != "") {
-        console.log("it is not empty");
-        var startString = ""
-        if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "True")
-            startString = "You have accepted ";
-        else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "True")
-            startString = "You have rejected ";
-        else if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "False")
-            startString = " failed to accept";
-        else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "False")
-            startString = " failed to reject";
+	if ("@TempData["lastRowID"]" != "") {
+		console.log("it is not empty");
+		var startString = ""
+		if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "True")
+			startString = "You have accepted ";
+		else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "True")
+			startString = "You have rejected ";
+		else if ("@TempData["stateMessage"]" == "True" && "@TempData["stateStatus"]" == "False")
+			startString = " failed to accept";
+		else if ("@TempData["stateMessage"]" == "False" && "@TempData["stateStatus"]" == "False")
+			startString = " failed to reject";
 
-        alert(startString + "Submission ID: " + "@TempData["lastRowID"]" + "\n\nPress OK to go back to the Details");
-        window.location.href = '/CreateNew/Details/' + "@TempData["lastRowID"]";
-    }
+		alert(startString + "Submission ID: " + "@TempData["lastRowID"]" + "\n\nPress OK to go back to the Details");
+		window.location.href = '/CreateNew/Details/' + "@TempData["lastRowID"]";
+	}
 </script>
 
 <div id="right">
-    <div class="header" style="display:flex; justify-content: space-between;">
-        <h1 style="display:inline-block; width:auto; vertical-align: top;">Requests</h1>
-        <div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
-            <div class="otherButtons">
-                <a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
-            </div>
-        </div>
-    </div>
-    <div class="rightContent">
-        @using (Html.BeginForm())
-        {
-            <p id="filter">
-                <div class="searchBoxFormat">
-                    @Html.TextBox("searchID", null, new { @class = "searchBox", placeholder = "Search by ID", list = "datalist", autocomplete = "off" })
-                    <input list="searchPriority" placeholder="Search by Priority" class="searchBox" />
-                    <datalist id="searchPriority"></datalist>
-                    <input list="searchProduct" placeholder="Search by Product" class="searchBox" />
-                    <datalist id="searchProduct"></datalist>
-                    @Html.TextBox("searchCustomer", null, new { @class = "searchBox", placeholder = "Search by Customer", list = "datalist", autocomplete = "off" })
-                    @Html.TextBox("searchApproved", null, new { @class = "searchBox", placeholder = "Search by Status", list = "datalist", autocomplete = "off" })
-                </div>
-                <div class="searchBoxFormat">
-                    @Html.TextBox("searchDateStart", null, new { @class = "searchBox", list = "datalist", autocomplete = "off" })
-                    @Html.TextBox("searchDateEnd", null, new { @class = "searchBox", list = "datalist", autocomplete = "off" })
-                </div>
+	<div class="header" style="display:flex; justify-content: space-between;">
+		<h1 style="display:inline-block; width:auto; vertical-align: top;">Requests</h1>
+		<div class="buttons" style="margin-top: 0px; display:inline-block;width:auto;vertical-align: top;">
+			<div class="otherButtons">
+				<a style="width: 100%" class="button submit btn btn-default" asp-area="" asp-controller="Home" asp-action="Index">Go Back</a>
+			</div>
+		</div>
+	</div>
+	<div class="rightContent">
+		@using (Html.BeginForm())
+		{
+		<p id="filter">
+			Find in
+			@Html.DropDownList("ColumnSelect", "Select a Column")
+			by:
+			@Html.TextBox("searchString")
+			@Html.TextBox("DateTo")
+			<ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
+			<input type="submit" value="Search" />
+			<datalist id="datalist"></datalist>
+		</p>
+		}
+		<table class="table table-bordered table-condensed table-striped">
+			<thead>
+				<tr>
+					<th>
+						@Html.ActionLink("ID" + (string.IsNullOrEmpty(ViewBag.sortOrder) ? " ▼" : "") + (ViewBag.sortOrder == "IDDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.IDSortParm })
+					</th>
+					<th>
+						@Html.ActionLink("Priority" + (ViewBag.sortOrder == "RFCTypeAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RFCTypeDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
+					</th>
+					<th>
+						@Html.ActionLink("Product Name" + (ViewBag.sortOrder == "ProductNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ProductNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.ProductNameSortParm })
+					</th>
+					<th>
+						@Html.ActionLink("Customer Name" + (ViewBag.sortOrder == "CustomerNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "CustomerNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
+					</th>
+					<th>
+						@Html.ActionLink("Requested Due Date" + (ViewBag.sortOrder == "RequestedDueDateAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RequestedDueDateDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
+					</th>
+					<th>
+						@Html.ActionLink("Approved" + (ViewBag.sortOrder == "ApprovedAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ApprovedDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.Approved })
+					</th>
+				</tr>
+			</thead>
+			<tbody id="row-hover">
+				@foreach (var item in Model)
+				{
+					<tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
+						<td>
+							@Html.DisplayFor(modelItem => item.ID)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Priority)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.Product)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.CustomersAffected)
+						</td>
+						<td>
+							@Html.DisplayFor(modelItem => item.DueDate)
+						</td>
+						<td>
+							<img src="@(item.Approved == RequestStatus.Accept ? "images/tick-symbol.png" : (item.Approved == RequestStatus.Reject ? "images/cross-symbol.png" : "images/sandclock.png"))" style="width: auto; height: 5%;" />
+						</td>
+					</tr>
+				}
+			</tbody>
+		</table>
 
-                <input type="submit" value="Search" />
-                <datalist id="datalist"></datalist>
-            </p>
-        }
-        <table class="table table-bordered table-condensed table-striped">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.ActionLink("ID" + (string.IsNullOrEmpty(ViewBag.sortOrder) ? " ▼" : "") + (ViewBag.sortOrder == "IDDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.IDSortParm })
-                    </th>
-                    <th>
-                        @Html.ActionLink("Priority" + (ViewBag.sortOrder == "RFCTypeAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RFCTypeDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RFCTypeSortParm })
-                    </th>
-                    <th>
-                        @Html.ActionLink("Product Name" + (ViewBag.sortOrder == "ProductNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ProductNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.ProductNameSortParm })
-                    </th>
-                    <th>
-                        @Html.ActionLink("Customer Name" + (ViewBag.sortOrder == "CustomerNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "CustomerNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.CustomerNameSortParm })
-                    </th>
-                    <th>
-                        @Html.ActionLink("Requested Due Date" + (ViewBag.sortOrder == "RequestedDueDateAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RequestedDueDateDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm })
-                    </th>
-                    <th>
-                        @Html.ActionLink("Approved" + (ViewBag.sortOrder == "ApprovedAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ApprovedDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.Approved })
-                    </th>
-                </tr>
-            </thead>
-            <tbody id="row-hover">
-                @foreach (var item in Model)
-                {
-                    <tr class="d-table-row" id="table-row" data-href=@("/CreateNew/Details/" + item.ID)>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.ID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Priority)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Product)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.CustomersAffected)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.DueDate)
-                        </td>
-                        <td>
-                            <img src="@(item.Approved == RequestStatus.Accept ? "images/tick-symbol.png" : (item.Approved == RequestStatus.Reject ? "images/cross-symbol.png" : "images/sandclock.png"))" style="width: auto; height: 5%;" />
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-
-        <div class="buttons">
-            <div class="formButtons">
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.PageIndex - 1)"
-                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class="button submit btn btn-default @(!Model.HasPreviousPage ? "disabled" : "")">
-                    Previous
-                </a>
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.PageIndex + 1)"
-                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
-                    Next
-                </a>
-                <div>
-                    <button id="weeklyAgenda" onclick="weeklyAgenda()" class="button btn btn-success">Weekly Agenda</button>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div class="buttons">
+			<div class="formButtons">
+				<a asp-action="Index"
+				   asp-route-sortOrder="@ViewData["CurrentSort"]"
+				   asp-route-pageNumber="@(Model.PageIndex - 1)"
+				   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+				   class="button submit btn btn-default @(!Model.HasPreviousPage ? "disabled" : "")">
+					Previous
+				</a>
+				<a asp-action="Index"
+				   asp-route-sortOrder="@ViewData["CurrentSort"]"
+				   asp-route-pageNumber="@(Model.PageIndex + 1)"
+				   asp-route-currentFilter="@ViewData["CurrentFilter"]"
+				   class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
+					Next
+				</a>
+				<div>
+					<button id="weeklyAgenda" onclick="weeklyAgenda()" class="button btn btn-success">Weekly Agenda</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <style>
-    #weeklyAgenda {
-        display: none;
-        white-space: nowrap;
-    }
+	#weeklyAgenda {
+		display: none;
+		white-space: nowrap;
+	}
 
-    .searchBox {
-        width: 17.5%;
-        margin: 0.3%;
-        background-color: #e7e7e7;
-    }
+	.searchBox {
+		width: 17.5%;
+		margin: 0.3%;
+		background-color: #e7e7e7;
+	}
 
-    .searchBoxFormat {
-        align-content: center;
-        width: 100%;
-    }
+	.searchBoxFormat {
+		align-content: center;
+		width: 100%;
+	}
 </style>
 
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
+
 <script>
-    var dateRangeFrom = document.getElementById("searchDateStart");
-    var dateRangeTo = document.getElementById("searchDateEnd");
-    var priority = document.getElementById("searchPriority")
-    var product = document.getElementById("searchProduct")
-
-    dateRangeFrom.type = "date";
-    dateRangeFrom.format = "{0:yyyy-MM-dd}";
-
-    dateRangeTo.type = "date";
-    dateRangeTo.format = "{0:yyyy-MM-dd}";
-
-
-    priority.innerHTML = `<option value="Retrospective"></option>
-                            <option value="Normal"></option>
-                            <option value="Emergency"></option>`;
-
-    product.innerHTML = `<option value="RIO"></option>
-                            <option value="Flow"></option>
-                            <option value="Oceano"></option>
-                            <option value="Conexes"></option>
-                            <option value="Mosaic"></option>`;
-
-
+	var dateRangeFrom = document.getElementById("searchString");
+	var dateRangeTo = document.getElementById("DateTo");
+	dateRangeTo.type = "date";
+	dateRangeTo.format = "{0:yyyy-MM-dd}";
+	dateRangeTo.style.display = "none";
+	window.onload = testfunction;
+	$('#ColumnSelect').on('change', function () {
+		var index = $(this).find('option:selected').index();
+		switch (index) {
+			case 2:
+				datalist.innerHTML = `<option value="Retrospective"></option>
+									  <option value="Normal"></option>
+									  <option value="Emergency"></option>`;
+				break;
+			case 3:
+				datalist.innerHTML = `<option value="RIO"></option>
+									  <option value="Flow"></option>
+									  <option value="Oceano"></option>
+									  <option value="Conexes"></option>
+									  <option value="Mosaic"></option>`;
+				break;
+			case 5:
+				dateRangeTo.value = "";
+				dateRangeFrom.type = "date";
+				dateRangeFrom.format = "{0:yyyy-MM-dd}";
+				dateRangeTo.style.display = "inline-block";
+				break;
+			default:
+				datalist.innerHTML = "";
+				dateRangeFrom.type = "text";
+				dateRangeFrom.format = null;
+				dateRangeTo.innerHTML = "";
+				dateRangeTo.style.display = "none";
+				break;
+		}
+	})
+	function testfunction() {
+		var columnselect = document.getElementById("ColumnSelect");
+		if (columnselect.options[columnselect.selectedIndex].text == "Requested Due Date") {
+			dateRangeFrom.type = "date";
+			dateRangeFrom.format = "{0:yyyy-MM-dd}";
+			dateRangeTo.style.display = "inline-block";
+		}
+	}
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function ($) {
-        $(".d-table-row").click(function () {
-            window.document.location = $(this).data("href");
-        });
-    });
+	$(document).ready(function ($) {
+		$(".d-table-row").click(function () {
+			window.document.location = $(this).data("href");
+		});
+	});
 </script>
 
 <script src="~/lib/moment/moment.min.js"></script>
 <script>
 
-    function weeklyAgenda() {
-        var todayDate = moment().format("YYYY-MM-DD");
-        var lastWeek = moment().subtract(8, "day").format("YYYY-MM-DD");
-        var dateFrom = document.getElementById("searchString");
-        var dateTo = document.getElementById("DateTo");
+	function weeklyAgenda() {
+		var todayDate = moment().format("YYYY-MM-DD");
+		var lastWeek = moment().subtract(8, "day").format("YYYY-MM-DD");
+		var dateFrom = document.getElementById("searchString");
+		var dateTo = document.getElementById("DateTo");
 
-        dateFrom.value = lastWeek;
-        dateTo.value = todayDate;
-    }
+		dateFrom.value = lastWeek;
+		dateTo.value = todayDate;
+	}
 </script>
 
 
+
+<style>
+	#ColumnSelect[value=""][disabled] {
+		display: none;
+	}
+</style>
 
 @*Credit to https://www.tutorialsplane.com/bootstrap-make-table-row-clickable/*@

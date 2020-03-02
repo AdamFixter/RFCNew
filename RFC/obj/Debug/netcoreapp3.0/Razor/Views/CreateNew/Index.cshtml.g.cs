@@ -66,15 +66,15 @@ using RFC.Models;
 #nullable restore
 #line 3 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
   
-    ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 
-    var priorityList = Html.GetEnumSelectList<Priority>();
+	var priorityList = Html.GetEnumSelectList<Priority>();
 
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n<script>    // Some javascript is positioned here so the script executes before loading the HTML\r\n    if (\"");
+            WriteLiteral("\r\n<script>    // Some javascript is positioned here so the script executes before loading the HTML\r\n\tif (\"");
 #nullable restore
 #line 11 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
     Write(TempData["lastRowID"]);
@@ -82,7 +82,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" != \"\") {\r\n        console.log(\"it is not empty\");\r\n        var startString = \"\"\r\n        if (\"");
+            WriteLiteral("\" != \"\") {\r\n\t\tconsole.log(\"it is not empty\");\r\n\t\tvar startString = \"\"\r\n\t\tif (\"");
 #nullable restore
 #line 14 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
         Write(TempData["stateMessage"]);
@@ -98,7 +98,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" == \"True\")\r\n            startString = \"You have accepted \";\r\n        else if (\"");
+            WriteLiteral("\" == \"True\")\r\n\t\t\tstartString = \"You have accepted \";\r\n\t\telse if (\"");
 #nullable restore
 #line 16 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
              Write(TempData["stateMessage"]);
@@ -114,7 +114,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" == \"True\")\r\n            startString = \"You have rejected \";\r\n        else if (\"");
+            WriteLiteral("\" == \"True\")\r\n\t\t\tstartString = \"You have rejected \";\r\n\t\telse if (\"");
 #nullable restore
 #line 18 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
              Write(TempData["stateMessage"]);
@@ -130,7 +130,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" == \"False\")\r\n            startString = \" failed to accept\";\r\n        else if (\"");
+            WriteLiteral("\" == \"False\")\r\n\t\t\tstartString = \" failed to accept\";\r\n\t\telse if (\"");
 #nullable restore
 #line 20 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
              Write(TempData["stateMessage"]);
@@ -146,7 +146,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" == \"False\")\r\n            startString = \" failed to reject\";\r\n\r\n        alert(startString + \"Submission ID: \" + \"");
+            WriteLiteral("\" == \"False\")\r\n\t\t\tstartString = \" failed to reject\";\r\n\r\n\t\talert(startString + \"Submission ID: \" + \"");
 #nullable restore
 #line 23 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                                             Write(TempData["lastRowID"]);
@@ -154,7 +154,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\" + \"\\n\\nPress OK to go back to the Details\");\r\n        window.location.href = \'/CreateNew/Details/\' + \"");
+            WriteLiteral("\" + \"\\n\\nPress OK to go back to the Details\");\r\n\t\twindow.location.href = \'/CreateNew/Details/\' + \"");
 #nullable restore
 #line 24 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                                                    Write(TempData["lastRowID"]);
@@ -163,7 +163,7 @@ using RFC.Models;
 #line hidden
 #nullable disable
             WriteLiteral(@""";
-    }
+	}
 </script>
 
 <div id=""right"">
@@ -193,7 +193,7 @@ using RFC.Models;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <div class=\"rightContent\">\r\n");
+            WriteLiteral("\r\n\t\t\t</div>\r\n\t\t</div>\r\n\t</div>\r\n\t<div class=\"rightContent\">\r\n");
 #nullable restore
 #line 38 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
          using (Html.BeginForm())
@@ -210,12 +210,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral(@"
-                    <input list=""searchPriority"" placeholder=""Search by Priority"" class=""searchBox"" />
-                    <datalist id=""searchPriority""></datalist>
-                    <input list=""searchProduct"" placeholder=""Search by Product"" class=""searchBox"" />
-                    <datalist id=""searchProduct""></datalist>
-                    ");
+            WriteLiteral("\t\t<p id=\"filter\">\r\n\t\t\tFind in\r\n\t\t\t");
 #nullable restore
 #line 47 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                Write(Html.TextBox("searchCustomer", null, new { @class = "searchBox", placeholder = "Search by Customer", list = "datalist", autocomplete = "off" }));
@@ -223,7 +218,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    ");
+            WriteLiteral("\r\n\t\t\tby:\r\n\t\t\t");
 #nullable restore
 #line 48 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                Write(Html.TextBox("searchApproved", null, new { @class = "searchBox", placeholder = "Search by Status", list = "datalist", autocomplete = "off" }));
@@ -231,7 +226,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                </div>\r\n                <div class=\"searchBoxFormat\">\r\n                    ");
+            WriteLiteral("\r\n\t\t\t");
 #nullable restore
 #line 51 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                Write(Html.TextBox("searchDateStart", null, new { @class = "searchBox", list = "datalist", autocomplete = "off" }));
@@ -239,7 +234,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    ");
+            WriteLiteral("\r\n\t\t\t<ej-date-range-picker id=\"DateRange\" date-format=\"dd/MM/yyyy\" width=\"200px\"></ej-date-range-picker>\r\n\t\t\t<input type=\"submit\" value=\"Search\" />\r\n\t\t\t<datalist id=\"datalist\"></datalist>\r\n\t\t</p>\r\n");
 #nullable restore
 #line 52 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                Write(Html.TextBox("searchDateEnd", null, new { @class = "searchBox", list = "datalist", autocomplete = "off" }));
@@ -247,7 +242,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                </div>\r\n\r\n                <input type=\"submit\" value=\"Search\" />\r\n                <datalist id=\"datalist\"></datalist>\r\n            </p>\r\n");
+            WriteLiteral("\t\t<table class=\"table table-bordered table-condensed table-striped\">\r\n\t\t\t<thead>\r\n\t\t\t\t<tr>\r\n\t\t\t\t\t<th>\r\n\t\t\t\t\t\t");
 #nullable restore
 #line 58 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
         }
@@ -263,7 +258,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
+            WriteLiteral("\r\n\t\t\t\t\t</th>\r\n\t\t\t\t\t<th>\r\n\t\t\t\t\t\t");
 #nullable restore
 #line 66 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("Priority" + (ViewBag.sortOrder == "RFCTypeAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RFCTypeDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RFCTypeSortParm }));
@@ -271,7 +266,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
+            WriteLiteral("\r\n\t\t\t\t\t</th>\r\n\t\t\t\t\t<th>\r\n\t\t\t\t\t\t");
 #nullable restore
 #line 69 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("Product Name" + (ViewBag.sortOrder == "ProductNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ProductNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.ProductNameSortParm }));
@@ -279,7 +274,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
+            WriteLiteral("\r\n\t\t\t\t\t</th>\r\n\t\t\t\t\t<th>\r\n\t\t\t\t\t\t");
 #nullable restore
 #line 72 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("Customer Name" + (ViewBag.sortOrder == "CustomerNameAsc" ? " ▼" : "") + (ViewBag.sortOrder == "CustomerNameDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.CustomerNameSortParm }));
@@ -287,7 +282,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
+            WriteLiteral("\r\n\t\t\t\t\t</th>\r\n\t\t\t\t\t<th>\r\n\t\t\t\t\t\t");
 #nullable restore
 #line 75 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("Requested Due Date" + (ViewBag.sortOrder == "RequestedDueDateAsc" ? " ▼" : "") + (ViewBag.sortOrder == "RequestedDueDateDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.RequestedDueDateSortParm }));
@@ -295,7 +290,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
+            WriteLiteral("\r\n\t\t\t\t\t</th>\r\n\t\t\t\t\t<th>\r\n\t\t\t\t\t\t");
 #nullable restore
 #line 78 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                    Write(Html.ActionLink("Approved" + (ViewBag.sortOrder == "ApprovedAsc" ? " ▼" : "") + (ViewBag.sortOrder == "ApprovedDesc" ? " ▲" : ""), "Index", new { sortOrder = ViewBag.Approved }));
@@ -303,16 +298,16 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                </tr>\r\n            </thead>\r\n            <tbody id=\"row-hover\">\r\n");
+            WriteLiteral("\r\n\t\t\t\t\t</th>\r\n\t\t\t\t</tr>\r\n\t\t\t</thead>\r\n\t\t\t<tbody id=\"row-hover\">\r\n");
 #nullable restore
 #line 83 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                  foreach (var item in Model)
-                {
+				{
 
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("                    <tr class=\"d-table-row\" id=\"table-row\" data-href=");
+            WriteLiteral("\t\t\t\t\t<tr class=\"d-table-row\" id=\"table-row\" data-href=");
 #nullable restore
 #line 85 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                                                                  Write("/CreateNew/Details/" + item.ID);
@@ -320,7 +315,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral(">\r\n                        <td>\r\n                            ");
+            WriteLiteral(">\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t");
 #nullable restore
 #line 87 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.ID));
@@ -328,7 +323,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+            WriteLiteral("\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t");
 #nullable restore
 #line 90 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.Priority));
@@ -336,7 +331,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+            WriteLiteral("\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t");
 #nullable restore
 #line 93 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.Product));
@@ -344,7 +339,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+            WriteLiteral("\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t");
 #nullable restore
 #line 96 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.CustomersAffected));
@@ -352,7 +347,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+            WriteLiteral("\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t");
 #nullable restore
 #line 99 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.DueDate));
@@ -360,8 +355,8 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            <img");
-            BeginWriteAttribute("src", " src=\"", 5945, "\"", 6113, 1);
+            WriteLiteral("\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t\t<td>\r\n\t\t\t\t\t\t\t<img");
+            BeginWriteAttribute("src", " src=\"", 4042, "\"", 4210, 1);
 #nullable restore
 #line 102 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
 WriteAttributeValue("", 5951, item.Approved == RequestStatus.Accept ? "images/tick-symbol.png" : (item.Approved == RequestStatus.Reject ? "images/cross-symbol.png" : "images/sandclock.png"), 5951, 162, false);
@@ -370,7 +365,7 @@ WriteAttributeValue("", 5951, item.Approved == RequestStatus.Accept ? "images/ti
 #line hidden
 #nullable disable
             EndWriteAttribute();
-            WriteLiteral(" style=\"width: auto; height: 5%;\" />\r\n                        </td>\r\n                    </tr>\r\n");
+            WriteLiteral(" style=\"width: auto; height: 5%;\" />\r\n\t\t\t\t\t\t</td>\r\n\t\t\t\t\t</tr>\r\n");
 #nullable restore
 #line 105 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
                 }
@@ -425,10 +420,10 @@ WriteAttributeValue("", 5951, item.Approved == RequestStatus.Accept ? "images/ti
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"] = __tagHelperStringValueBuffer;
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-currentFilter", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "class", 5, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            AddHtmlAttributeValue("", 6612, "button", 6612, 6, true);
-            AddHtmlAttributeValue(" ", 6618, "submit", 6619, 7, true);
-            AddHtmlAttributeValue(" ", 6625, "btn", 6626, 4, true);
-            AddHtmlAttributeValue(" ", 6629, "btn-default", 6630, 12, true);
+            AddHtmlAttributeValue("", 4574, "button", 4574, 6, true);
+            AddHtmlAttributeValue(" ", 4580, "submit", 4581, 7, true);
+            AddHtmlAttributeValue(" ", 4587, "btn", 4588, 4, true);
+            AddHtmlAttributeValue(" ", 4591, "btn-default", 4592, 12, true);
 #nullable restore
 #line 115 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
 AddHtmlAttributeValue(" ", 6641, !Model.HasPreviousPage ? "disabled" : "", 6642, 43, false);
@@ -491,10 +486,10 @@ AddHtmlAttributeValue(" ", 6641, !Model.HasPreviousPage ? "disabled" : "", 6642,
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"] = __tagHelperStringValueBuffer;
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-currentFilter", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "class", 5, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            AddHtmlAttributeValue("", 7012, "button", 7012, 6, true);
-            AddHtmlAttributeValue(" ", 7018, "submit", 7019, 7, true);
-            AddHtmlAttributeValue(" ", 7025, "btn", 7026, 4, true);
-            AddHtmlAttributeValue(" ", 7029, "btn-default", 7030, 12, true);
+            AddHtmlAttributeValue("", 4887, "button", 4887, 6, true);
+            AddHtmlAttributeValue(" ", 4893, "submit", 4894, 7, true);
+            AddHtmlAttributeValue(" ", 4900, "btn", 4901, 4, true);
+            AddHtmlAttributeValue(" ", 4904, "btn-default", 4905, 12, true);
 #nullable restore
 #line 122 "C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\Views\CreateNew\Index.cshtml"
 AddHtmlAttributeValue(" ", 7041, !Model.HasNextPage ? "disabled" : "", 7042, 39, false);
@@ -511,30 +506,30 @@ AddHtmlAttributeValue(" ", 7041, !Model.HasNextPage ? "disabled" : "", 7042, 39,
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(@"
-                <div>
-                    <button id=""weeklyAgenda"" onclick=""weeklyAgenda()"" class=""button btn btn-success"">Weekly Agenda</button>
-                </div>
-            </div>
-        </div>
-    </div>
+				<div>
+					<button id=""weeklyAgenda"" onclick=""weeklyAgenda()"" class=""button btn btn-success"">Weekly Agenda</button>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
 
 <style>
-    #weeklyAgenda {
-        display: none;
-        white-space: nowrap;
-    }
+	#weeklyAgenda {
+		display: none;
+		white-space: nowrap;
+	}
 
-    .searchBox {
-        width: 17.5%;
-        margin: 0.3%;
-        background-color: #e7e7e7;
-    }
+	.searchBox {
+		width: 17.5%;
+		margin: 0.3%;
+		background-color: #e7e7e7;
+	}
 
-    .searchBoxFormat {
-        align-content: center;
-        width: 100%;
-    }
+	.searchBoxFormat {
+		align-content: center;
+		width: 100%;
+	}
 </style>
 
 
@@ -553,30 +548,53 @@ AddHtmlAttributeValue(" ", 7041, !Model.HasNextPage ? "disabled" : "", 7042, 39,
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral(@"
+
 <script>
-    var dateRangeFrom = document.getElementById(""searchDateStart"");
-    var dateRangeTo = document.getElementById(""searchDateEnd"");
-    var priority = document.getElementById(""searchPriority"")
-    var product = document.getElementById(""searchProduct"")
-
-    dateRangeFrom.type = ""date"";
-    dateRangeFrom.format = ""{0:yyyy-MM-dd}"";
-
-    dateRangeTo.type = ""date"";
-    dateRangeTo.format = ""{0:yyyy-MM-dd}"";
-
-
-    priority.innerHTML = `<option value=""Retrospective""></option>
-                            <option value=""Normal""></option>
-                            <option value=""Emergency""></option>`;
-
-    product.innerHTML = `<option value=""RIO""></option>
-                            <option value=""Flow""></option>
-                            <option value=""Oceano""></option>
-                            <option value=""Conexes""></option>
-                            <option value=""Mosaic""></option>`;
-
-
+	var dateRangeFrom = document.getElementById(""searchString"");
+	var dateRangeTo = document.getElementById(""DateTo"");
+	dateRangeTo.type = ""date"";
+	dateRangeTo.format = ""{0:yyyy-MM-dd}"";
+	dateRangeTo.style.display = ""none"";
+	window.onload = testfunction;
+	$('#ColumnSelect').on('change', function () {
+		var index = $(this).find('option:selected').index();
+		switch (index) {
+			case 2:
+				datalist.innerHTML = `<option value=""Retrospective""></option>
+									  <option value=""Normal""></option>
+									  <option value=""Emergency""></option>`;
+				break;
+			case 3:
+				datalist.innerHTML = `<option value=""RIO""></option>
+									  <option value=""Flow""></option>
+									  <option value=""Oceano""></option>
+									  <option value=""Conexes""></option>
+									  <option value=""Mosaic""></option>`;
+				break;
+			case 5:
+				dateRangeTo.value = """";
+				dateRangeFrom.type = ""date"";
+				dateRangeFrom.format = ""{0:yyyy-MM-dd}"";
+				dateRangeTo.style.display = ""inline-block"";
+				break;");
+            WriteLiteral(@"
+			default:
+				datalist.innerHTML = """";
+				dateRangeFrom.type = ""text"";
+				dateRangeFrom.format = null;
+				dateRangeTo.innerHTML = """";
+				dateRangeTo.style.display = ""none"";
+				break;
+		}
+	})
+	function testfunction() {
+		var columnselect = document.getElementById(""ColumnSelect"");
+		if (columnselect.options[columnselect.selectedIndex].text == ""Requested Due Date"") {
+			dateRangeFrom.type = ""date"";
+			dateRangeFrom.format = ""{0:yyyy-MM-dd}"";
+			dateRangeTo.style.display = ""inline-block"";
+		}
+	}
 </script>
 
 <script type=""text/javascript"">
@@ -599,18 +617,24 @@ AddHtmlAttributeValue(" ", 7041, !Model.HasNextPage ? "disabled" : "", 7042, 39,
             WriteLiteral(@"
 <script>
 
-    function weeklyAgenda() {
-        var todayDate = moment().format(""YYYY-MM-DD"");
-        var lastWeek = moment().subtract(8, ""day"").format(""YYYY-MM-DD"");
-        var dateFrom = document.getElementById(""searchString"");
-        var dateTo = document.getElementById(""DateTo"");
+	function weeklyAgenda() {
+		var todayDate = moment().format(""YYYY-MM-DD"");
+		var lastWeek = moment().subtract(8, ""day"").format(""YYYY-MM-DD"");
+		var dateFrom = document.getElementById(""searchString"");
+		var dateTo = document.getElementById(""DateTo"");
 
-        dateFrom.value = lastWeek;
-        dateTo.value = todayDate;
-    }
+		dateFrom.value = lastWeek;
+		dateTo.value = todayDate;
+	}
 </script>
 
 
+
+<style>
+	#ColumnSelect[value=""""][disabled] {
+		display: none;
+	}
+</style>
 
 ");
         }
