@@ -1,9 +1,5 @@
 {
   "version": 1,
-<<<<<<< HEAD
-  "dgSpecHash": "ckr88nrmNIHeMwYqMVSnDN2Amjt5oQZUNphoYi902/oXqdJJSRF6ofeKCekSPDqaxoj1uhTiuOSUUG1aXJNCQg==",
-=======
-  "dgSpecHash": "WoocWFBEv1o/cbia038ILkG598tXFHBg9Sp9ZgLU070o77/MV2z+QHI+2OeaoEa1lBqJQDYoN3wRfYULDBciyQ==",
->>>>>>> parent of 3ce4671... Revert filtering on view page
+  "dgSpecHash": "MXNhv7zPvUJhRPvrFH0orTvwZ0PiUTY6AYpphRBddqHpko47PFa/nHLZeud7r+EEeBZMKpR5pIBA73yCF3WcYA==",
   "success": true
 }

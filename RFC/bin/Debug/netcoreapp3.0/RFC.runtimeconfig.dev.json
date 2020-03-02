@@ -1,14 +1,10 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-<<<<<<< HEAD
-      "C:\\Users\\Adam.Fixter\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Adam.Fixter\\.nuget\\packages"
-=======
-      "C:\\Users\\Christian.Cybaniak\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Christian.Cybaniak\\.nuget\\packages",
-      "C:\\Microsoft\\Xamarin\\NuGet"
->>>>>>> parent of 3ce4671... Revert filtering on view page
+      "C:\\Users\\Adam.Sutton\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Adam.Sutton\\.nuget\\packages",
+      "C:\\Microsoft\\Xamarin\\NuGet",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
     ]
   }
 }
