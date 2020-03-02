@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace RFC.Models
 {
-    public enum CustomersAffected
+    public enum RequestStatus
     {
-        TestCustomer
+        Pending, Reject, Accept
     }
 }

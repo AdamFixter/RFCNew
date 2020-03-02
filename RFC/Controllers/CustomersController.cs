@@ -40,6 +40,12 @@ namespace RFC.Controllers
             //// The 'submissions' is the variable with the data from the table
             var submissions = from s in _context.Customer
                               select s;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                submissions = submissions.Where(s => s.Name.Contains(searchString));
+            }
+
             ViewData["Customers"] = submissions;
 
             if (!String.IsNullOrEmpty(searchString))    //// Filters the 'submissions' data out depending on the search performed and column selected from the dropdown list
