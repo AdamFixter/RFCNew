@@ -26,7 +26,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"8124795243180d3a94bb813720d8a2420cae8cc6", @"/Views/Admin/Index.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"cc6c3229859ed8614874876d1b9cfeb74d383b99", @"/Views/Admin/Index.cshtml")]
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"bc4ddab8934f76edf50d0bb6435f89b8c3095685", @"/Views/_ViewImports.cshtml")]
     public class Views_Admin_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<PaginatedList<RFC.Models.User>>
     {
@@ -63,7 +63,7 @@ using RFC.Models;
         #pragma warning disable 1998
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
-            WriteLiteral("\r\n");
+            WriteLiteral("\n");
 #nullable restore
 #line 3 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
   
@@ -103,16 +103,7 @@ using RFC.Models;
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral(@"
-            </div>
-        </div>
-    </div>
-    <div class=""rightContent"">
-        <table class=""table table-bordered table-condensed table-striped table-hover"">
-            <thead>
-                <tr>
-                    <th>
-                        ");
+            WriteLiteral("\n            </div>\n        </div>\n    </div>\n    <div class=\"rightContent\">\n        <table class=\"table table-bordered table-condensed table-striped table-hover\">\n            <thead>\n                <tr>\n                    <th>\n                        ");
 #nullable restore
 #line 24 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
                    Write(Html.ActionLink("ID", "Index", new { sortOrder = ViewBag.IDSortParm }));
@@ -120,7 +111,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
+            WriteLiteral("\n                    </th>\n                    <th>\n                        ");
 #nullable restore
 #line 27 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
                    Write(Html.ActionLink("Name", "Index", new { sortOrder = ViewBag.NameParm }));
@@ -128,7 +119,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                    <th>\r\n                        ");
+            WriteLiteral("\n                    </th>\n                    <th>\n                        ");
 #nullable restore
 #line 30 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
                    Write(Html.ActionLink("Role", "Index", new { sortOrder = ViewBag.RoleSortParam }));
@@ -136,7 +127,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                    </th>\r\n                </tr>\r\n            </thead>\r\n            <tbody>\r\n");
+            WriteLiteral("\n                    </th>\n                </tr>\n            </thead>\n            <tbody>\n");
 #nullable restore
 #line 35 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
                  foreach (var item in Model)
@@ -153,7 +144,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral(">\r\n                        <td>\r\n                            ");
+            WriteLiteral(">\n                        <td>\n                            ");
 #nullable restore
 #line 39 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.ID));
@@ -161,7 +152,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+            WriteLiteral("\n                        </td>\n                        <td>\n                            ");
 #nullable restore
 #line 42 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.Name));
@@ -169,7 +160,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                        <td>\r\n                            ");
+            WriteLiteral("\n                        </td>\n                        <td>\n                            ");
 #nullable restore
 #line 45 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
                        Write(Html.DisplayFor(modelItem => item.Role));
@@ -177,7 +168,7 @@ using RFC.Models;
 #line default
 #line hidden
 #nullable disable
-            WriteLiteral("\r\n                        </td>\r\n                    </tr>\r\n");
+            WriteLiteral("\n                        </td>\n                    </tr>\n");
 #nullable restore
 #line 48 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
                 }
@@ -254,10 +245,10 @@ using RFC.Models;
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"] = __tagHelperStringValueBuffer;
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-currentFilter", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "class", 5, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            AddHtmlAttributeValue("", 2653, "button", 2653, 6, true);
-            AddHtmlAttributeValue(" ", 2659, "submit", 2660, 7, true);
-            AddHtmlAttributeValue(" ", 2666, "btn", 2667, 4, true);
-            AddHtmlAttributeValue(" ", 2670, "btn-default", 2671, 12, true);
+            AddHtmlAttributeValue("", 2594, "button", 2594, 6, true);
+            AddHtmlAttributeValue(" ", 2600, "submit", 2601, 7, true);
+            AddHtmlAttributeValue(" ", 2607, "btn", 2608, 4, true);
+            AddHtmlAttributeValue(" ", 2611, "btn-default", 2612, 12, true);
 #nullable restore
 #line 60 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
 AddHtmlAttributeValue(" ", 2682, !Model.HasPreviousPage ? "disabled" : "", 2683, 43, false);
@@ -320,10 +311,10 @@ AddHtmlAttributeValue(" ", 2682, !Model.HasPreviousPage ? "disabled" : "", 2683,
             __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"] = __tagHelperStringValueBuffer;
             __tagHelperExecutionContext.AddTagHelperAttribute("asp-route-currentFilter", __Microsoft_AspNetCore_Mvc_TagHelpers_AnchorTagHelper.RouteValues["currentFilter"], global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
             BeginAddHtmlAttributeValues(__tagHelperExecutionContext, "class", 5, global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
-            AddHtmlAttributeValue("", 3053, "button", 3053, 6, true);
-            AddHtmlAttributeValue(" ", 3059, "submit", 3060, 7, true);
-            AddHtmlAttributeValue(" ", 3066, "btn", 3067, 4, true);
-            AddHtmlAttributeValue(" ", 3070, "btn-default", 3071, 12, true);
+            AddHtmlAttributeValue("", 2987, "button", 2987, 6, true);
+            AddHtmlAttributeValue(" ", 2993, "submit", 2994, 7, true);
+            AddHtmlAttributeValue(" ", 3000, "btn", 3001, 4, true);
+            AddHtmlAttributeValue(" ", 3004, "btn-default", 3005, 12, true);
 #nullable restore
 #line 67 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\Admin\Index.cshtml"
 AddHtmlAttributeValue(" ", 3082, !Model.HasNextPage ? "disabled" : "", 3083, 39, false);
@@ -353,7 +344,7 @@ AddHtmlAttributeValue(" ", 3082, !Model.HasNextPage ? "disabled" : "", 3083, 39,
             }
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
-            WriteLiteral("\r\n\r\n<script type=\"text/javascript\">\r\n$(document).ready(function ($) {\r\n        $(\".d-table-row\").click(function () {\r\n            window.document.location = $(this).data(\"href\");\r\n        });\r\n    });</script>\r\n");
+            WriteLiteral("\n\n<script type=\"text/javascript\">\n$(document).ready(function ($) {\n        $(\".d-table-row\").click(function () {\n            window.document.location = $(this).data(\"href\");\n        });\n    });</script>\n");
         }
         #pragma warning restore 1998
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
