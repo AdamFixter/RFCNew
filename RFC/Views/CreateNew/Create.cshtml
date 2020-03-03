@@ -1,8 +1,8 @@
 ﻿@model RFC.ViewModel.CreateRequestViewModel
 
 @{
-    ViewData["Title"] = "Create";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewData["Title"] = "Create";
+	Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 	<div id="right">
@@ -57,13 +57,13 @@
 						</div>
 					</div>
 					<div class="col">
-                        <div class="form-group">
-                            <label asp-for="@Model.Request.customers" class="control-label"></label><strong class="error">*</strong>
-                            <select asp-for="@Model.Request.CustomersAffected" asp-items="@Model.CustomerList">
-                                <option value="" disabled selected>Please select</option>
-                            </select>
-                            <textarea placeholder="Enter Description here" asp-for="@Model.Request.customers" class="form-control"></textarea>
-                        </div>
+						<div class="form-group">
+							<label asp-for="@Model.Request.customers" class="control-label"></label><strong class="error">*</strong>
+							<select asp-for="@Model.Request.CustomersAffected" asp-items="@Model.CustomerList">
+								<option value="" disabled selected>Please select</option>
+							</select>
+							<textarea placeholder="Enter Description here" asp-for="@Model.Request.customers" class="form-control"></textarea>
+						</div>
 					</div>
 				</div>
 				<div class="row">
@@ -148,27 +148,27 @@
 </style>
 
 <script>
-    document.addEventListener('input', function (event) {
-        if (event.target.tagName.toLowerCase() !== 'textarea') return;
-        autoExpand(event.target);
-    }, false);
+	document.addEventListener('input', function (event) {
+		if (event.target.tagName.toLowerCase() !== 'textarea') return;
+		autoExpand(event.target);
+	}, false);
 
-    var autoExpand = function (field) {
+	var autoExpand = function (field) {
 
-        // Reset field height
-        field.style.height = 'inherit';
+		// Reset field height
+		field.style.height = 'inherit';
 
-        // Get the computed styles for the element
-        var computed = window.getComputedStyle(field);
+		// Get the computed styles for the element
+		var computed = window.getComputedStyle(field);
 
-        // Calculate the height
-        var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
-            + parseInt(computed.getPropertyValue('padding-top'), 10)
-            + field.scrollHeight
-            + parseInt(computed.getPropertyValue('padding-bottom'), 10)
-            + parseInt(computed.getPropertyValue('border-bottom-width'), 10);
+		// Calculate the height
+		var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
+			+ parseInt(computed.getPropertyValue('padding-top'), 10)
+			+ field.scrollHeight
+			+ parseInt(computed.getPropertyValue('padding-bottom'), 10)
+			+ parseInt(computed.getPropertyValue('border-bottom-width'), 10);
 
-        field.style.height = height + 'px';
+		field.style.height = height + 'px';
 
-    };
+	};
 </script>

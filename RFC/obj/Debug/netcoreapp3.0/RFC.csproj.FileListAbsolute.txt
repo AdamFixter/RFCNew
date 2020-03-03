@@ -674,7 +674,6 @@ C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.dll
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.pdb
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Administration\Index.cshtml.g.cs
-C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\CreateNew\WeeklyAgenda.cshtml.g.cs
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Customers\Create.cshtml.g.cs
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Customers\Delete.cshtml.g.cs
 C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Customers\Details.cshtml.g.cs
@@ -1019,3 +1018,4 @@ C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.Vie
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.csproj.CopyComplete
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.dll
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.pdb
+C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\obj\Debug\netcoreapp3.0\RFC.csprojAssemblyReference.cache
