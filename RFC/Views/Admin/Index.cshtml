@@ -17,6 +17,20 @@
         </div>
     </div>
     <div class="rightContent">
+        @using (Html.BeginForm())
+        {
+            <p id="filter">
+                Find:
+                @Html.TextBox("searchString", null, new { style = "background-color: #e7e7e7;", placeholder = "Name", list = "datalist", autocomplete = "off" }) @*It just works :)*@
+                <datalist id="datalist">
+                    @foreach (var item in ViewData["Users"] as IEnumerable<RFC.Models.User>)
+                    {
+                        <option value="@item.Name"></option>
+                    }
+                </datalist>
+                <input type="submit" value="Search" />
+            </p>
+        }
         <table class="table table-bordered table-condensed table-striped table-hover">
             <thead>
                 <tr>

@@ -21,49 +21,69 @@ namespace RFC.Controllers
 
         // GET: Admin
         [Route("admin")]
-        public async Task<IActionResult> Index([Bind("ID,Name,Role,DomainUser")] User user, string sortOrder, string currentFilter, string searchString, int? pageNumber)
+        public async Task<IActionResult> Index([Bind("ID,Role,Name,DomainUser")] User user, string sortOrder, string searchString, string columnSelect, int? pageNumber, DateTime? DateTo)
         {
             ViewData["CurrentSort"] = sortOrder;
-            ViewData["IDSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["NameSortParm"] = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
-            ViewData["RoleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "role_desc" : "";
-
             if (searchString != null)
             {
                 pageNumber = 1;
             }
             else
             {
-                searchString = currentFilter;
+                searchString = "";
             }
 
-            ViewData["CurrentFilter"] = searchString;
+            ///// ViewBag.[something]Parm is used for sorting order by clicking column
+            ViewBag.IDSortParm = String.IsNullOrEmpty(sortOrder) ? "IDDesc" : "";
+            ViewBag.NameSortParm = sortOrder == "NameAsc" ? "NameDesc" : "NameAsc";
+            ViewBag.RoleSortParm = sortOrder == "RoleAsc" ? "RoleDesc" : "RoleAsc";
 
-            var users = from s in _context.User
-                           select s;
+            //// The 'submissions' is the variable with the data from the table
+            var submissions = from s in _context.User
+                              select s;
+
             if (!String.IsNullOrEmpty(searchString))
             {
-                users = users.Where(s => s.Name.Contains(searchString)
-                                       || s.Role.ToString().Contains(searchString));
-            }
-            switch (sortOrder)
-            {
-                case "id_desc":
-                    users = users.OrderByDescending(s => s.ID);
-                    break;
-                case "name_desc":
-                    users = users.OrderByDescending(s => s.Name);
-                    break;
-                case "role_desc":
-                    users = users.OrderByDescending(s => s.Name);
-                    break;
-                default:
-                    users = users.OrderByDescending(s => s.Name);
-                    break;
+                submissions = submissions.Where(s => s.Name.Contains(searchString));
             }
 
+            ViewData["Users"] = submissions;
+
+            if (!String.IsNullOrEmpty(searchString))    //// Filters the 'submissions' data out depending on the search performed and column selected from the dropdown list
+            {
+                searchString = searchString.ToLower();
+                switch (columnSelect)
+                {
+                    case "ID":
+                        submissions = submissions.Where(s => s.ID.ToString().Contains(searchString));
+                        break;
+                    case "Name":
+                        submissions = submissions.Where(s => s.Name.Contains(searchString));
+                        break;
+                    case "Role":
+                        submissions = submissions.Where(s => s.Role.ToString().Contains(searchString));
+                        break;
+                }
+            }
+
+            ViewBag.sortOrder = sortOrder;
+            switch (sortOrder)  //// Sorts the columns when you click on them  by Asc or Desc
+            {
+                case "IDDesc":
+                    submissions = submissions.OrderByDescending(submission => submission.ID);
+                    break;
+                case "NameAsc":
+                    submissions = submissions.OrderBy(submission => submission.Name);
+                    break;
+                case "RoleAsc":
+                    submissions = submissions.OrderBy(submission => submission.Name);
+                    break;
+                default:
+                    submissions = submissions.OrderBy(submission => submission.ID);
+                    break;
+            }
             int pageSize = 5;
-            return View(await PaginatedList<User>.CreateAsync(users.AsNoTracking(), pageNumber ?? 1, pageSize));
+            return View(await PaginatedList<User>.CreateAsync(submissions.AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Admin/Details/5
