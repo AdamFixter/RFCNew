@@ -4,11 +4,9 @@
     font-family: "Poppins";
     box-sizing: border-box;
 }
-
 .input-validation-error {
     border: 1px solid red;
 }
-
 :root {
     --servelec-red: #e82910;
     --servelec-orange: #EA7B2D;
@@ -23,15 +21,12 @@
 html, body {
     height: 90%;
 }
-
 .row {
     margin: 0;
 }
-
 .error {
     color: red;
 }
-
 .background {
     height: 45vh;
     width: 100%;
@@ -39,7 +34,6 @@ html, body {
     position: absolute;
     background: #494847ff;
 }
-
 #content {
     height: 100%;
     display: flex;
@@ -47,7 +41,6 @@ html, body {
     justify-content: center;
     align-items: center;
 }
-
 .logo {
     cursor: pointer;
     height: 5%;
@@ -56,7 +49,11 @@ html, body {
     left: 2%;
     z-index: 1;
 }
-
+[type=submit] {
+    background-color: #004fff;
+    color: white;
+    border-radius: .25rem;
+}
 .RFCForm {
     position: absolute;
     display: flex;
@@ -66,104 +63,83 @@ html, body {
     border: 3px solid var(--servelec-gray);
     background: white;
 }
-
-    .RFCForm #left {
-        min-width: 50%;
-        border-right: 3px solid var(--servelec-gray);
-        background: url(https://www.servelec.co.uk/media/1482/education-teacher-plus-sen_cmyk-small.png?anchor=center&mode=crop&width=700&height=600&rnd=132114625750000000) no-repeat center center;
-        background-position: center;
-        transition: min-width 0.5s ease;
-    }
-
-    .RFCForm #right {
-        display: flex;
-        flex-direction: column;
-        padding: 2%;
-        background-color: #f3f3f3ff;
-        width: 100%;
-    }
-
-        .RFCForm #right .header {
-            margin-bottom: 2%;
-        }
-
-        .RFCForm #right .rightContent {
-            position: relative;
-            display: flex;
-            height: 100%;
-            flex-direction: column;
-            overflow: auto;
-        }
-
-            .RFCForm #right .rightContent .table {
-                border-collapse: collapse;
-            }
-
-                .RFCForm #right .rightContent .table thead {
-                    position: sticky;
-                    top: 0;
-                    background: #f3f3f3ff;
-                    border: none;
-                }
-
-            .RFCForm #right .rightContent .buttons {
-                position: sticky;
-                bottom: 0;
-                background: #f3f3f3ff;
-                display: flex;
-                justify-content: space-between;
-                padding: 1%;
-            }
-
-                .RFCForm #right .rightContent .buttons .otherButtons, .RFCForm #right .rightContent .buttons .formButtons {
-                    width: 100%;
-                }
-
-                .RFCForm #right .rightContent .buttons .formButtons {
-                    display: flex;
-                    justify-content: flex-end;
-                }
-
+.RFCForm #left {
+    min-width: 50%;
+    border-right: 3px solid var(--servelec-gray);
+    background: url(https://www.servelec.co.uk/media/1482/education-teacher-plus-sen_cmyk-small.png?anchor=center&mode=crop&width=700&height=600&rnd=132114625750000000) no-repeat center center;
+    background-position: center;
+    transition: min-width 0.5s ease;
+}
+.RFCForm #right {
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    background-color: #f3f3f3ff;
+    width: 100%;
+}
+.RFCForm #right .rightContent {
+    position: relative;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    overflow: auto;
+}
+.RFCForm #right .rightContent .table {
+    border-collapse: collapse;
+}
+.RFCForm #right .rightContent .table thead {
+    position: sticky;
+    top: 0;
+    background: #f3f3f3ff;
+    border: none;
+}
+.RFCForm #right .rightContent .buttons {
+    position: sticky;
+    bottom: 0;
+    background: #f3f3f3ff;
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+}
+.RFCForm #right .rightContent .buttons .otherButtons, .RFCForm #right .rightContent .buttons .formButtons {
+    width: 100%;
+}
+.RFCForm #right .rightContent .buttons .formButtons {
+    display: flex;
+    justify-content: flex-end;
+}
 a.button.submit {
     transition: all 0.5s ease;
     color: white;
     background-color: #004fff;
 }
-
 a.button {
     cursor: pointer;
     border: none;
     outline: none;
     margin: 0 0.3%;
 }
-
 .RFCForm #right .rightContent .options {
     display: flex;
     flex-direction: column;
     margin: 0 5%;
     height: 100%;
 }
-
-    .RFCForm #right .rightContent .options .option {
-        display: flex;
-        flex: 1;
-        margin: 1%;
-        height: 30%;
-    }
-
+.RFCForm #right .rightContent .options .option {
+    display: flex;
+    flex: 1;
+    margin: 1%;
+    height: 30%;
 }
-
 .RFCForm #right .rightContent .options .option .icon {
     width: 30%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-
-    .RFCForm #right .rightContent .options .option .icon img {
-        width: 35%;
-    }
-
+.RFCForm #right .rightContent .options .option .icon img {
+    width: 35%;
+}
 .RFCForm #right .rightContent .options .option .text {
     font-weight: 600;
     text-align: center;
@@ -174,7 +150,6 @@ a.button {
     align-items: center;
     justify-content: center;
 }
-
 @media only screen and (max-width: 750px) {
     .RFCForm {
         width: 100%;
@@ -184,27 +159,16 @@ a.button {
         display: none;
     }
 }
-
 #row-hover tr:hover {
     cursor: pointer;
     background-color: #d7d7d7;
 }
-
 /* Accessibility yellow highlighting assistance
 -------------------------------------------------- */
-
-
 select, input, label, input, a, .btn {
     border: solid;
     border-color: transparent;
 }
-
-
-/*select:focus, input:active, label:active, input:focus, a:focus {
-    border: solid;
-    border-color: #FFDD00;
-}*/
-
 p, label, h1 {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -212,18 +176,13 @@ p, label, h1 {
     -ms-user-select: none;
     user-select: none;
 }
-
-
-
 /*added thanks to making darkmode work*/
-
 .content {
     padding: 0 18px;
     display: block;
     overflow: hidden;
     background-color: #d2d2d2;
 }
-
 .collapsible {
     background-color: #f3f3f3;
     cursor: pointer;
@@ -237,16 +196,12 @@ p, label, h1 {
     border-color: #f3f3f3;
     outline: none;
 }
-
-    .active, .collapsible:hover {
-        background-color: #d2d2d2;
-    }
-
-
+.active, .collapsible:hover {
+    background-color: #d2d2d2;
+}
 #Question {
     background: #d2d2d2;
 }
-
 .secret {
     background: linear-gradient(to right, var(--servelec-red) 20%, var(--servelec-purple) 30%, var(--servelec-blue) 70%, var(--servelec-orange) 80%);
     -webkit-background-clip: text;
@@ -256,7 +211,6 @@ p, label, h1 {
     background-size: 200% auto;
     animation: textShine 7s ease-in-out infinite alternate;
 }
-
 @keyframes textShine {
     to {
         background-position: 200%;
