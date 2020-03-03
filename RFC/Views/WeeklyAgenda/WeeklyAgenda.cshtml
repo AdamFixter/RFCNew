@@ -21,12 +21,11 @@
         @using (Html.BeginForm()) //Create the form that holds two date pickers
         {
             <p id="filter">
-                Date From :
                 @Html.TextBox("DateFrom", null, new { style = "background-color: #e7e7e7;" })
-                Date To :
                 @Html.TextBox("DateTo", null, new { style = "background-color: #e7e7e7;" })
                 <ej-date-range-picker id="DateRange" date-format="dd/MM/yyyy" width="200px"></ej-date-range-picker>
                 <input id="submitBtn" type="submit" value="Search" />
+                <h4 id="DateString"></h4>
             </p>
         }
         <table class="table table-bordered table-condensed table-striped table-hover">
@@ -78,26 +77,25 @@
                 }
             </tbody>
         </table>
-            <button id="weeklyAgenda" onclick="weeklyAgenda()" class="button btn btn-success">Weekly Agenda</button>
-        </div>
-        <div class="buttons">
+        <button id="weeklyAgenda" onclick="weeklyAgenda()" class="button btn btn-success">Weekly Agenda</button>
+    </div>
+    <div class="buttons">
 
-            <div class="formButtons">
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.PageIndex - 1)"
-                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class="button submit btn btn-default @(!Model.HasPreviousPage ? "disabled" : "")">
-                    Previous
-                </a>
-                <a asp-action="Index"
-                   asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.PageIndex + 1)"
-                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
-                    Next
-                </a>
-            </div>
+        <div class="formButtons">
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex - 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               class="button submit btn btn-default @(!Model.HasPreviousPage ? "disabled" : "")">
+                Previous
+            </a>
+            <a asp-action="Index"
+               asp-route-sortOrder="@ViewData["CurrentSort"]"
+               asp-route-pageNumber="@(Model.PageIndex + 1)"
+               asp-route-currentFilter="@ViewData["CurrentFilter"]"
+               class="button submit btn btn-default @(!Model.HasNextPage ? "disabled" : "")">
+                Next
+            </a>
         </div>
     </div>
 </div>
@@ -118,16 +116,18 @@
 
 <script src="~/lib/jquery/dist/jquery.js"></script>
 <script>
- // Render two empty date pickers
+    // Render two empty date pickers
     var dateRangeFrom = document.getElementById("DateFrom");
     dateRangeFrom.type = "date";
     dateRangeFrom.format = "{0:yyyy-MM-dd}";
-    dateRangeFrom.style.display = "inline-block";
+    dateRangeFrom.style.display = "none";   //// used to be "inline-block", but we only want to show a solid string of dates for this page
 
     var dateRangeTo = document.getElementById("DateTo");
     dateRangeTo.type = "date";
     dateRangeTo.format = "{0:yyyy-MM-dd}";
-    dateRangeTo.style.display = "inline-block";
+    dateRangeTo.style.display = "none"; //// used to be "inline-block", but we only want to show a solid string of dates for this page
+
+    document.getElementById("submitBtn").style.display = "none";    //// used to be "[whatever the default value was]", but we only want to show a solid string of dates for this page
 </script>
 
 <script type="text/javascript">
@@ -140,9 +140,8 @@
 
 <script src="~/lib/moment/moment.min.js"></script>
 <script>
-        //autopopulate the dates in the date picker//
-    function getWeeklyRequests()
-    {
+    //autopopulate the dates in the date picker//
+    function getWeeklyRequests() {
         var todayDate = moment().format("YYYY-MM-DD");
         var lastWeek = moment().subtract(8, "day").format("YYYY-MM-DD");
         var dateFrom = document.getElementById("DateFrom");
@@ -150,6 +149,8 @@
         dateFrom.value = lastWeek;
         dateTo.value = todayDate;
         $("#submitBtn").click(); // auto-search function
+
+        console.log("isset");
     }
 
     if (localStorage.getItem("hasSearched") != "1") {
@@ -158,6 +159,8 @@
     }
     else if (localStorage.getItem("hasSearched") == "1") {
         localStorage.setItem("hasSearched", "0");
+
+        document.getElementById("DateString").innerHTML = "Showing RFCs from " + moment().subtract(8, "day").format("DD/MM/YYYY") + " to " + moment().format("DD/MM/YYYY");
     }
 </script>
 

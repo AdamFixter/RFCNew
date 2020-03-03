@@ -13,14 +13,14 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
-#line 1 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 1 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\_ViewImports.cshtml"
+#line 2 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\_ViewImports.cshtml"
 using RFC.Models;
 
 #line default
@@ -59,7 +59,7 @@ using RFC.Models;
         {
             WriteLiteral("\n");
 #nullable restore
-#line 3 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 3 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
   
     ViewData["Title"] = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -98,7 +98,7 @@ using RFC.Models;
                     </th>");
             WriteLiteral("\n                    <th>\n                        Status\n                    </th>\n                </tr>\n            </thead>\n            <tbody>\n                <tr>\n                    <td>\n                        ");
 #nullable restore
-#line 44 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 44 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                    Write(Model.ID);
 
 #line default
@@ -106,7 +106,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\n                    </td>\n                    <td>\n                        ");
 #nullable restore
-#line 47 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 47 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                    Write(Model.Priority);
 
 #line default
@@ -114,7 +114,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\n                    </td>\n                    <td>\n                        ");
 #nullable restore
-#line 50 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 50 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                    Write(Model.Product);
 
 #line default
@@ -122,7 +122,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\n                    </td>\n                    <td>\n                        ");
 #nullable restore
-#line 53 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 53 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                    Write(Model.CustomersAffected);
 
 #line default
@@ -130,7 +130,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\n                    </td>\n                    <td>\n                        ");
 #nullable restore
-#line 56 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 56 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                    Write(Model.DueDate);
 
 #line default
@@ -138,7 +138,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("\n                    </td>\n                    <td>\n                        ");
 #nullable restore
-#line 59 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 59 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                     Write(Model.Approved == RequestStatus.Accept ? "Accepted" : (Model.Approved == RequestStatus.Reject ? "Rejected" : "Pending"));
 
 #line default
@@ -156,7 +156,7 @@ using RFC.Models;
                     <td>
                         <button type=""button"" id=""Question"" class=""collapsible"">");
 #nullable restore
-#line 69 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 69 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.ReasonForChange));
 
 #line default
@@ -164,7 +164,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 71 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 71 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.ReasonForChange);
 
 #line default
@@ -172,7 +172,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 77 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 77 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.ChangeDescription));
 
 #line default
@@ -180,7 +180,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 79 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 79 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.ChangeDescription);
 
 #line default
@@ -188,7 +188,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 85 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 85 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.SystemAffected));
 
 #line default
@@ -196,7 +196,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 87 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 87 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.SystemAffected);
 
 #line default
@@ -204,7 +204,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 93 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 93 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.customers));
 
 #line default
@@ -212,7 +212,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 95 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 95 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.customers);
 
 #line default
@@ -220,7 +220,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 101 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 101 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.WhoPerforming));
 
 #line default
@@ -228,7 +228,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 103 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 103 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.WhoPerforming);
 
 #line default
@@ -236,7 +236,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 109 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 109 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.RiskOfChange));
 
 #line default
@@ -244,7 +244,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 111 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 111 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.RiskOfChange);
 
 #line default
@@ -252,7 +252,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 117 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 117 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.RiskNoChange));
 
 #line default
@@ -260,7 +260,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 119 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 119 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.RiskNoChange);
 
 #line default
@@ -268,7 +268,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 125 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 125 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.VerifyAfter));
 
 #line default
@@ -276,7 +276,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 127 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 127 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.VerifyAfter);
 
 #line default
@@ -284,7 +284,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 133 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 133 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.RollBackPlan));
 
 #line default
@@ -292,7 +292,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 135 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 135 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.RollBackPlan);
 
 #line default
@@ -300,7 +300,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 141 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 141 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.DueDate));
 
 #line default
@@ -308,7 +308,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 143 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 143 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.DueDate);
 
 #line default
@@ -316,7 +316,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 149 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 149 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.WhyDueDate));
 
 #line default
@@ -324,7 +324,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 151 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 151 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.WhyDueDate);
 
 #line default
@@ -332,7 +332,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</p>\n                        </div>\n                    </td>\n                </tr>\n                <tr>\n                    <td>\n                        <button type=\"button\" id=\"Question\" class=\"collapsible\">");
 #nullable restore
-#line 157 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 157 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                            Write(Html.DisplayNameFor(model => model.ServiceImpact));
 
 #line default
@@ -340,7 +340,7 @@ using RFC.Models;
 #nullable disable
             WriteLiteral("</button>\n                        <div class=\"content\" style=\"width: 100%\">\n                            <p class=\"p-wrapped\">");
 #nullable restore
-#line 159 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 159 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                             Write(Model.ServiceImpact);
 
 #line default
@@ -362,7 +362,7 @@ using RFC.Models;
             }
             BeginWriteTagHelperAttribute();
 #nullable restore
-#line 167 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 167 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                                WriteLiteral(Model.ID);
 
 #line default
@@ -381,7 +381,7 @@ using RFC.Models;
             WriteLiteral("\n            ");
             __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "dbaf42a07a0e080fa81ee207b407be73f4c4c6de21773", async() => {
 #nullable restore
-#line 168 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 168 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                                                                                                                                                              Write(Model.Approved == RequestStatus.Pending || Model.Approved == RequestStatus.Reject ? "Accept" : "Reject");
 
 #line default
@@ -411,7 +411,7 @@ AddHtmlAttributeValue(" ", 7223, Model.Approved == RequestStatus.Pending || Mode
             }
             BeginWriteTagHelperAttribute();
 #nullable restore
-#line 168 "C:\Users\Adam.Sutton\Documents\GitHub\RFC MVC\RFCNew\RFC\Views\CreateNew\Details.cshtml"
+#line 168 "C:\Users\Christian.Cybaniak\Documents\GitHub\RFCNew\RFC\Views\CreateNew\Details.cshtml"
                                                                                                                                                                                           WriteLiteral(Model.ID);
 
 #line default
