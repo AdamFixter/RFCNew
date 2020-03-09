@@ -1005,10 +1005,6 @@ C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\V
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\WeeklyAgenda\Create.cshtml.g.cs
-C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\WeeklyAgenda\Delete.cshtml.g.cs
-C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\WeeklyAgenda\Details.cshtml.g.cs
-C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\WeeklyAgenda\Edit.cshtml.g.cs
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\WeeklyAgenda\WeeklyAgenda.cshtml.g.cs
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Adam.Fixter\Desktop\REDO\RFC\RFCNew\RFC\obj\Debug\netcoreapp3.0\Razor\Views\_ViewStart.cshtml.g.cs

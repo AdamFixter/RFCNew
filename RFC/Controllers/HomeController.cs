@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -9,7 +11,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using RFC.Models;
 using RFC.ViewModel;
-
 namespace RFC.Controllers
 {
     public class HomeController : Controller
@@ -41,7 +42,6 @@ namespace RFC.Controllers
             var DomainUser = User.Identity.Name;
 
             var fetchedUser = this.fetchUser(Name, DomainUser);
-
             return View(fetchedUser);
         }
 

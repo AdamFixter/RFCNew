@@ -127,7 +127,6 @@ a.button {
 }
 .RFCForm #right .rightContent .options .option {
     display: flex;
-    flex: 1;
     margin: 1%;
     height: 30%;
 }
